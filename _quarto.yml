@@ -3,12 +3,21 @@ project:
   output-dir: docs
 
 website:
+  page-navigation: true
   title: "Chase Mathis"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  description: "Personal Website for Chase Mathis: Statistics and Computer Science Major at Duke University"
+  site-url: "https://chasehmathis.github.io/"
+  
+  
+  sidebar:
+    background: "#393274"
+    
+    
+    style: floating
+    contents: 
+      - section: "Resume"
+        contents: 
+          - href: index.qmd
 
 format:
   html:
