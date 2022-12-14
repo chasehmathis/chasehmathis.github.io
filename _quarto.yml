@@ -4,15 +4,13 @@ project:
 
 website:
   page-navigation: true
-  title: "Chase Mathis"
+  title: "Chase Mathis's Personal Page"
   description: "Personal Website for Chase Mathis: Statistics and Computer Science Major at Duke University"
-  site-url: "https://chasehmathis.github.io/"
+  site-url: "https://chasehmathdis.github.io/"
   
   
   sidebar:
-    background: "#393274"
-    
-    
+    background: "#148F77"
     style: docked
     search: true
     collapse-level: 1
@@ -30,7 +28,7 @@ format:
   html:
     theme: cosmo
     css: style/styles.css
-    linkcolor: "#393274"
+    linkcolor: "#148F77"
     toc: true
     
 execute:
