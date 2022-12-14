@@ -4,24 +4,19 @@ project:
 
 website:
   page-navigation: true
-  title: "Chase Mathis's Personal Page"
+  title: "Chase Mathis"
   description: "Personal Website for Chase Mathis: Statistics and Computer Science Major at Duke University"
   site-url: "https://chasehmathdis.github.io/"
   
   
-  sidebar:
+  navbar:
     background: "#148F77"
     style: docked
     search: true
-    collapse-level: 1
-    contents: 
-      
-      - section: "About Me"
-        contents: 
-          - href: index.qmd
-            text: Background
-          - href: AboutMe/Resume.pdf
-            text: Resume
+    left:
+      - text: "Home"
+        file: index.qmd
+
             
 
 format:
