@@ -17,15 +17,20 @@ website:
     search: true
     collapse-level: 1
     contents: 
+      
       - section: "About Me"
         contents: 
+          - href: index.qmd
+            text: Background
           - href: AboutMe/Resume.pdf
             text: Resume
+            
 
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: style/styles.css
+    linkcolor: "#393274"
     toc: true
     
 execute:
