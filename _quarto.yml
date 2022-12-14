@@ -16,6 +16,17 @@ website:
     left:
       - text: "Home"
         file: index.qmd
+      - text: "Projects"
+        href: projects.qmd
+    
+    right: 
+      - icon: github
+        href: https://github.com/chasehmathis
+      - icon: twitter
+        href: https://twitter.com/chasemathis29
+      - icon: envelope
+        href: "mailto:chase1mathis@gmail.com"
+        
 
             
 

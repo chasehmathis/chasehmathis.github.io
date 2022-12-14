@@ -4,7 +4,7 @@ title: "Chase Mathis"
 
 ![](images/ChasePicture.jpeg){style="float:right;padding: 0 0 0 5px;" fig-alt="Chase Mathis" width="200"}
 
-## About Me
+
 
 I am a undergraduate student at Duke University majoring in Statistics and Computer Science, with a minor in Math. My interests include:
 
@@ -14,10 +14,5 @@ I am a undergraduate student at Duke University majoring in Statistics and Compu
 
 -   Data Modeling for Public Policy
 
--   Human and Computer Interactions
+-   Human-Computer Interactions
 
-## Contact Information
-
-Email: chase.mathis\@duke.edu
-
-[Github](https://github.com/chasehmathis)/[Twitter](https://twitter.com/chasemathis29)
