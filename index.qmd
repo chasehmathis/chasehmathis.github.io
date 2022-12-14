@@ -4,6 +4,7 @@ title: "Chase Mathis"
 
 ![](images/ChasePicture.jpeg){style="float:right;padding: 0 0 0 5px;border-radius: 30px;" fig-alt="Chase Mathis" width="200"}
 
+
 I am a undergraduate student at Duke University majoring in Statistics and Computer Science, with a minor in Math. My interests include:
 
 -   Machine Learning/Artificial Intelligence

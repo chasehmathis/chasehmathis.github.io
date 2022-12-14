@@ -18,6 +18,8 @@ website:
         file: index.qmd
       - text: "Projects"
         href: projects.qmd
+      - text: "CV"
+        href: AboutMe/Resume.pdf
     
     right: 
       - icon: github
