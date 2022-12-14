@@ -13,17 +13,24 @@ website:
     background: "#393274"
     
     
-    style: floating
+    style: docked
+    search: true
+    collapse-level: 1
     contents: 
-      - section: "Resume"
+      - section: "About Me"
         contents: 
-          - href: index.qmd
+          - href: AboutMe/Resume.pdf
+            text: Resume
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    
+execute:
+  freeze: auto
+
 
 
 
