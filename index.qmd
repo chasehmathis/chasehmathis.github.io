@@ -1,5 +1,5 @@
 ---
-title: "Background Information"
+title: "Chase Mathis"
 ---
 
 ![](images/ChasePicture.jpeg){style="float:right;padding: 0 0 0 5px;" fig-alt="Chase Mathis" width="200"}
@@ -19,3 +19,5 @@ I am a undergraduate student at Duke University majoring in Statistics and Compu
 ## Contact Information
 
 Email: chase.mathis\@duke.edu
+
+[Github](https://github.com/chasehmathis)/[Twitter](https://twitter.com/chasemathis29)
