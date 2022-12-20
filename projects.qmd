@@ -4,6 +4,11 @@ title: "Projects"
 
 ## Academic Projects
 
-### Predicting Turbulence and Posterior Distributions
 
 ### Increasing Life Expectancy with Controllable Variables
+[Report](PDF_Files/STA325_LifeExp.pdf)
+
+### Predicting Turbulence and Posterior Distributions
+
+[Report](PDF_Files/STA325_Turbulance.pdf)
+
