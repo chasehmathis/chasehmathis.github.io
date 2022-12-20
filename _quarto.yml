@@ -19,7 +19,7 @@ website:
       - text: "Projects"
         href: projects.qmd
       - text: "CV"
-        href: AboutMe/Resume.pdf
+        href: PDF_Files/Resume.pdf
     
     right: 
       - icon: github
@@ -36,7 +36,7 @@ format:
   html:
     theme: cosmo
     css: style/styles.css
-    linkcolor: "#C5DFE1"
+    linkcolor: "blue"
     toc: true
     
 execute:
