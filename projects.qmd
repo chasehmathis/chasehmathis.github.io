@@ -1,4 +1,9 @@
 ---
 title: "Projects"
-editor: visual
 ---
+
+## Academic Projects
+
+### Predicting Turbulence and Posterior Distributions
+
+### Increasing Life Expectancy with Controllable Variables
