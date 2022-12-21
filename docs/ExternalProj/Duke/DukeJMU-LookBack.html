@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Chase Mathis">
+
+<title>Analysis of Duke Field Hockey’s 2022 Season (So Far)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="DukeJMU-LookBack_files/libs/clipboard/clipboard.min.js"></script>
+<script src="DukeJMU-LookBack_files/libs/quarto-html/quarto.js"></script>
+<script src="DukeJMU-LookBack_files/libs/quarto-html/popper.min.js"></script>
+<script src="DukeJMU-LookBack_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="DukeJMU-LookBack_files/libs/quarto-html/anchor.min.js"></script>
+<link href="DukeJMU-LookBack_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="DukeJMU-LookBack_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="DukeJMU-LookBack_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="DukeJMU-LookBack_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="DukeJMU-LookBack_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Analysis of Duke Field Hockey’s 2022 Season (So Far)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Chase Mathis </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="duke-2022-data" class="level2">
+<h2 class="anchored" data-anchor-id="duke-2022-data">Duke 2022 Data</h2>
+<p>Using every coded game up until JMU on September 25, 2022, there are over 29814 recorded plays.</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="circle-entry" class="level2">
+<h2 class="anchored" data-anchor-id="circle-entry">Circle Entry</h2>
+<p>Where does Duke Field Hockey enter the circle?</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DukeJMU-LookBack_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Where Does Duke Enter the Circle</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Location</th>
+<th style="text-align: right;">Frequency (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">36.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">32.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">30.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Looking at both graphs, we can see that Duke favors entering the circle from the RIGHT more than the LEFT. This is interesting as scouting data from UNC shows that they enter the circle evenly between the left and right side, while still favoring the middle the most.</p>
+</section>
+<section id="outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="outcomes">Outcomes</h2>
+<section id="zone-outcomes-for-duke" class="level3">
+<h3 class="anchored" data-anchor-id="zone-outcomes-for-duke">Zone Outcomes for Duke</h3>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section"></h4>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Zone Movement</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Start Position</th>
+<th style="text-align: right;">Circle</th>
+<th style="text-align: right;">A25</th>
+<th style="text-align: right;">AMid</th>
+<th style="text-align: right;">DMid</th>
+<th style="text-align: right;">D25</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A25</td>
+<td style="text-align: right;">74.4</td>
+<td style="text-align: right;">14.3</td>
+<td style="text-align: right;">10.7</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AMid</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">56.9</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">15.4</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">D25</td>
+<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">16.3</td>
+<td style="text-align: right;">66.0</td>
+<td style="text-align: right;">4.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DMid</td>
+<td style="text-align: right;">6.1</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">57.2</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">12.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="circle-entry-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="circle-entry-outcomes">Circle Entry Outcomes</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Shots Based off Circle Entry</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Circle Entry</th>
+<th style="text-align: right;">Shot</th>
+<th style="text-align: right;">No Shot</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">79</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">71</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Turnovers Based off Circle Entry</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Circle Entry</th>
+<th style="text-align: right;">Turnover</th>
+<th style="text-align: right;">No Turnover</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">67</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Foul Against Based off Circle Entry</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Circle Entry</th>
+<th style="text-align: right;">FoulAgainst</th>
+<th style="text-align: right;">No FoulAgainst</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">79</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">71</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">67</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>ACE-0 Based off Circle Entry</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Circle Entry</th>
+<th style="text-align: right;">ACE-0</th>
+<th style="text-align: right;">No ACE-0</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">67</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="ball-start-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="ball-start-outcomes">Ball Start Outcomes:</h3>
+<div class="cell">
+
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

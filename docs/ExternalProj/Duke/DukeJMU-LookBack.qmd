@@ -1,0 +1,245 @@
+---
+title: "Analysis of Duke Field Hockey's 2022 Season (So Far)"
+author: "Chase Mathis"
+format: pdf
+execute: 
+  echo: false
+  warning: false
+editor: visual
+---
+
+```{r}
+#| label: load-libraries-data
+#| warning: false
+
+library(tidyverse)
+library(knitr)
+
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 14))
+
+Duke2022<- list.files("DukeData/")
+
+new_duke_games <- c()
+
+for (i in 1:length(Duke2022)){
+  new_duke_games[i] = paste("DukeData/", Duke2022[i], sep = '')
+}
+
+df <- map(new_duke_games, read_csv) %>% 
+  bind_rows()
+```
+
+## Duke 2022 Data
+
+Using every coded game up until JMU on September 25, 2022, there are over `r nrow(df)` recorded plays.
+
+```{r}
+#| label: cleaning-data
+
+df <- df %>% 
+  arrange(Timeline, `Start time`) |>  # show df chronologically by game
+  select(where(~sum(!is.na(.x)) > 0)) # gets rid of columns with only na values
+
+## dealing with Ungrouped column. Making home and away score column
+df <- df |> 
+mutate(homescore = str_extract(Ungrouped,"-([^-]*),")) |> 
+  mutate(homescore = str_extract(homescore, "^([^,])+")) |>
+  mutate(homescore = as_factor(str_extract(homescore, "\\d"))) |> 
+  fill(homescore) |>  # fill away score
+  mutate(awayscore = str_extract(Ungrouped, ",([^-]*)-")) |> 
+  mutate(awayscore = str_extract(awayscore, "[^,]*$")) |> 
+  mutate(awayscore = as_factor(str_extract(awayscore, "\\d"))) |> 
+  fill(awayscore) #fill homescore
+```
+
+## Circle Entry
+
+Where does Duke Field Hockey enter the circle?
+
+```{r}
+circle_entry <- df %>% 
+  filter(grepl('CE DUKE', `Outcome +`)) %>% 
+  filter(grepl('CE', Row)) |> 
+  select(`Circle Entry`) %>% 
+  filter(!grepl(',',`Circle Entry`)) %>% 
+  drop_na()
+
+circle_entry |> 
+  ggplot(aes(x = `Circle Entry`)) + 
+  geom_bar() + 
+  labs(
+    x = 'Circle Entry',
+    y = 'Count',
+    title = 'Where does Duke Enter the Circle?'
+  )
+
+circle_entry %>% 
+  group_by(`Circle Entry`) %>% 
+  summarise(count = n()) %>% 
+  mutate(Frequency = round(count/sum(count),3)*100) %>% 
+  select(!count) %>% 
+  arrange(desc(Frequency)) %>% 
+  kable(caption = 'Where Does Duke Enter the Circle', col.names = c('Location', 'Frequency (%)'))
+```
+
+Looking at both graphs, we can see that Duke favors entering the circle from the RIGHT more than the LEFT. This is interesting as scouting data from UNC shows that they enter the circle evenly between the left and right side, while still favoring the middle the most.
+
+## Outcomes
+
+### Zone Outcomes for Duke
+
+#### 
+
+```{r}
+#Helper Function NEED TODO!!!
+# NOTnaTHENna <- function(letter) {
+#   lowerAlph = str_split("abcdedfghijklmnopqrstuvwxyz", pattern = "")[[1]]
+#   lowerAlph
+#   return(lowerAlph)
+# }	
+# NOTnaTHENna(letter = 'a')
+```
+
+```{r}
+DukeZones <- df |> select(contains("Zone DUKE")) |>
+  drop_na() |>
+  separate(`From Zone DUKE`, c("StartZone", "Rest"), 
+           sep = ",") |>  
+  filter(StartZone != "From") |> 
+  separate(`To Zone DUKE`, str_split("abcdefghijklmnopqrstuvwxyz",pattern = "")[[1]], sep = ",",remove = FALSE) |> 
+  select_if(~sum(!is.na(.)) > 0) |> # drop columns with only nas (overestimated how columns to split into)
+  mutate(`EndZone` = case_when(
+    is.na(b) ~ a,
+    is.na(c) & !is.na(b) ~ b,
+    is.na(d) & !is.na(c) ~ c,
+    is.na(e) & !is.na(d) ~ d,
+    is.na(f) & !is.na(e) ~ e,
+    is.na(g) & !is.na(f) ~ f,
+    is.na(h) & !is.na(g) ~ g,
+    is.na(i) & !is.na(h) ~ h,
+    is.na(j) & !is.na(i) ~ i,
+    is.na(k) & !is.na(j) ~ j
+  )) |> 
+  select(StartZone,EndZone)
+```
+
+```{r}
+#| label: from-one-zone-to-one-zone
+FinalZones <- DukeZones |> 
+  separate(StartZone, c("first", "second", "third"), sep = " ") |> 
+  mutate(Start_Position = case_when(
+    grepl("DUKE", third) ~ second,
+    grepl("DUKE", second) ~ third
+  )) |>
+  filter(!is.na(Start_Position)) |> #some columns only have from..? simply getting rid
+  select(-c(first,second,third)) |>  # getting rid as I have the Start position now
+  #Now doing what I did above for start position. Regex stuff.
+  separate(EndZone, c("first", "second", "third", "fourth"), remove = FALSE) |> 
+  mutate(End_Position = case_when(
+    first == "To" ~ second,
+    first != "To" ~ third
+  )) |> 
+  select(Start_Position, End_Position) |> 
+  drop_na()
+
+```
+
+```{r}
+FinalZones |> 
+  group_by(Start_Position, End_Position) |> 
+  summarise(count = n()) |> 
+  mutate(Frequency = 100 * round(count/sum(count),3)) |> 
+  arrange(Start_Position, desc(Frequency)) |> 
+  select(-(count)) |> 
+  pivot_wider(names_from = End_Position, values_from = Frequency) |>
+  mutate(D25 = if_else(is.na(D25),0,D25)) |> 
+  kable(caption = 'Zone Movement (%)', col.names = c("Start Position", "Circle", "A25", "AMid", "DMid", "D25")) 
+```
+
+### Circle Entry Outcomes
+
+```{r}
+CEOutcomes <- df |> 
+  filter(grepl('CE DUKE', `Outcome +`)) |> 
+  filter(grepl('CE', Row)) |> 
+  filter(!grepl(',',`Circle Entry`)) |> 
+  select(`Circle Entry`, `Outcome +`, `Outcome -`, `Outcome Neutral`) |> 
+  mutate(Shot = if_else(grepl("Shot", `Outcome +`), 1, 0),
+         Chance = if_else(grepl("Chance", `Outcome +`), 1, 0),
+         PCWin = if_else(grepl("PC Win", `Outcome +`), 1, 0),
+         Turnover = if_else(grepl("Turnover", `Outcome -`), 1, 0),
+         FoulAgainst = if_else(grepl("Foul Against", `Outcome -`), 1, 0),
+         ACE0 = if_else(grepl("ACE-0", `Outcome -`), 1, 0),
+         Interception = if_else(grepl("Interception", `Outcome -`), 1, 0),
+         EndLine = if_else(grepl("End Line", `Outcome -`), 1, 0),
+         DuelLost = if_else(grepl("Duel Lost", `Outcome -`), 1, 0),
+         BallOut = if_else(grepl("Ball Out", `Outcome -`), 1, 0),
+         FreeHit = if_else(grepl("Free Hit", `Outcome Neutral`), 1, 0),
+         LongCorner = if_else(grepl("Long Corner", `Outcome Neutral`), 1, 0),
+         SideLine = if_else(grepl("Sideline", `Outcome Neutral`), 1, 0)) |> 
+  select(-contains("Outcome")) |> 
+  drop_na()
+
+CEOutcomes |> 
+  group_by(`Circle Entry`, Shot) |> 
+  summarise(count = n()) |>
+  mutate(Frequency = 100 * round(count/sum(count),2)) |> 
+  arrange(desc(Shot),desc(Frequency)) |>
+  select(-count) |> 
+  pivot_wider(names_from = Shot, values_from = Frequency) |> 
+  select(-`0`) |> 
+  kable(col.names = c("Circle Entry", "Shot Taken? (%)"), caption = "Shots Based off Circle Entry")
+
+CEOutcomes |> 
+  group_by(`Circle Entry`, Turnover) |> 
+  summarise(count = n()) |>
+  mutate(Frequency = 100 * round(count/sum(count),2)) |> 
+  arrange(desc(Turnover),desc(Frequency)) |>
+  select(-count) |> 
+  pivot_wider(names_from = Turnover, values_from = Frequency) |> 
+  select(-`0`) |> 
+  kable(col.names = c("Circle Entry", "Turnover Commited? (%)"), caption = "Turnovers Based off Circle Entry")
+
+CEOutcomes |> 
+  group_by(`Circle Entry`, FoulAgainst) |> 
+  summarise(count = n()) |>
+  mutate(Frequency = 100 * round(count/sum(count),2)) |> 
+  arrange(desc(FoulAgainst),desc(Frequency)) |>
+  select(-count) |> 
+  pivot_wider(names_from = FoulAgainst, values_from = Frequency) |> 
+  select(-`0`) |> 
+  kable(col.names = c("Circle Entry", "Foul Against Commited? (%)"), caption = "Foul Against Based off Circle Entry")
+
+CEOutcomes |> 
+  group_by(`Circle Entry`, ACE0) |> 
+  summarise(count = n()) |>
+  mutate(Frequency = 100 * round(count/sum(count),2)) |> 
+  arrange(desc(ACE0),desc(Frequency)) |>
+  select(-count) |> 
+  pivot_wider(names_from = ACE0, values_from = Frequency) |> 
+  select(-`0`) |> 
+  kable(col.names = c("Circle Entry", "ACE0 (%)"), caption = "ACE0 Based off Circle Entry")
+```
+
+### 
+
+```{r}
+# BSOutcome <- df |> 
+#   select(`BS Outcome - Direct Ball Win DUKE`) |> 
+#   drop_na() |> 
+#   separate(`BS Outcome - Direct Ball Win DUKE`, c("a", "b", "c")) |> 
+#   select(-a) |> 
+#   mutate(End_Position = case_when(
+#     grepl("DUKE", b) ~ c,
+#     grepl("DUKE", c) ~ b
+#   )) |> 
+#   select(End_Position) |> 
+#   drop_na()
+# 
+# BSOutcome |> 
+#   group_by(End_Position) |> 
+#   summarize(count = n()) |> 
+#   mutate(Freq = 100 * round(count/sum(count), 3)) |>
+#   arrange(desc(count)) |> 
+#   kable(col.names = c("Position", "Count", "Frequency (%)"))
+```
