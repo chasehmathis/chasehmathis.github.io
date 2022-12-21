@@ -2,8 +2,10 @@
 title: "Projects"
 ---
 
-## Academic Projects
+## Duke Field Hockey
+[Season Summary](ExternalProj/Duke/Duke2022SeasonRecap.html)
 
+## Academic Projects
 
 ### Increasing Life Expectancy with Controllable Variables
 [Report](PDF_Files/STA325_LifeExp.pdf)
