@@ -4,6 +4,8 @@ author: "Chase Mathis"
 format: 
   html:
     toc: true
+    toc-title: Contents
+    smooth-scroll: true
     theme: cosmo
 execute: 
   echo: false
