@@ -4,14 +4,14 @@ author: "Chase Mathis"
 format: 
   html:
     toc: true
-    toc-title: Contents
-    smooth-scroll: true
     theme: cosmo
 execute: 
   echo: false
   warning: false
 editor: visual
 ---
+
+# General Analysis of Duke Field Hockey's 2022 Season
 
 ## Overview
 
@@ -22,6 +22,10 @@ Thanks to the vast amounts of data collected over the course of the season, the 
 #| warning: false
 
 library(tidyverse)
+library(tidymodels)
+library(reticulate)
+library(rpart)
+library(rpart.plot)
 library(knitr)
 
 ggplot2::theme_set(ggplot2::theme_minimal(base_size = 14))
@@ -113,7 +117,7 @@ circle_entry_Other |>
   labs(
     x = 'Circle Entry',
     y = 'Count',
-    title = 'Where does Duke Opponents Enter the Circle?'
+    title = 'Where do Duke Opponents Enter the Circle?'
   )
 
 ```
@@ -146,7 +150,7 @@ prop_Left_Other <- circle_entry_Other |>
   pull(prop)
 ```
 
-The distribution is rather similar to Duke's own distribution. However, opponents do a **better** job forcing us to the left. Duke is forced to the left `r round(prop_Left_Duke*100,2)` percent of the time, while opponents are forced to the left `r round(prop_Left_Other * 100,2)` percent of the time. On a better note, Duke entered the circle `r nrow(circle_entry_Duke) - nrow(circle_entry_Other)` more times than their opponents across the season.
+The distribution is rather similar to Duke's own distribution. However, opponents do a **better** job forcing us to the left. Duke is forced to the left **`r round(prop_Left_Duke*100,2)`**% of the time, while opponents are forced to the left **`r round(prop_Left_Other * 100,2)`**% of the time. On a better note, Duke entered the circle `r nrow(circle_entry_Duke) - nrow(circle_entry_Other)` more times than their opponents across the season.
 
 ### Which Teams Beat Duke in Circle Entries?
 
@@ -365,6 +369,8 @@ df |>
   kable(col.names = c("Goal Type", "Frequency"), caption = c("How does Duke Score?"))
 ```
 
+Duke scored 24 ACE goals and 18 goals from Penalty Corners.
+
 ```{r}
 df |> 
     filter(grepl("Goal", `Outcome +`) & grepl("DUKE", `Outcome +`)) |> 
@@ -378,11 +384,123 @@ df |>
 
 ## Defensive Goals
 
-This table shows the count of ACE goals vs. goals from Penalty Corners.
+This table shows the count of ACE goals vs. goals from Penalty Corners from our opponents.
 
 ```{r}
 df |> 
   filter(grepl("Goal",Row) & !grepl("DUKE", Row)) |> 
   count(`Goal Type`) |> 
   kable(col.names = c("Goal Type", "Frequency"), caption = c("How do Opponents Score?"))
+```
+
+# Penalty Corners
+
+## Attack Penalty Corners
+
+```{r}
+penalty_corners <- read_csv("DukeData/PenaltyCornerData/APC CSV.csv")
+
+penalty_corners <-  penalty_corners |>  # get rid of columns with only null values
+  select(where(~ sum(is.na(.x)) < nrow(penalty_corners)))
+
+```
+
+Duke had `r nrow(penalty_corners)` penalty corners throughout the year.
+
+## How do We Score Goals?
+
+```{r}
+num_instances <- penalty_corners |> 
+  drop_na(`1st Phase`) |> 
+  nrow()
+
+goal_first <- penalty_corners |> 
+  select(`1st Phase`) |> 
+  filter(grepl("Goal", `1st Phase`))
+```
+
+Out of the `r nrow(penalty_corners)` penalty corners recorded, there is recorded data for the `first phase` for only `r num_instances` penalty corners. Counts of goals and other metrics may be below the actual number.
+
+For instance, there were only `r nrow(goal_first)` recorded goals, yet we know that Duke scored more penalty corner goals than this number.
+
+```{python}
+#| label: functions
+
+def setIze(lst):
+    ret = set([])
+    for item in lst:
+       if(item != 'NA'):
+           sub_list = item.split(",")
+           for sub_item in sub_list:
+              if(sub_item[0] == " "):
+                  sub_item = sub_item[1:]
+              ret.add(sub_item)
+
+    return ret
+
+def form(set):
+  list1 = list(set)
+  list2 = []
+  for item in list1:
+      new_item = "_".join(item.split())
+      list2.append(new_item)
+  formula = " + ".join(list2)
+  ret = [0]
+  ret[0] = formula
+  return ret
+```
+
+```{python}
+#| label: unique-values
+penalty_corners = r.penalty_corners
+routine = penalty_corners["Routine"]
+traps = penalty_corners["Traps"]
+
+
+  
+set_routine = setIze(routine)
+set_traps = setIze(traps)
+
+routine_formula = form(set_routine)
+traps_formula = form(set_traps)
+traps_formula
+```
+
+Can we use Routine and Traps to see how Duke scores?
+
+```{r}
+# Traps and Routine
+
+tree_spec <- decision_tree(mode = "regression") |> 
+  set_engine("rpart")
+
+penalty_corners <- penalty_corners |> 
+  mutate(Goal = if_else(grepl("Goal", `1st Phase`), "Yes", "No"))
+
+penalty_corners <- penalty_corners |> 
+  mutate(Left_Option = if_else(grepl("Left Option", Routine), 1, 0),
+         L1_Tip = if_else(grepl("L1 Tip", Routine), 1, 0),
+         vs_3_Def = if_else(grepl("vs 3 Def", Routine), 1, 0),
+         Run = if_else(grepl("Run", Routine), 1, 0),
+         Early_Break = if_else(grepl("Early Break", Routine), 1, 0),
+         Right_Option = if_else(grepl("L1 Tip", Routine), 1, 0),
+         Flick = if_else(grepl("Flick", Routine), 1, 0),
+         Broken_Play = if_else(grepl("Broken Play", Routine), 1, 0),
+         Shot = if_else(grepl("Shot", Routine), 1, 0),
+         R1_Tip = if_else(grepl("R1 Tip", Routine), 1, 0),
+         Giver_Tip = if_else(grepl("Giver Tip", Routine), 1, 0),
+         Back_to_Giver = if_else(grepl("Back to Giver", Routine), 1, 0),
+         Single = if_else(grepl("Single", Routine), 1, 0),
+         Trap_2 = if_else(grepl("Trap 2", Routine), 1, 0),
+         Short_Push = if_else(grepl("Short Push", Routine), 1, 0),
+         Moving = if_else(grepl("Moving", Routine), 1, 0),
+         Trap_1 = if_else(grepl("Trap 1", Routine), 1, 0))
+
+
+routine_formula <- formula(Goal ~ py$routine_formula[[1]])
+traps_formula <- formula(Goal ~ py$traps_formula)
+
+tree1 <- rpart(Goal ~ Left_Option + L1_Tip + vs_3_Def + Run +Early_Break + Right_Option + Flick + Broken_Play + Shot + R1_Tip + Giver_Tip + Back_to_Giver, data = penalty_corners)
+
+tree2 <- rpart(Goal ~ Single + Trap_2 + Short_Push + Moving + Trap_1, data = penalty_corners)
 ```
