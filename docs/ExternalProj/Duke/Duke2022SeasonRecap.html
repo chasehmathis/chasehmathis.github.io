@@ -62,11 +62,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#offensive-goals" id="toc-offensive-goals" class="nav-link" data-scroll-target="#offensive-goals">Offensive Goals</a></li>
   <li><a href="#defensive-goals" id="toc-defensive-goals" class="nav-link" data-scroll-target="#defensive-goals">Defensive Goals</a></li>
   </ul></li>
-  <li><a href="#penalty-corners" id="toc-penalty-corners" class="nav-link" data-scroll-target="#penalty-corners">Penalty Corners</a>
-  <ul class="collapse">
-  <li><a href="#attack-penalty-corners" id="toc-attack-penalty-corners" class="nav-link" data-scroll-target="#attack-penalty-corners">Attack Penalty Corners</a></li>
-  <li><a href="#how-do-we-score-goals" id="toc-how-do-we-score-goals" class="nav-link" data-scroll-target="#how-do-we-score-goals">How do We Score Goals?</a></li>
-  </ul></li>
   </ul>
 </nav>
 </div>
@@ -481,6 +476,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Duke scored 24 ACE goals and 18 goals from Penalty Corners.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Ball Start &amp; Ball Win</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">With Circle Entry</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
@@ -524,6 +523,93 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>What Leads to a Duke Goal?</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ball Start/Win Position</th>
+<th style="text-align: left;">Circle Entry</th>
+<th style="text-align: right;">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BW3</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS1</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS4</td>
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS4</td>
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS2</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS2</td>
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS3</td>
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS4</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BW2</td>
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BW2</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BW3</td>
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BW4</td>
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BW4</td>
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It is interesting to note that without Circle Entries included, BS4 seemed to be the best indicator for scoring a goal. Including Circle Entry zone, a BW3 accompanied wiht a <code>Middle</code> Circle Entry resulted in <strong>4</strong> goals this season.</p>
 </section>
 <section id="defensive-goals" class="level2">
 <h2 class="anchored" data-anchor-id="defensive-goals">Defensive Goals</h2>
@@ -551,35 +637,123 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
-</section>
-</section>
-<section id="penalty-corners" class="level1">
-<h1>Penalty Corners</h1>
-<section id="attack-penalty-corners" class="level2">
-<h2 class="anchored" data-anchor-id="attack-penalty-corners">Attack Penalty Corners</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Ball Start &amp; Ball Win</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">With Circle Entry</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="cell">
-
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>What Leads to an Opponent Goal?</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ball Start/Win Position</th>
+<th style="text-align: right;">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BS2</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BW3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BW4</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS5</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>Duke had 106 penalty corners throughout the year.</p>
-</section>
-<section id="how-do-we-score-goals" class="level2">
-<h2 class="anchored" data-anchor-id="how-do-we-score-goals">How do We Score Goals?</h2>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <div class="cell">
-
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>What Leads to a Duke Goal?</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ball Start/Win Position</th>
+<th style="text-align: left;">Circle Entry</th>
+<th style="text-align: right;">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BS2</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS3</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BW3</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS1</td>
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS1</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS2</td>
+<td style="text-align: left;">Left</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS2</td>
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS4</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BS5</td>
+<td style="text-align: left;">Middle</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BW4</td>
+<td style="text-align: left;">Right</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>Out of the 106 penalty corners recorded, there is recorded data for the <code>first phase</code> for only 84 penalty corners. Counts of goals and other metrics may be below the actual number.</p>
-<p>For instance, there were only 12 recorded goals, yet we know that Duke scored more penalty corner goals than this number.</p>
-<div class="cell">
-
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>['Single + Trap_1 + Moving + Short_Push + Trap_2']</code></pre>
 </div>
 </div>
-<p>Can we use Routine and Traps to see how Duke scores?</p>
-<div class="cell">
-
+</div>
 </div>
 </section>
 </section>
