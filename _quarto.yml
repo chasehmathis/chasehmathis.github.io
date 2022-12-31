@@ -6,11 +6,12 @@ website:
   page-navigation: true
   title: "Chase Mathis"
   description: "Personal Website for Chase Mathis: Statistics and Computer Science Major at Duke University"
-  site-url: "https://chasehmathdis.github.io/"
+  site-url: "https://chasehmathis.github.io/"
   
   
   navbar:
-    background: "#C5DFE1"
+    background: "#000000"
+    foreground: "#FFFFFF"
     style: docked
     search: true
     left:
