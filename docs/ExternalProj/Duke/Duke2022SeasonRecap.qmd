@@ -399,11 +399,7 @@ df |>
 ```
 :::
 
-It is interesting to note that without Circle Entries included, BS4 seemed to
-be the best indicator for scoring a goal. Including Circle Entry zone, a BW3 accompanied wiht a `Middle` Circle Entry resulted in **4** goals this season.
-
-
-
+It is interesting to note that without Circle Entries included, BS4 seemed to be the best indicator for scoring a goal. Including Circle Entry zone, a BW3 accompanied with a `Middle` Circle Entry resulted in **4** goals this season.
 
 ## Defensive Goals
 
@@ -416,9 +412,13 @@ df |>
   kable(col.names = c("Goal Type", "Frequency"), caption = c("How do Opponents Score?"))
 ```
 
+The tables below show where opponents start the ball or win the ball before scoring a goal.
+For instance opponents were very productive at BS2. The table is incomplete in that not all goals had were a result of a ball start or ball win. 
+
 
 ::: panel-tabset
 ## Ball Start & Ball Win
+
 ```{r}
 df |> 
     filter(grepl("Goal", `Outcome +`) & !grepl("DUKE", `Outcome +`)) |> 
@@ -444,7 +444,3 @@ df |>
 
 ```
 :::
-
-
-
-
