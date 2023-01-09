@@ -2,4 +2,4 @@
 
 ## Attribution
 
-The website design was based primarily on Duke's STA 199 course [website](https://github.com/chasehmathis/chasehmathis.github.io/tree/main).
+The website design was based primarily on Duke's STA 199 course [website](https://github.com/sta199-f22-1/sta199-f22-1.github.io).
