@@ -4,6 +4,7 @@ project:
 
 website:
   page-navigation: true
+  favicon: CM.png
   title: "Chase Mathis"
   description: "Personal Website for Chase Mathis: Statistics and Computer Science Major at Duke University"
   site-url: "https://chasehmathis.github.io/"
@@ -37,7 +38,7 @@ format:
   html:
     theme: cosmo
     css: style/styles.css
-    linkcolor: "blue"
+    linkcolor: "#1a0dab"
     toc: true
     
 execute:
