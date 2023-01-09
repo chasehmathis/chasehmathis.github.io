@@ -3,8 +3,8 @@ project:
   output-dir: docs
 
 website:
+  favicon: images/CM.png
   page-navigation: true
-  favicon: CM.png
   title: "Chase Mathis"
   description: "Personal Website for Chase Mathis: Statistics and Computer Science Major at Duke University"
   site-url: "https://chasehmathis.github.io/"
