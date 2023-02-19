@@ -21,7 +21,7 @@ website:
       - text: "Projects"
         href: projects.qmd
       - text: "CV"
-        href: PDF_Files/Resume-January-2023.pdf
+        href: PDF_Files/Resume_February_2023.pdf
     
     right: 
       - icon: github
