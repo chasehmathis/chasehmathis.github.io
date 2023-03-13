@@ -20,8 +20,8 @@ website:
         file: index.qmd
       - text: "Projects"
         href: projects.qmd
-      - text: "CV"
-        href: PDF_Files/Resume_February_2023.pdf
+      - text: "Resume"
+        href: PDF_Files/resume.pdf
     
     right: 
       - icon: github
