@@ -21,7 +21,7 @@ website:
       - text: "Projects"
         href: projects.qmd
       - text: "Resume"
-        href: PDF_Files/resume.pdf
+        href: PDF_Files/Resume.pdf
     
     right: 
       - icon: github
