@@ -8,8 +8,6 @@ title: "Research & Projects"
 
 ## Duke Field Hockey
 
-[Season Summary](ExternalProj/Duke/Duke2022SeasonRecap.html)
-
 ## Academic Projects
 
 ### Increasing Life Expectancy with Controllable Variables
