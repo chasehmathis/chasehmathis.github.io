@@ -7,6 +7,7 @@ title: "Research & Projects"
 [Lab Website](https://inspire.cs.duke.edu/)
 
 ## Duke Field Hockey
+[Password Protected Team Website](https://chasehmathis.github.io/duke-field-hockey-data/)
 
 ## Academic Projects
 
