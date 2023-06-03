@@ -18,9 +18,9 @@ website:
     left:
       - text: "Home"
         file: index.qmd
-      - text: "Projects"
+      - text: "Research"
         href: projects.qmd
-      - text: "Resume"
+      - text: "CV"
         href: PDF_Files/Resume.pdf
     
     right: 
