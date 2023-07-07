@@ -6,12 +6,20 @@ title: "Chase Mathis"
 
 ![](images/ChasePicture.jpeg){style="float:right;padding: 0 0 0 5px;border-radius: 30px;" fig-alt="Chase Mathis" width="200"}
 
-I am an undergraduate student at Duke University, pursuing a Bachelor's of Science in Statistics, Computer Science, and a Minor in Math (3.9 GPA). Prior to attending Duke, I graduated from Deerfield Academy, where I was awarded Cum Laude and AP Honor Scholar. I have worked as a data analyst for Duke Field Hockey and as an undergraduate TA in the Statistics department at Duke. I have also participated in several research projects and conferences. Currently I am working on a project focused on shared security and privacy advice during Iran's ongoing protests. I am proficient in Python, R, SQL, and Java. I also speak conversational Mandarin.
+I am an undergraduate student at Duke University, pursuing a Bachelor's of Science in Statistics, Computer Science, and a Minor in Math (3.86 GPA).
+
+I have worked as a data analyst for Duke Field Hockey and as an undergraduate TA in the Statistics department at Duke. I have also participated in several research projects and conferences.
+
+Currently, I am working on a project related to Multi-modal deep learning applications to statistic model pipelines of Electronic Health Record (EHR) data. I am proficient in Python, R, SQL, and Java. I also speak conversational Mandarin.
 
 ## Research Interests
 
 -   Interpretable Machine Learning
 
 -   Computer Vision in Computational Biology
+
+-   Bayesian Inference
+
+-   Graph Machine Learning
 
 -   Applications in Public Policy and Human-Computer Interactions
