@@ -8,7 +8,7 @@ about:
 ---
 
 ## Education
-I am an undergraduate student at Duke University, pursuing a Bachelor's of Science in Statistics, Computer Science, and a Minor in Math (3.86 GPA).
+I am an undergraduate student at Duke University, pursuing a Bachelor's of Science in Statistics and Computer Science, with a Minor in Math (3.86 GPA).
 
 ## Research Interests
 

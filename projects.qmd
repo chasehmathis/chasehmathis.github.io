@@ -3,21 +3,31 @@ title: "Research & Projects"
 ---
 
 ## Summer Institute in Biomedical Informatics (SIBMI)
+Summer 2023 I worked in [CELEHS Lab](https://celehs.hms.harvard.edu/) with
+Dr. Tianxi Cai and Dr. Junwei Lu.
 
+My research can be summarized here.
 
+---
+  
 ## InSPIre Lab
 
-[Lab Website](https://inspire.cs.duke.edu/)
+For more information, visit the [Lab Website](https://inspire.cs.duke.edu/).
+
+---
 
 ## Duke Field Hockey
-[Password Protected Team Website](https://chasehmathis.github.io/duke-field-hockey-data/)
+
+For team members, visit our [Password Protected Team Website](https://chasehmathis.github.io/duke-field-hockey-data/).
+
+---
 
 ## Academic Projects
 
 ### Increasing Life Expectancy with Controllable Variables
+[Read the Report](PDF_Files/STA325_LifeExp.pdf)
 
-[Report](PDF_Files/STA325_LifeExp.pdf)
+---
 
 ### Predicting Turbulence and Posterior Distributions
-
-[Report](PDF_Files/STA325_Turbulance.pdf)
+[Read the Report](PDF_Files/STA325_Turbulance.pdf)
