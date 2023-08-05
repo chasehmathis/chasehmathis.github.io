@@ -1,1 +1,5 @@
 /* css styles */
+// Base document colors
+$body-bg: #181818;
+$body-color: black;
+$link-color: #75AADB;
