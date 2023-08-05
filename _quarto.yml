@@ -36,11 +36,13 @@ website:
 
 format:
   html:
-    theme: cosmo
+    max-width: 1600px
+    theme: 
+      light: cosmo
+      dark: darkly
     css: style/styles.css
     linkcolor: "#1a0dab"
     toc: true
-    
 execute:
   freeze: auto
 
