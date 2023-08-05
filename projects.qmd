@@ -2,6 +2,9 @@
 title: "Research & Projects"
 ---
 
+## Summer Institute in Biomedical Informatics (SIBMI)
+
+
 ## InSPIre Lab
 
 [Lab Website](https://inspire.cs.duke.edu/)

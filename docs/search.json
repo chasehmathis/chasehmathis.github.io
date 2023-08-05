@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Chase Mathis",
     "section": "",
-    "text": "I am an undergraduate student at Duke University, pursuing a Bachelor’s of Science in Statistics, Computer Science, and a Minor in Math (3.86 GPA).\nI have worked as a data analyst for Duke Field Hockey and as an undergraduate TA in the Statistics department at Duke. I have also participated in several research projects and conferences.\nCurrently, I am working on a project related to Multi-modal deep learning applications to statistic model pipelines of Electronic Health Record (EHR) data. I am proficient in Python, R, SQL, and Java. I also speak conversational Mandarin."
+    "text": "I am an undergraduate student at Duke University, pursuing a Bachelor’s of Science in Statistics, Computer Science, and a Minor in Math (3.86 GPA)."
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Research & Projects",
     "section": "",
-    "text": "Lab Website"
+    "text": "Research Project ## InSPIre Lab\nLab Website"
   },
   {
     "objectID": "projects.html#academic-projects",
@@ -40,5 +40,40 @@
     "title": "Research & Projects",
     "section": "Duke Field Hockey",
     "text": "Duke Field Hockey\nPassword Protected Team Website"
+  },
+  {
+    "objectID": "projects.html#summer-institute-in-biomedical-informatics-sibmi",
+    "href": "projects.html#summer-institute-in-biomedical-informatics-sibmi",
+    "title": "Research & Projects",
+    "section": "",
+    "text": "Research Project ## InSPIre Lab\nLab Website"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Chase Mathis",
+    "section": "",
+    "text": "I am an undergraduate student at Duke University, pursuing a Bachelor’s of Science in Statistics, Computer Science, and a Minor in Math (3.86 GPA)."
+  },
+  {
+    "objectID": "index.html#current-research",
+    "href": "index.html#current-research",
+    "title": "Chase Mathis",
+    "section": "Current Research",
+    "text": "Current Research\nCurrently, I am working on a project related to Multi-modal deep learning applications to statistic model pipelines of Electronic Health Record (EHR) data. I am proficient in Python, R, SQL, and Java. I also speak conversational Mandarin."
+  },
+  {
+    "objectID": "index.html#work-experience",
+    "href": "index.html#work-experience",
+    "title": "Chase Mathis",
+    "section": "Work Experience",
+    "text": "Work Experience\nI have worked as a data analyst for Duke Field Hockey and as an undergraduate TA in the Statistics department at Duke. I have also participated in several research projects and conferences."
+  },
+  {
+    "objectID": "projects.html#inspire-lab",
+    "href": "projects.html#inspire-lab",
+    "title": "Research & Projects",
+    "section": "InSPIre Lab",
+    "text": "InSPIre Lab\nLab Website"
   }
 ]
