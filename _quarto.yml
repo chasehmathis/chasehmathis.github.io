@@ -38,8 +38,8 @@ format:
   html:
     max-width: 1600px
     theme: 
-      light: cosmo
       dark: darkly
+      light: cosmo
     css: style/styles.css
     linkcolor: "#1a0dab"
     toc: true
