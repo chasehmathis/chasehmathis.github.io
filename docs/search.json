@@ -11,12 +11,12 @@
     "href": "projects.html",
     "title": "Research & Projects",
     "section": "",
-    "text": "Summer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\nMy research can be summarized here."
+    "text": "Summer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\nMy final research presentation is here"
   },
   {
     "objectID": "projects.html#academic-projects",
     "href": "projects.html#academic-projects",
-    "title": "Research & Projects",
+    "title": "Projects",
     "section": "Academic Projects",
     "text": "Academic Projects\n\nIncreasing Life Expectancy with Controllable Variables\nRead the Report\n\n\n\nPredicting Turbulence and Posterior Distributions\nRead the Report"
   },
@@ -46,7 +46,7 @@
     "href": "projects.html#summer-institute-in-biomedical-informatics-sibmi",
     "title": "Research & Projects",
     "section": "",
-    "text": "Summer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\nMy research can be summarized here."
+    "text": "Summer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\nMy final research presentation is here"
   },
   {
     "objectID": "index.html#education",
@@ -75,5 +75,33 @@
     "title": "Research & Projects",
     "section": "InSPIre Lab",
     "text": "InSPIre Lab\nFor more information, visit the Lab Website."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Summer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\nMy final research presentation is here"
+  },
+  {
+    "objectID": "research.html#summer-institute-in-biomedical-informatics-sibmi",
+    "href": "research.html#summer-institute-in-biomedical-informatics-sibmi",
+    "title": "Research",
+    "section": "",
+    "text": "Summer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\nMy final research presentation is here"
+  },
+  {
+    "objectID": "research.html#inspire-lab",
+    "href": "research.html#inspire-lab",
+    "title": "Research",
+    "section": "InSPIre Lab",
+    "text": "InSPIre Lab\nFor more information, visit the Lab Website."
+  },
+  {
+    "objectID": "projects.html#work-projects",
+    "href": "projects.html#work-projects",
+    "title": "Projects",
+    "section": "Work Projects",
+    "text": "Work Projects\n\nDuke Field Hockey\nFor team members, visit our Password Protected Team Website."
   }
 ]
