@@ -19,6 +19,8 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "Research"
+        href: research.qmd
+      - text: "Projects"
         href: projects.qmd
       - text: "CV"
         href: PDF_Files/Resume.pdf
@@ -41,7 +43,6 @@ format:
       dark: darkly
       light: cosmo
     css: style/styles.css
-    linkcolor: "#1a0dab"
     toc: true
 execute:
   freeze: auto
