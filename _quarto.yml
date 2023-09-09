@@ -24,6 +24,7 @@ website:
         href: projects.qmd
       - text: "CV"
         href: PDF_Files/Resume.pdf
+
     
     right: 
       - icon: github
