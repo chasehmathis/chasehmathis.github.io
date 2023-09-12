@@ -8,6 +8,19 @@ Summer 2023 I worked in [CELEHS Lab](https://celehs.hms.harvard.edu/) with Dr. T
 
 My final research presentation is [here](docs/PDF_Files/SIBMI_Final_Presentation.pdf)
 
+A video I made regarding Medical Domain Contrastive Learning can be shown below
+
+
+
+<div style="position: relative; width: 400px; height: 400px;">
+  <a href="https://youtu.be/qEqeYpuUfKw" style="text-decoration: none; display: inline-block;">
+    <img src="docs/images/CL.Png" alt="CL cover image" style="width: 100%; height: 100%;">
+    <div style="position: absolute; top: 50%; left: 43%; transform: translate(-50%, -50%); cursor: pointer; font-size: 5em; color: white;">
+      ►
+  </a>
+</div>
+
+
 ------------------------------------------------------------------------
 
 ## InSPIre Lab
