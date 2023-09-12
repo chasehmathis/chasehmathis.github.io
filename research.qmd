@@ -20,7 +20,7 @@ title: "Research"
 
 ## InSPIre Lab
 
-![](images/inspire.png){width="600"}
+![](images/Inspire.png){width="600"}
 
 For more information, visit the [Lab Website](https://inspire.cs.duke.edu/).
 
