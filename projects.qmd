@@ -16,10 +16,10 @@ For team members, visit our [Password Protected Team Website](https://chasehmath
 
 ### Increasing Life Expectancy with Controllable Variables
 
-[Read the Report](PDF_Files/STA325_LifeExp.pdf)
+[![Report](images/STAReport1.png)](PDF_Files/STA325_LifeExp.pdf)
 
 ------------------------------------------------------------------------
 
 ### Predicting Turbulence and Posterior Distributions
 
-[Read the Report](PDF_Files/STA325_Turbulance.pdf)
+[![Report](images/STAReport2.png)](PDF_Files/STA325_Turbulance.pdf)
