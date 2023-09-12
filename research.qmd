@@ -4,26 +4,23 @@ title: "Research"
 
 ## Summer Institute in Biomedical Informatics (SIBMI)
 
-Summer 2023 I worked in [CELEHS Lab](https://celehs.hms.harvard.edu/) with Dr. Tianxi Cai and Dr. Junwei Lu.
+#### Summer 2023 I worked in [CELEHS Lab](https://celehs.hms.harvard.edu/) with Dr. Tianxi Cai and Dr. Junwei Lu.
 
-My final research presentation is [here](docs/PDF_Files/SIBMI_Final_Presentation.pdf)
+![](images/hms.jpeg){width="600"}
 
-A video I made regarding Medical Domain Contrastive Learning can be shown below
+#### Research Presentation
 
+[![Presentation](images/SIBMIPres.png)](docs/PDF_Files/SIBMI_Final_Presentation.pdf)
 
+#### A video I made regarding Medical Domain Contrastive Learning can be seen below
 
-<div style="position: relative; width: 400px; height: 400px;">
-  <a href="https://youtu.be/qEqeYpuUfKw" style="text-decoration: none; display: inline-block;">
-    <img src="docs/images/CL.Png" alt="CL cover image" style="width: 100%; height: 100%;">
-    <div style="position: absolute; top: 50%; left: 43%; transform: translate(-50%, -50%); cursor: pointer; font-size: 5em; color: white;">
-      ►
-  </a>
-</div>
-
+{{< video https://youtu.be/qEqeYpuUfKw title='Contrastiv Learning in Medical Domain' >}}
 
 ------------------------------------------------------------------------
 
 ## InSPIre Lab
+
+![](images/inspire.png){width="600"}
 
 For more information, visit the [Lab Website](https://inspire.cs.duke.edu/).
 
