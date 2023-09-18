@@ -2,10 +2,6 @@
 title: "Projects"
 ---
 
-## Side Projects
-
-## Work Projects
-
 ### Duke Field Hockey
 
 For team members, visit our [Password Protected Team Website](https://chasehmathis.github.io/duke-field-hockey-data/).
