@@ -24,6 +24,8 @@ website:
         href: projects.qmd
       - text: "CV"
         href: PDF_Files/Resume.pdf
+      - text: "Daily Quiz"
+        href: PDF_Files/quiz.html
 
     
     right: 
