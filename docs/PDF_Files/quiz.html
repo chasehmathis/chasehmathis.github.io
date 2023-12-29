@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Quiz</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  .question {
+    margin-bottom: 20px;
+  }
+  .question h3 {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<div>Can you solve this real interview question? Minimum Size Subarray Sum - Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+
+ 
+
+Example 1:
+
+
+Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+
+
+Example 2:
+
+
+Input: target = 4, nums = [1,4,4]
+Output: 1
+
+
+Example 3:
+
+
+Input: target = 11, nums = [1,1,1,1,1,1,1,1]
+Output: 0
+
+
+ 
+
+Constraints:
+
+ * 1 <= target <= 109
+ * 1 <= nums.length <= 105
+ * 1 <= nums[i] <= 104
+
+ 
+
+Follow up: If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log(n)).</div>
+<div id="quiz">
+  <div class="question">
+    <h3>Question 1: What is 2 + 2?</h3>
+    <input type="radio" id="q1a1" name="q1" value="3">
+    <label for="q1a1">3</label><br>
+    <input type="radio" id="q1a2" name="q1" value="4">
+    <label for="q1a2">4</label><br>
+    <input type="radio" id="q1a3" name="q1" value="5">
+    <label for="q1a3">5</label>
+  </div>
+</div>
+<button onclick="submitAnswers()">Submit</button>
+<div id="result"></div>
+<div>Can you solve this real interview question? Valid Palindrome - A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+ 
+
+Example 1:
+
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+
+Example 2:
+
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+
+
+Example 3:
+
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+
+
+ 
+
+Constraints:
+
+ * 1 <= s.length <= 2 * 105
+ * s consists only of printable ASCII characters.</div>
+<div id="quiz">
+  <div class="question">
+    <h3>Question 2: What is 2 + 2?</h3>
+    <input type="radio" id="q1a1" name="q1" value="3">
+    <label for="q1a1">3</label><br>
+    <input type="radio" id="q1a2" name="q1" value="4">
+    <label for="q1a2">4</label><br>
+    <input type="radio" id="q1a3" name="q1" value="5">
+    <label for="q1a3">5</label>
+  </div>
+</div>
+<button onclick="submitAnswers()">Submit</button>
+<div id="result"></div>
+
+<script>
+function submitAnswers() {
+  var totalQuestions = 2; // Update this with the actual number of questions
+  var score = 0;
+
+  // Check each question's answer
+  var q1 = document.querySelector('input[name="q1"]:checked').value;
+  if(q1 == '4') score++;var q2 = document.querySelector('input[name="q2"]:checked').value;
+  if(q2 == '4') score++;
+  document.getElementById('result').textContent = "You scored " + score + "/" + totalQuestions;
+}
+</script>
+
+</body>
+</html>
