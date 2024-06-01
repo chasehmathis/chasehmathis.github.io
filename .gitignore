@@ -5,3 +5,4 @@
 /.quarto/
 .nojekyll.c
 .DS_Store
+.csv
