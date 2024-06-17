@@ -31,12 +31,10 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,9 +80,6 @@ ul.task-list{list-style: none;}
     <a class="nav-link active" href="./research.html" aria-current="page">Research</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html">Projects</a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./PDF_Files/Resume.pdf">CV</a>
   </li>  
 </ul>
@@ -99,10 +94,12 @@ ul.task-list{list-style: none;}
 </i> 
  </a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?hl=en&amp;user=JzcfhPsAAAAJ&amp;view_op=list_works&amp;sortby=title&amp;inst=10163712085368340378"><i class="bi bi-google" role="img">
+</i> 
+ </a>
+  </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -117,7 +114,8 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summer-institute-in-biomedical-informatics-sibmi" id="toc-summer-institute-in-biomedical-informatics-sibmi" class="nav-link active" data-scroll-target="#summer-institute-in-biomedical-informatics-sibmi">Summer Institute in Biomedical Informatics (SIBMI)</a></li>
+  <li><a href="#google-scholar" id="toc-google-scholar" class="nav-link active" data-scroll-target="#google-scholar"><span>Google Scholar</span></a></li>
+  <li><a href="#summer-institute-in-biomedical-informatics-sibmi" id="toc-summer-institute-in-biomedical-informatics-sibmi" class="nav-link" data-scroll-target="#summer-institute-in-biomedical-informatics-sibmi">Summer Institute in Biomedical Informatics (SIBMI)</a></li>
   <li><a href="#inspire-lab" id="toc-inspire-lab" class="nav-link" data-scroll-target="#inspire-lab">InSPIre Lab</a></li>
   </ul>
 </nav>
@@ -141,6 +139,9 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<section id="google-scholar" class="level2">
+<h2 class="anchored" data-anchor-id="google-scholar"><a href="https://scholar.google.com/citations?hl=en&amp;user=JzcfhPsAAAAJ&amp;view_op=list_works&amp;sortby=title&amp;inst=10163712085368340378">Google Scholar</a></h2>
+</section>
 <section id="summer-institute-in-biomedical-informatics-sibmi" class="level2">
 <h2 class="anchored" data-anchor-id="summer-institute-in-biomedical-informatics-sibmi">Summer Institute in Biomedical Informatics (SIBMI)</h2>
 <section id="summer-2023-i-worked-in-celehs-lab-with-dr.-tianxi-cai-and-dr.-junwei-lu." class="level4">
@@ -174,103 +175,6 @@ ul.task-list{list-style: none;}
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-    } else {
-      disableStylesheet(alternateStylesheets);
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'alternate';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
