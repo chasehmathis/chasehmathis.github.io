@@ -11,8 +11,8 @@ website:
   
   
   navbar:
-    background: "#000000"
-    foreground: "#FFFFFF"
+    background: "#AFC2D2"
+    foreground: "#F3F6F4"
     style: docked
     search: true
     left:
@@ -20,8 +20,6 @@ website:
         file: index.qmd
       - text: "Research"
         href: research.qmd
-      - text: "Projects"
-        href: projects.qmd
       - text: "CV"
         href: PDF_Files/Resume.pdf
 
@@ -31,6 +29,8 @@ website:
         href: https://github.com/chasehmathis
       - icon: twitter
         href: https://twitter.com/chasemathis29
+      - icon: google
+        href: https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378
         
 
             
@@ -39,8 +39,8 @@ format:
   html:
     max-width: 1600px
     theme: 
-      dark: darkly
       light: cosmo
+      dark: darkly
     css: style/styles.css
     toc: true
 execute:
