@@ -2,6 +2,16 @@
 title: "Research"
 ---
 ## [Google Scholar](https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378)
+
+## Deans' Summer Research Fellowship
+Summer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans
+investigating noisy measurements of confounders. 
+
+I presented a poster at the Undergraduate Research symposium, which can be found
+[here](docs/PDF_Files/DURF_poster.pdf). 
+
+Further, I created software for the new method, which can be found [here](https://chasehmathis.github.io/ordinalconfounder).
+
 ## Summer Institute in Biomedical Informatics (SIBMI)
 
 #### Summer 2023 I worked in [CELEHS Lab](https://celehs.hms.harvard.edu/) with Dr. Tianxi Cai and Dr. Junwei Lu.
