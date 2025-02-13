@@ -3,6 +3,8 @@ title: "Research"
 ---
 ## [Google Scholar](https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378)
 
+## [Arxiv](https://arxiv.org/a/mathis_c_1.html)
+
 ## Deans' Summer Research Fellowship
 Summer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans
 investigating noisy measurements of confounders. 
