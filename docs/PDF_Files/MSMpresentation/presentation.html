@@ -426,6 +426,16 @@ Chase Mathis
 <li>Xi’s recent work focuses on extending the frugal paramterization to longitudinal data. <img data-src="figures/paper-header.png" style="width:80.0%"></li>
 </ul>
 </section>
+<section id="why-is-this-difficult" class="slide level2">
+<h2>Why is this Difficult?</h2>
+<ul>
+<li>Why is simulating data require so much effort?</li>
+<li>One can simulate variables coming from the specified distributions.</li>
+<li>However, we cannot directly parametrize the causal estimand of interest.</li>
+<li>G-computation works, but under certain model assumptions it is difficult to integrate.</li>
+<li>When scaling to longitudinal data, it becomes even more difficult.</li>
+</ul>
+</section>
 <section id="the-goal" class="slide level2">
 <h2>The Goal</h2>
 <div class="quarto-layout-panel">
@@ -466,18 +476,99 @@ Chase Mathis
 </section>
 <section id="solution-weaving-together-the-quantiles" class="slide level2">
 <h2>Solution? Weaving Together The Quantiles</h2>
-</section>
-<section id="extensions-multiple-outcomes-censoring" class="slide level2">
-<h2>Extensions: Multiple Outcomes + Censoring</h2>
-</section>
+
+<img data-src="figures/weave.jpg" class="r-stretch"></section>
 <section id="extensions-plasmode" class="slide level2">
 <h2>Extensions: Plasmode</h2>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(B1\)</span></th>
+<th><span class="math inline">\(B2\)</span></th>
+<th><span class="math inline">\(L_0\)</span></th>
+<th><span class="math inline">\(A_0\)</span></th>
+<th><span class="math inline">\(Y_0\)</span></th>
+<th><span class="math inline">\(L_1\)</span></th>
+<th><span class="math inline">\(A_1\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.23</td>
+<td>1.45</td>
+<td>0.78</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.56</td>
+<td>0.89</td>
+<td>1.23</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>1.34</td>
+<td>2.01</td>
+<td>0.45</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.67</td>
+<td>1.78</td>
+<td>0.91</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.89</td>
+<td>1.12</td>
+<td>1.56</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>1.45</td>
+<td>0.34</td>
+<td>0.88</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>What if you have data for the first <span class="math inline">\(k\)</span> treatments and wish to simulate more time steps?</li>
+<li>Simulating from existing data.</li>
 </ul>
-</section>
-<section id="putting-it-all-into-a-package" class="slide level2">
-<h2>Putting it all into a package</h2>
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
@@ -492,23 +583,24 @@ Chase Mathis
 <h2>Assume You Have T = 0 Data (Plasmode)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>n <span class="ot">&lt;-</span> <span class="fl">1e4</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>qtls <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">7</span><span class="sc">*</span>n), <span class="at">ncol=</span><span class="dv">7</span>))</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">names</span>(qtls) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"X1"</span>, <span class="st">"X2"</span>, <span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"Z1_0"</span>, <span class="st">"A_0"</span>, <span class="st">"Z2|Z1_0"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">X1=</span><span class="fu">qnorm</span>(qtls<span class="sc">$</span>X1,<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb2-6"><a href="#cb2-6"></a>                  <span class="at">X2 =</span> <span class="fu">qbinom</span>(qtls<span class="sc">$</span>X2, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>))</span>
-<span id="cb2-7"><a href="#cb2-7"></a>dat<span class="sc">$</span>B1 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(qtls<span class="sc">$</span>B1, <span class="fl">0.4</span><span class="sc">*</span>dat<span class="sc">$</span>X2 <span class="sc">-</span><span class="fl">0.2</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb2-8"><a href="#cb2-8"></a>dat<span class="sc">$</span>B2 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(qtls<span class="sc">$</span>B2, <span class="fl">0.2</span><span class="sc">*</span>dat<span class="sc">$</span>X1, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a>dat[[<span class="st">"Z1_0"</span>]] <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(qtls[[<span class="st">"Z1_0"</span>]], <span class="fl">0.2</span><span class="sc">*</span>dat<span class="sc">$</span>X1, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb2-11"><a href="#cb2-11"></a>dat[[<span class="st">"Z2_0"</span>]] <span class="ot">&lt;-</span> <span class="fu">qbinom</span>(qtls[[<span class="st">"Z2|Z1_0"</span>]], <span class="dv">1</span>, <span class="fu">qlogis</span>(<span class="sc">-</span><span class="fl">0.2</span> <span class="sc">+</span> <span class="fl">0.4</span> <span class="sc">*</span> dat<span class="sc">$</span>X2))</span>
-<span id="cb2-12"><a href="#cb2-12"></a>dat[[<span class="st">"A_0"</span>]] <span class="ot">=</span> <span class="fu">qbinom</span>(qtls[[<span class="st">"A_0"</span>]], <span class="dv">1</span>, <span class="fu">qlogis</span>(<span class="sc">-</span><span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> dat<span class="sc">$</span>X1 <span class="sc">+</span> <span class="fl">0.15</span><span class="sc">*</span>dat<span class="sc">$</span>X2 <span class="sc">+</span> <span class="fl">0.1</span><span class="sc">*</span>dat<span class="sc">$</span>B1 <span class="sc">+</span> <span class="fl">0.3</span><span class="sc">*</span>dat[[<span class="st">"Z1_0"</span>]] <span class="sc">+</span> <span class="fl">0.3</span><span class="sc">*</span> dat[[<span class="st">"Z2_0"</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>qtls <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">7</span><span class="sc">*</span>n), <span class="at">ncol=</span><span class="dv">7</span>))</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">names</span>(qtls) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"X1"</span>, <span class="st">"X2"</span>, <span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"Z1_0"</span>, <span class="st">"A_0"</span>, <span class="st">"Z2|Z1_0"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">X1=</span><span class="fu">qnorm</span>(qtls<span class="sc">$</span>X1,<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb2-7"><a href="#cb2-7"></a>                  <span class="at">X2 =</span> <span class="fu">qbinom</span>(qtls<span class="sc">$</span>X2, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>))</span>
+<span id="cb2-8"><a href="#cb2-8"></a>dat<span class="sc">$</span>B1 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(qtls<span class="sc">$</span>B1, <span class="fl">0.4</span><span class="sc">*</span>dat<span class="sc">$</span>X2 <span class="sc">-</span><span class="fl">0.2</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>dat<span class="sc">$</span>B2 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(qtls<span class="sc">$</span>B2, <span class="fl">0.2</span><span class="sc">*</span>dat<span class="sc">$</span>X1, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a>dat[[<span class="st">"Z1_0"</span>]] <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(qtls[[<span class="st">"Z1_0"</span>]], <span class="fl">0.2</span><span class="sc">*</span>dat<span class="sc">$</span>X1, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a>dat[[<span class="st">"Z2_0"</span>]] <span class="ot">&lt;-</span> <span class="fu">qbinom</span>(qtls[[<span class="st">"Z2|Z1_0"</span>]], <span class="dv">1</span>, <span class="fu">plogis</span>(<span class="sc">-</span><span class="fl">0.2</span> <span class="sc">+</span> <span class="fl">0.4</span> <span class="sc">*</span> dat<span class="sc">$</span>X2))</span>
+<span id="cb2-13"><a href="#cb2-13"></a>dat[[<span class="st">"A_0"</span>]] <span class="ot">=</span> <span class="fu">qbinom</span>(qtls[[<span class="st">"A_0"</span>]], <span class="dv">1</span>, <span class="fu">plogis</span>(<span class="sc">-</span><span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> dat<span class="sc">$</span>X1 <span class="sc">+</span> <span class="fl">0.15</span><span class="sc">*</span>dat<span class="sc">$</span>X2 <span class="sc">+</span> <span class="fl">0.1</span><span class="sc">*</span>dat<span class="sc">$</span>B1 <span class="sc">+</span> <span class="fl">0.3</span><span class="sc">*</span>dat[[<span class="st">"Z1_0"</span>]] <span class="sc">+</span> <span class="fl">0.3</span><span class="sc">*</span> dat[[<span class="st">"Z2_0"</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="specify-formulas" class="slide level2">
 <h2>Specify Formulas</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>formulas <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(X1 <span class="sc">~</span> <span class="dv">1</span>, X2 <span class="sc">~</span> <span class="dv">1</span>,B1 <span class="sc">~</span> X2, B2 <span class="sc">~</span> X1), <span class="co"># baseline</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>formulas <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(), <span class="co"># baseline</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>                 <span class="fu">list</span>(Z1 <span class="sc">~</span>  B2 <span class="sc">+</span> Z1_l1 <span class="sc">+</span> A_l1, Z2 <span class="sc">~</span> B2 <span class="sc">+</span> Z2_l1 <span class="sc">+</span> A_l1), <span class="co"># time varying</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>                 A <span class="sc">~</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> B1 <span class="sc">+</span> Z1_l0 <span class="sc">+</span> Z2_l0 <span class="sc">+</span> A_l1, <span class="co"># treatment</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>                 Y <span class="sc">~</span> A_l0, <span class="co"># outcome</span></span>
@@ -531,7 +623,7 @@ Chase Mathis
 8  11     ordinal
 9  10 categorical</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>family <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="co"># baseline covariates</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>family <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(), <span class="co"># baseline covariates</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>               <span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">5</span>), <span class="co"># time varying covariates</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>               <span class="dv">5</span>, <span class="co"># treatment</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>               <span class="dv">3</span>, <span class="co"># outcome (exponential auxiliary outcome)</span></span>
@@ -547,59 +639,101 @@ Chase Mathis
 <span id="cb7-4"><a href="#cb7-4"></a>gamma4 <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
 <span id="cb7-5"><a href="#cb7-5"></a>gamma5 <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>betaAY <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.2</span></span>
 <span id="cb7-8"><a href="#cb7-8"></a>rho_to_beta <span class="ot">&lt;-</span> <span class="cf">function</span>(rho){</span>
 <span id="cb7-9"><a href="#cb7-9"></a>  x <span class="ot">&lt;-</span> (rho <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">/</span><span class="dv">2</span></span>
 <span id="cb7-10"><a href="#cb7-10"></a>  <span class="fu">return</span>(<span class="fu">log</span>(x<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>x)))</span>
 <span id="cb7-11"><a href="#cb7-11"></a>}</span>
-<span id="cb7-12"><a href="#cb7-12"></a>pars <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">X1 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="dv">0</span>, <span class="at">phi =</span> <span class="dv">1</span>),</span>
-<span id="cb7-13"><a href="#cb7-13"></a>             <span class="at">X2 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="dv">0</span>), <span class="co"># expit(0) = 0.5</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a>             <span class="at">B1 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">0.4</span>),<span class="at">phi =</span> <span class="dv">1</span>),</span>
-<span id="cb7-15"><a href="#cb7-15"></a>             <span class="at">B2 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>), <span class="at">phi =</span> <span class="dv">1</span>),</span>
-<span id="cb7-16"><a href="#cb7-16"></a>             <span class="at">Z1 =</span> <span class="fu">list</span>(<span class="at">beta=</span><span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>, <span class="fl">0.7</span>,<span class="sc">-</span><span class="fl">0.6</span> ), <span class="at">phi=</span><span class="dv">1</span>),</span>
-<span id="cb7-17"><a href="#cb7-17"></a>             <span class="at">Z2 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">0.4</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.6</span>)),</span>
-<span id="cb7-18"><a href="#cb7-18"></a>             <span class="at">A =</span> <span class="fu">list</span>(<span class="at">beta=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, gamma1, gamma2, gamma3, gamma4, gamma5, <span class="dv">1</span>)),</span>
-<span id="cb7-19"><a href="#cb7-19"></a>             <span class="at">Y =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.2</span>), <span class="at">phi =</span> <span class="dv">1</span>), <span class="co"># negative 1/exp</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a>             <span class="at">copZ1 =</span> <span class="fu">list</span>(<span class="at">beta=</span> <span class="fu">rho_to_beta</span>(<span class="sc">-</span><span class="fl">0.6</span>), <span class="at">par2 =</span> <span class="dv">5</span>),</span>
-<span id="cb7-21"><a href="#cb7-21"></a>             <span class="at">copZ2 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">rho_to_beta</span>(<span class="fl">0.2</span>), <span class="at">par2 =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-12"><a href="#cb7-12"></a>pars <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Z1 =</span> <span class="fu">list</span>(<span class="at">beta=</span><span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>, <span class="fl">0.7</span>,<span class="sc">-</span><span class="fl">0.6</span> ), <span class="at">phi=</span><span class="dv">1</span>),</span>
+<span id="cb7-13"><a href="#cb7-13"></a>             <span class="at">Z2 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">0.4</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.6</span>)),</span>
+<span id="cb7-14"><a href="#cb7-14"></a>             <span class="at">A =</span> <span class="fu">list</span>(<span class="at">beta=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, gamma1, gamma2, gamma3, gamma4, gamma5, <span class="dv">1</span>)),</span>
+<span id="cb7-15"><a href="#cb7-15"></a>             <span class="at">Y =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="sc">-</span>(betaAY)), <span class="at">phi =</span> <span class="dv">1</span>), <span class="co"># negative 1/exp</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>             <span class="at">copZ1 =</span> <span class="fu">list</span>(<span class="at">beta=</span> <span class="fu">rho_to_beta</span>(<span class="sc">-</span><span class="fl">0.6</span>), <span class="at">par2 =</span> <span class="dv">5</span>),</span>
+<span id="cb7-17"><a href="#cb7-17"></a>             <span class="at">copZ2 =</span> <span class="fu">list</span>(<span class="at">beta =</span> <span class="fu">rho_to_beta</span>(<span class="fl">0.2</span>), <span class="at">par2 =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="simulate" class="slide level2">
 <h2>Simulate</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># dat2 &lt;- msm_samp(T = 10,dat = dat, qtls = qtls,</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#                  formulas = formulas,</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#                  family = family,</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#                  pars = pars,</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#                  link = list(list("identity", "logit", "identity", "identity"),</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#                              list("identity", "logit"),</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#                              "logit", "log"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">msm_samp</span>(<span class="at">T =</span> <span class="dv">10</span>,<span class="at">dat =</span> dat, <span class="at">qtls =</span> qtls,</span>
+<span id="cb8-2"><a href="#cb8-2"></a>                 <span class="at">formulas =</span> formulas,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>                 <span class="at">family =</span> family,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>                 <span class="at">pars =</span> pars,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>                 <span class="at">link =</span> <span class="fu">list</span>(<span class="fu">list</span>(),</span>
+<span id="cb8-6"><a href="#cb8-6"></a>                             <span class="fu">list</span>(<span class="st">"identity"</span>, <span class="st">"logit"</span>),</span>
+<span id="cb8-7"><a href="#cb8-7"></a>                             <span class="st">"logit"</span>, <span class="st">"log"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="recover-the-estimate" class="slide level2">
 <h2>Recover the Estimate</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># datl &lt;- surv_to_long(dat2)</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co"># </span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># temp &lt;- ipwtm(</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#   exposure = A,</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#   family = "binomial",</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#   numerator = ~ 1,</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#   denominator = ~ Z1 +Z2,</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#   link = "logit",</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#   id = id,</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#   timevar = t,</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#   type = "all",</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#   data = datl)</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="co"># </span></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="co"># </span></span>
-<span id="cb9-16"><a href="#cb9-16"></a><span class="co"># datl$wt &lt;- temp$ipw.weights</span></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="co"># glmY &lt;- suppressWarnings(coxph(Surv(t, t_stop,Y)~ A, id = id, data = datl,</span></span>
-<span id="cb9-18"><a href="#cb9-18"></a><span class="co">#                                weights = datl$wt, timefix = FALSE))</span></span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="co"># sumY &lt;- summary(glmY)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>datl <span class="ot">&lt;-</span> <span class="fu">surv_to_long</span>(dat2)</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>temp <span class="ot">&lt;-</span> ipw<span class="sc">::</span><span class="fu">ipwtm</span>(</span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="at">exposure =</span> A,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>  <span class="at">family =</span> <span class="st">"binomial"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="at">numerator =</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="at">denominator =</span> <span class="sc">~</span> Z1 <span class="sc">+</span>Z2,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>  <span class="at">link =</span> <span class="st">"logit"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10"></a>  <span class="at">id =</span> id,</span>
+<span id="cb9-11"><a href="#cb9-11"></a>  <span class="at">timevar =</span> t,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>  <span class="at">type =</span> <span class="st">"all"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13"></a>  <span class="at">data =</span> datl)</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a></span>
+<span id="cb9-16"><a href="#cb9-16"></a>datl<span class="sc">$</span>wt <span class="ot">&lt;-</span> temp<span class="sc">$</span>ipw.weights</span>
+<span id="cb9-17"><a href="#cb9-17"></a>glmY <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(survival<span class="sc">::</span><span class="fu">coxph</span>(<span class="fu">Surv</span>(t, t_stop,Y)<span class="sc">~</span> A, <span class="at">id =</span> id, <span class="at">data =</span> datl,</span>
+<span id="cb9-18"><a href="#cb9-18"></a>                                <span class="at">weights =</span> datl<span class="sc">$</span>wt, <span class="at">timefix =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb9-19"><a href="#cb9-19"></a> sumY <span class="ot">&lt;-</span> <span class="fu">summary</span>(glmY)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="footer footer-default">
+</section>
+<section id="recover-the-estimate-1" class="slide level2">
+<h2>Recover the Estimate</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>sumY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survival::coxph(formula = Surv(t, t_stop, Y) ~ A, data = datl, 
+    weights = datl$wt, id = id, timefix = FALSE)
+
+  n= 23018, number of events= 9962 
+
+      coef exp(coef) se(coef) robust se     z Pr(&gt;|z|)    
+A -0.17726   0.83757  0.02119   0.02270 -7.81 5.73e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+  exp(coef) exp(-coef) lower .95 upper .95
+A    0.8376      1.194    0.8011    0.8757
+
+Concordance= 0.518  (se = 0.003 )
+Likelihood ratio test= 71.24  on 1 df,   p=&lt;2e-16
+Wald test            = 60.99  on 1 df,   p=6e-15
+Score (logrank) test = 70.18  on 1 df,   p=&lt;2e-16,   Robust = 60.88  p=6e-15
+
+  (Note: the likelihood ratio and score tests assume independence of
+     observations within a cluster, the Wald and robust score tests do not).</code></pre>
+</div>
+</div>
+<p>We recall that <span class="math inline">\(\beta_{AY}\)</span> is -0.2</p>
+</section>
+<section id="extensions" class="slide level2">
+<h2>Extensions</h2>
+<ul>
+<li>Multiple Outcomes
+<ul>
+<li>One survival and other non-survival outcomes</li>
+<li>Two survival outcomes (competing risks)</li>
+</ul></li>
+</ul>
+<p>Currently a work in progress!</p>
+</section>
+<section id="survivl" class="slide level2">
+<h2>Survivl</h2>
+<p>Check out the package!</p>
+
+<img data-src="figures/survivl_functions.png" class="r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
