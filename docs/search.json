@@ -1,87 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Chase Mathis",
-    "section": "",
-    "text": "Duke University BS Mathematical Statistics and Computer Science (2025)\nContact: chase.mathis at duke.edu."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "For team members, visit our Password Protected Team Website."
-  },
-  {
-    "objectID": "projects.html#academic-projects",
-    "href": "projects.html#academic-projects",
-    "title": "Projects",
-    "section": "Academic Projects",
-    "text": "Academic Projects\n\nIncreasing Life Expectancy with Controllable Variables\n\n\n\nReport\n\n\n\n\n\nPredicting Turbulence and Posterior Distributions\n\n\n\nReport"
-  },
-  {
-    "objectID": "index.html#research-interests",
-    "href": "index.html#research-interests",
-    "title": "Chase Mathis",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nInterpretable Machine Learning\nComputer Vision in Computational Biology\nBayesian Inference\nGraph Machine Learning\nApplications in Public Policy and Human-Computer Interactions"
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Chase Mathis",
-    "section": "",
-    "text": "I am an undergraduate student at Duke University, pursuing a Bachelor’s of Science in Statistics, Computer Science, and a Minor in Math (3.86 GPA).\nI have worked as a data analyst for Duke Field Hockey and as an undergraduate TA in the Statistics department at Duke. I have also participated in several research projects and conferences.\nCurrently, I am working on a project related to Multi-modal deep learning applications to statistic model pipelines of Electronic Health Record (EHR) data. I am proficient in Python, R, SQL, and Java. I also speak conversational Mandarin."
-  },
-  {
-    "objectID": "projects.html#duke-field-hockey",
-    "href": "projects.html#duke-field-hockey",
-    "title": "Research & Projects",
-    "section": "Duke Field Hockey",
-    "text": "Duke Field Hockey\nFor team members, visit our Password Protected Team Website."
-  },
-  {
-    "objectID": "projects.html#summer-institute-in-biomedical-informatics-sibmi",
-    "href": "projects.html#summer-institute-in-biomedical-informatics-sibmi",
-    "title": "Research & Projects",
-    "section": "",
-    "text": "Summer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\nMy final research presentation is here"
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Chase Mathis",
-    "section": "",
-    "text": "Duke University BS Mathematical Statistics and Computer Science (2025)\nContact: chase.mathis at duke.edu."
-  },
-  {
-    "objectID": "index.html#current-research",
-    "href": "index.html#current-research",
-    "title": "Chase Mathis",
-    "section": "Current Research",
-    "text": "Current Research\nCurrently, I am working on a project related to Multi-modal deep learning applications to statistic model pipelines of Electronic Health Record (EHR) data. I am proficient in Python, R, SQL, and Java. I also speak conversational Mandarin."
-  },
-  {
-    "objectID": "index.html#work-experience",
-    "href": "index.html#work-experience",
-    "title": "Chase Mathis",
-    "section": "Work Experience",
-    "text": "Work Experience\nI have worked as a data analyst for Duke Field Hockey and as an undergraduate TA in the Statistics department at Duke. I have also participated in several research projects and conferences."
-  },
-  {
-    "objectID": "projects.html#inspire-lab",
-    "href": "projects.html#inspire-lab",
-    "title": "Research & Projects",
-    "section": "InSPIre Lab",
-    "text": "InSPIre Lab\nFor more information, visit the Lab Website."
-  },
-  {
-    "objectID": "research.html",
-    "href": "research.html",
+    "objectID": "research.html#arxiv",
+    "href": "research.html#arxiv",
     "title": "Research",
-    "section": "",
-    "text": "Presentation"
+    "section": "Arxiv",
+    "text": "Arxiv"
+  },
+  {
+    "objectID": "research.html#deans-summer-research-fellowship",
+    "href": "research.html#deans-summer-research-fellowship",
+    "title": "Research",
+    "section": "Deans’ Summer Research Fellowship",
+    "text": "Deans’ Summer Research Fellowship\nSummer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans investigating noisy measurements of confounders.\nI presented a poster at the Undergraduate Research symposium, which can be found here.\nFurther, I created software for the new method, which can be found here."
   },
   {
     "objectID": "research.html#summer-institute-in-biomedical-informatics-sibmi",
@@ -98,24 +28,24 @@
     "text": "InSPIre Lab\n\nFor more information, visit the Lab Website."
   },
   {
-    "objectID": "projects.html#work-projects",
-    "href": "projects.html#work-projects",
+    "objectID": "projects.html",
+    "href": "projects.html",
     "title": "Projects",
-    "section": "Work Projects",
-    "text": "Work Projects\n\nDuke Field Hockey\nFor team members, visit our Password Protected Team Website."
+    "section": "",
+    "text": "For team members, visit our Password Protected Team Website."
   },
   {
-    "objectID": "research.html#deans-summer-research-fellowship",
-    "href": "research.html#deans-summer-research-fellowship",
-    "title": "Research",
-    "section": "Deans’ Summer Research Fellowship",
-    "text": "Deans’ Summer Research Fellowship\nSummer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans investigating noisy measurements of confounders.\nI presented a poster at the Undergraduate Research symposium, which can be found here.\nFurther, I created software for the new method, which can be found here."
+    "objectID": "projects.html#academic-projects",
+    "href": "projects.html#academic-projects",
+    "title": "Projects",
+    "section": "Academic Projects",
+    "text": "Academic Projects\n\nIncreasing Life Expectancy with Controllable Variables\n\n\n\nReport\n\n\n\n\n\nPredicting Turbulence and Posterior Distributions\n\n\n\nReport"
   },
   {
-    "objectID": "research.html#arxiv",
-    "href": "research.html#arxiv",
-    "title": "Research",
-    "section": "Arxiv",
-    "text": "Arxiv"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Chase Mathis",
+    "section": "",
+    "text": "Duke University BS Mathematical Statistics and Computer Science (2025)\nContact: chase.mathis at duke.edu."
   }
 ]
