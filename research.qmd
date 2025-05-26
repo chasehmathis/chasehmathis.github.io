@@ -5,7 +5,7 @@ title: "Research"
 
 ## [Arxiv](https://arxiv.org/a/mathis_c_1.html)
 
-## Deans' Summer Research Fellowship
+## Honors Thesis (Supported by Deans' Summer Research Fellowship)
 Summer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans
 investigating noisy measurements of confounders. 
 
@@ -13,6 +13,8 @@ I presented a poster at the Undergraduate Research symposium, which can be found
 [here](docs/PDF_Files/DURF_poster.pdf). 
 
 Further, I created software for the new method, which can be found [here](https://chasehmathis.github.io/ordinalconfounder).
+
+This all led to me defending my honors thesis this fall. 
 
 ## Summer Institute in Biomedical Informatics (SIBMI)
 
