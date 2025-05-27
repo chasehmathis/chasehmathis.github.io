@@ -18,14 +18,14 @@
     "href": "research.html#summer-institute-in-biomedical-informatics-sibmi",
     "title": "Research",
     "section": "Summer Institute in Biomedical Informatics (SIBMI)",
-    "text": "Summer Institute in Biomedical Informatics (SIBMI)\n\nSummer 2023 I worked in CELEHS Lab with Dr. Tianxi Cai and Dr. Junwei Lu.\n\n\n\nResearch Presentation\n\n\n\nPresentation\n\n\n\n\nA video I made regarding Medical Domain Contrastive Learning can be seen below"
+    "text": "Summer Institute in Biomedical Informatics (SIBMI)\n\nSummer 2023 I worked in CELEHS Lab with Prof. Tianxi Cai and Prof. Junwei Lu.\n\n\n\nResearch Presentation\n\n\n\nPresentation\n\n\n\n\nA video I made regarding Medical Domain Contrastive Learning can be seen below"
   },
   {
     "objectID": "research.html#inspire-lab",
     "href": "research.html#inspire-lab",
     "title": "Research",
     "section": "InSPIre Lab",
-    "text": "InSPIre Lab\n\nFor more information, visit the Lab Website."
+    "text": "InSPIre Lab\n Lab Website."
   },
   {
     "objectID": "projects.html",
@@ -60,6 +60,62 @@
     "href": "research.html#honors-thesis-supported-by-deans-summer-research-fellowship",
     "title": "Research",
     "section": "Honors Thesis (Supported by Deans’ Summer Research Fellowship)",
-    "text": "Honors Thesis (Supported by Deans’ Summer Research Fellowship)\nSummer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans investigating noisy measurements of confounders.\nI presented a poster at the Undergraduate Research symposium, which can be found here.\nFurther, I created software for the new method, which can be found here.\nThis all led to me defending my honors thesis this fall."
+    "text": "Honors Thesis (Supported by Deans’ Summer Research Fellowship)\nSummer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans investigating noisy measurements of confounders."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Advisors: Prof. Alexander Volfovsky & Prof. Robin Evans\nCommittee: Prof. Peter Hoff & Prof. Surya Tokdar"
+  },
+  {
+    "objectID": "research.html#articles",
+    "href": "research.html#articles",
+    "title": "Research",
+    "section": "",
+    "text": "Advisors: Prof. Alexander Volfovsky & Prof. Robin Evans\nCommittee: Prof. Peter Hoff & Prof. Surya Tokdar"
+  },
+  {
+    "objectID": "research.html#software",
+    "href": "research.html#software",
+    "title": "Research",
+    "section": "Software",
+    "text": "Software\nordinalconfounder\nsurvivl\ncausl"
+  },
+  {
+    "objectID": "honorsthesis.html",
+    "href": "honorsthesis.html",
+    "title": "A New Method to Adjust for Ordinal Variables With a Pre-Diabetes Case Study",
+    "section": "",
+    "text": "This browser does not support PDFs. Please download the PDF to view it: &lt;a href=\"docs/PDF_Files/StatThesis.pdf\"&gt;Download PDF&lt;/a&gt;."
+  },
+  {
+    "objectID": "honorsthesis.html#articles",
+    "href": "honorsthesis.html#articles",
+    "title": "A New Method to Adjust for Ordinal Variables With a Pre-Diabetes Case Study",
+    "section": "",
+    "text": "Advisors: Prof. Alexander Volfovsky & Prof. Robin Evans\nCommittee: Prof. Peter Hoff & Prof. Surya Tokdar"
+  },
+  {
+    "objectID": "honorsthesis.html#software",
+    "href": "honorsthesis.html#software",
+    "title": "A New Method to Adjust for Ordinal Variables With a Pre-Diabetes Case Study",
+    "section": "Software",
+    "text": "Software\nordinalconfounder\nsurvivl\ncausl"
+  },
+  {
+    "objectID": "honorsthesis.html#article",
+    "href": "honorsthesis.html#article",
+    "title": "A New Method to Adjust for Ordinal Variables With a Pre-Diabetes Case Study",
+    "section": "",
+    "text": "This browser does not support PDFs. Please download the PDF to view it: &lt;a href=\"docs/PDF_Files/StatThesis.pdf\"&gt;Download PDF&lt;/a&gt;."
+  },
+  {
+    "objectID": "honorsthesis.html#text-2",
+    "href": "honorsthesis.html#text-2",
+    "title": "A New Method to Adjust for Ordinal Variables With a Pre-Diabetes Case Study",
+    "section": "Text 2",
+    "text": "Text 2"
   }
 ]
