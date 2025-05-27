@@ -1,41 +1,23 @@
 ---
 title: "Research"
 ---
-## [Google Scholar](https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378)
 
-## [Arxiv](https://arxiv.org/a/mathis_c_1.html)
+## Articles
 
-## Honors Thesis (Supported by Deans' Summer Research Fellowship)
-Summer of 2024, I worked independently under Prof. Alexander Volfovsky & Prof. Robin Evans
-investigating noisy measurements of confounders. 
+### [Google Scholar](https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378)
 
-I presented a poster at the Undergraduate Research symposium, which can be found
-[here](docs/PDF_Files/DURF_poster.pdf). 
+### [ArXiv](https://arxiv.org/a/mathis_c_1.html)
 
-Further, I created software for the new method, which can be found [here](https://chasehmathis.github.io/ordinalconfounder).
+### [Honors Thesis](honorsthesis.html) (Supported by [Deans' Summer Research Fellowship](https://undergraduateresearch.duke.edu/DSRF))
 
-This all led to me defending my honors thesis this fall. 
+Advisors: Prof. Alexander Volfovsky & Prof. Robin Evans
 
-## Summer Institute in Biomedical Informatics (SIBMI)
+Committee: Prof. Peter Hoff & Prof. Surya Tokdar
 
-#### Summer 2023 I worked in [CELEHS Lab](https://celehs.hms.harvard.edu/) with Dr. Tianxi Cai and Dr. Junwei Lu.
+## Software
 
-![](images/hms.jpeg){width="600"}
+[ordinalconfounder](https://github.com/chasehmathis/ordinalconfounder)
 
-#### Research Presentation
+[survivl](https://github.com/rje42/survivl)
 
-[![Presentation](images/SIBMIPres.png)](docs/PDF_Files/SIBMI_Final_Presentation.pdf)
-
-#### A video I made regarding Medical Domain Contrastive Learning can be seen below
-
-{{< video https://youtu.be/qEqeYpuUfKw title='Contrastiv Learning in Medical Domain' >}}
-
-------------------------------------------------------------------------
-
-## InSPIre Lab
-
-![](images/Inspire.png){width="600"}
-
-For more information, visit the [Lab Website](https://inspire.cs.duke.edu/).
-
-------------------------------------------------------------------------
+[causl](https://github.com/rje42/causl)
