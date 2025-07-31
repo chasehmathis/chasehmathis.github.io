@@ -7,10 +7,11 @@ about:
   image-width: 18em
 ---
 
-## Education
 
 *UC Berkeley Statistics PhD Candidate*
 
 *Duke University BS Mathematics and Statistics (High Distinction)*
 
-*Contact: chase_mathis at berkeley.edu.*
+*Interested in Causal Inference, Statistical Methodology, Bayesian Statistics*
+
+*Contact: cmathis [at] berkeley [dot] edu*
