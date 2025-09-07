@@ -4,15 +4,10 @@ title: "Research"
 
 ## Articles
 
-### [Google Scholar](https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378)
+See my [Google Scholar](https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378) and [Arxiv](https://arxiv.org/a/mathis_c_1.html) for a full list.
 
-### [ArXiv](https://arxiv.org/a/mathis_c_1.html)
-
-### [Honors Thesis](honorsthesis.html) (Supported by [Deans' Summer Research Fellowship](https://undergraduateresearch.duke.edu/DSRF))
-
-Advisors: Prof. Alexander Volfovsky & Prof. Robin Evans
-
-Committee: Prof. Peter Hoff & Prof. Surya Tokdar
+My  [undergraduate honors thesis](honorsthesis.html) (Supported by [Deans' Summer Research Fellowship](https://undergraduateresearch.duke.edu/DSRF)) focused on
+controlling for noisy measurements in a Bayesian manner. My advisors were Prof. Alexander Volfovsky & Prof. Robin Evans, and my full committe included Prof. Peter Hoff & Prof. Surya Tokdar.
 
 ## Software
 

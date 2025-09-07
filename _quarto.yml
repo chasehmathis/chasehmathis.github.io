@@ -11,7 +11,7 @@ website:
   
   
   navbar:
-    background: "#AFC2D2"
+    background: "#656565"
     foreground: "#F3F6F4"
     style: docked
     search: true

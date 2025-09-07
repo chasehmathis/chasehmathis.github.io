@@ -2,16 +2,16 @@
 title: "Chase Mathis"
 about:
   template: jolla
-  image: images/ChasePicture.jpeg
+  image: images/ChaseBerkeley.jpg
   image-shape: round
-  image-width: 18em
+  image-width: 14em
 ---
 
 
-*UC Berkeley Statistics PhD Candidate*
-
-*Duke University BS Mathematics and Statistics (High Distinction)*
-
-*Interested in Causal Inference, Statistical Methodology, Bayesian Statistics*
+I am a first year Statistics PhD Candidate at UC Berkeley. Previously, 
+I graduated from Duke University with a BS in Mathematics and Statistics (High Distinction). 
+My interests include (but are not limited to): causal inference, statistical methodology, bayesian statistics, and distribution free inference
 
 *Contact: cmathis [at] berkeley [dot] edu*
+
+*Office : 357 Evans Hall, Berkeley CA, 94704*
