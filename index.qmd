@@ -8,7 +8,7 @@ about:
 ---
 
 
-I am a first year Statistics PhD Candidate at UC Berkeley. Previously, 
+I am a first year Statistics PhD student at UC Berkeley. Previously, 
 I graduated from Duke University with a BS in Mathematics and Statistics (High Distinction). 
 My interests include (but are not limited to): causal inference, statistical methodology, Bayesian statistics, and distribution free inference
 

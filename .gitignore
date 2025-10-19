@@ -6,3 +6,4 @@
 .nojekyll.c
 .DS_Store
 .csv
+**/*.quarto_ipynb
