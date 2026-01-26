@@ -20,6 +20,8 @@ website:
         file: index.qmd
       - text: "Research"
         href: research.qmd
+      - text: "Statistics Diary"
+        href: statistics-diary.qmd
       - text: "CV"
         href: PDF_Files/Resume.pdf
 

@@ -1,0 +1,17 @@
+{
+  "hash": "e60ddaf3926db6796eb1fd6beb83b989",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"What Happened to Normal Approximations?\"\ndate: \"2026-01-26\"\noutput: html_document\n---\n\nThis semester I will be taking STAT 210B, which has the generic name \"Theoretical\nStatistics\". I predict the course will go through empirical process theory and \ntopics like VC-dimension, concentration inequalities, and the symmetrization lemma.\n\nMy instructor, Prof. Nikita Zhivotovskiy, remarked in the first day of class, that \nthe class will have a lens more toward finite sample results rather than asymptotics.\nPrevioulsy, the class had a few more lectures dedicated to asympotitc statistics. He \nclaimed that in the current day using finite sample results is more intuitive. \nMost theorems in ML conference papers use finite sample results to prove their theorems.\nGenerally, he claimed thinking in terms of asymptotics is an old school approach in statistics, so much so that one of his asymptotic papers couldn't find reviewers. \n\nSo, what happened to asymptotics? Prof. Lucien LeCam, an early\nprofessor of Statistics at Berkeley, is often given the title: \"father of modern asymptotics\".\nHis fundamental result of Local Asymptotic Normality is not taught in the PhD \ncurriculum. I'm curious if it ever was. But if I described to him the size of datasets today,\nwould he be surprised that asymptotics has fallen by the wayside?\n\nA defense of concentration inequalities is that datasets did not only grow longer,\nthey also grew wider. This means that for a dataset described by a matrix with n rows\nand p columns, n grew but so did p. And many modern results consider the \"regime\" where \n$\\frac{n}{p} \\to \\alpha \\in (0,\\infty)$. The tools of LeCam were not designed to deal with\ndiagonally growing datasets, only taller growing ones.\n\nI will concede that concentration inequalities are well suited for diagnolly growing\ndatasets. However, even when datasets grow only taller and not wider, there is a culture that\nsays a researcher should use concentration inequalities. For instance, research in \nBandits assume bounded rewards and then apply Hoefdding's ad nauseam. At the end,\nthey say \"Machine learning uses lots of data, lets take $n \\to \\infty$\". \n\nA result I came across did this. It used concentration inequalities then let $n \\to \\infty$. I \nwondered could we first let $n \\to \\infty$ appealing to normality, and then do the analysis. I did and the result was the same if not a bit stronger. Maybe I'll circle back to this when I think if its of any importance. \n\nBut I think appealing to normality is nice and\nunder appreciated. I have a belief that most things in nature with large enough datasets (especially now) are somewhat normal. I would recommend people ask \n\"can I appeal to normality?\" and \"what happens if I do?\". Morally the results should be \nabout the same, and if they're not that's interesting! There's much more to this, \nbut I think normal approximations have the same fate linear regression does. Because \nit is taught in STAT 101, nobody likes to use it. But in reality, it's pretty good and\nfor most cases it is the best. \n",
+    "supporting": [
+      "Asymptotics_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

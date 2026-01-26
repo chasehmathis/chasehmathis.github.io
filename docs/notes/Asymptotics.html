@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-26">
 
-<title>Research – Chase Mathis</title>
+<title>What Happened to Normal Approximations? – Chase Mathis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +24,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/CM.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e08d34f8c8b101884af4e77da93e104c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/CM.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e08d34f8c8b101884af4e77da93e104c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,8 +75,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style/styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -247,9 +277,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Chase Mathis</span>
     </a>
   </div>
@@ -260,19 +290,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./statistics-diary.html"> 
+    <a class="nav-link" href="../statistics-diary.html"> 
 <span class="menu-text">Statistics Diary</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./PDF_Files/Resume.pdf"> 
+    <a class="nav-link" href="../PDF_Files/Resume.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -299,15 +329,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#articles" id="toc-articles" class="nav-link active" data-scroll-target="#articles">Articles</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -315,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research</h1>
+<h1 class="title">What Happened to Normal Approximations?</h1>
 </div>
 
 
@@ -323,6 +346,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 26, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -332,19 +361,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="articles" class="level2">
-<h2 class="anchored" data-anchor-id="articles">Articles</h2>
-<p>See my <a href="https://scholar.google.com/citations?hl=en&amp;user=JzcfhPsAAAAJ&amp;view_op=list_works&amp;sortby=title&amp;inst=10163712085368340378">Google Scholar</a> and <a href="https://arxiv.org/a/mathis_c_1.html">Arxiv</a> for a full list.</p>
-<p>My <a href="honorsthesis.html">undergraduate honors thesis</a> (Supported by <a href="https://undergraduateresearch.duke.edu/DSRF">Deans’ Summer Research Fellowship</a>) focused on controlling for noisy measurements in a Bayesian manner. My advisors were Prof.&nbsp;Alexander Volfovsky &amp; Prof.&nbsp;Robin Evans, and my full committe included Prof.&nbsp;Peter Hoff &amp; Prof.&nbsp;Surya Tokdar.</p>
-</section>
-<section id="software" class="level2">
-<h2 class="anchored" data-anchor-id="software">Software</h2>
-<p><a href="https://github.com/chasehmathis/ordinalconfounder">ordinalconfounder</a></p>
-<p><a href="https://github.com/rje42/survivl">survivl</a></p>
-<p><a href="https://github.com/rje42/causl">causl</a></p>
+<p>This semester I will be taking STAT 210B, which has the generic name “Theoretical Statistics”. I predict the course will go through empirical process theory and topics like VC-dimension, concentration inequalities, and the symmetrization lemma.</p>
+<p>My instructor, Prof.&nbsp;Nikita Zhivotovskiy, remarked in the first day of class, that the class will have a lens more toward finite sample results rather than asymptotics. Previoulsy, the class had a few more lectures dedicated to asympotitc statistics. He claimed that in the current day using finite sample results is more intuitive. Most theorems in ML conference papers use finite sample results to prove their theorems. Generally, he claimed thinking in terms of asymptotics is an old school approach in statistics, so much so that one of his asymptotic papers couldn’t find reviewers.</p>
+<p>So, what happened to asymptotics? Prof.&nbsp;Lucien LeCam, an early professor of Statistics at Berkeley, is often given the title: “father of modern asymptotics”. His fundamental result of Local Asymptotic Normality is not taught in the PhD curriculum. I’m curious if it ever was. But if I described to him the size of datasets today, would he be surprised that asymptotics has fallen by the wayside?</p>
+<p>A defense of concentration inequalities is that datasets did not only grow longer, they also grew wider. This means that for a dataset described by a matrix with n rows and p columns, n grew but so did p.&nbsp;And many modern results consider the “regime” where <span class="math inline">\(\frac{n}{p} \to \alpha \in (0,\infty)\)</span>. The tools of LeCam were not designed to deal with diagonally growing datasets, only taller growing ones.</p>
+<p>I will concede that concentration inequalities are well suited for diagnolly growing datasets. However, even when datasets grow only taller and not wider, there is a culture that says a researcher should use concentration inequalities. For instance, research in Bandits assume bounded rewards and then apply Hoefdding’s ad nauseam. At the end, they say “Machine learning uses lots of data, lets take <span class="math inline">\(n \to \infty\)</span>”.</p>
+<p>A result I came across did this. It used concentration inequalities then let <span class="math inline">\(n \to \infty\)</span>. I wondered could we first let <span class="math inline">\(n \to \infty\)</span> appealing to normality, and then do the analysis. I did and the result was the same if not a bit stronger. Maybe I’ll circle back to this when I think if its of any importance.</p>
+<p>But I think appealing to normality is nice and under appreciated. I have a belief that most things in nature with large enough datasets (especially now) are somewhat normal. I would recommend people ask “can I appeal to normality?” and “what happens if I do?”. Morally the results should be about the same, and if they’re not that’s interesting! There’s much more to this, but I think normal approximations have the same fate linear regression does. Because it is taught in STAT 101, nobody likes to use it. But in reality, it’s pretty good and for most cases it is the best.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
