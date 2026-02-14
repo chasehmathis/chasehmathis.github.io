@@ -1,0 +1,17 @@
+---
+title: "Writing"
+format: html
+---
+A collection of topics in Statitsics I'm thinking about.
+
+### Spring 2026
+
+[Taking N(ormal) to infinity - January 25](notes/Asymptotics.html)
+
+### Book & Movie Reviews
+
+[GoodReads](https://www.goodreads.com/user/show/123864011-chase-mathis)
+
+[LetterBoxd](https://letterboxd.com/chasemathis/)
+
+
