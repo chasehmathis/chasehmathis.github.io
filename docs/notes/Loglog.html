@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-03-02">
 
-<title>Research – Chase Mathis</title>
+<title>On Iterated Logarithms – Chase Mathis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +24,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/CM.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e08d34f8c8b101884af4e77da93e104c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/CM.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e08d34f8c8b101884af4e77da93e104c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,8 +75,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style/styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -247,9 +277,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Chase Mathis</span>
     </a>
   </div>
@@ -260,19 +290,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./writing.html"> 
+    <a class="nav-link" href="../writing.html"> 
 <span class="menu-text">Writing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./PDF_Files/Resume.pdf"> 
+    <a class="nav-link" href="../PDF_Files/Resume.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -304,8 +334,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#undergraduate" id="toc-undergraduate" class="nav-link active" data-scroll-target="#undergraduate">Undergraduate</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#the-main-law-of-iterated-logarithm" id="toc-the-main-law-of-iterated-logarithm" class="nav-link active" data-scroll-target="#the-main-law-of-iterated-logarithm">The (Main) Law of Iterated Logarithm</a></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research</h1>
+<h1 class="title">On Iterated Logarithms</h1>
 </div>
 
 
@@ -323,6 +352,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 2, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -332,33 +367,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>If you want to talk about my research, book an appointment below.</p>
-<!-- Google Calendar Appointment Scheduling begin -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async=""></script>
-<script>
-(function() {
-  var target = document.currentScript;
-  window.addEventListener('load', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/AcZssZ3yAfyuFj676chKZ5lSCigGKPrN8r3Ey3B96ok=?gv=true',
-      color: '#039BE5',
-      label: 'Book an appointment',
-      target,
-    });
-  });
-})();
-</script>
-<!-- end Google Calendar Appointment Scheduling -->
-<section id="undergraduate" class="level2">
-<h2 class="anchored" data-anchor-id="undergraduate">Undergraduate</h2>
-<p>My <a href="honorsthesis.html">undergraduate honors thesis</a> (Supported by <a href="https://undergraduateresearch.duke.edu/DSRF">Deans’ Summer Research Fellowship</a>) focused on controlling for noisy measurements in a Bayesian manner. My advisors were Prof.&nbsp;Alexander Volfovsky &amp; Prof.&nbsp;Robin Evans, and my full committe included Prof.&nbsp;Peter Hoff &amp; Prof.&nbsp;Surya Tokdar.</p>
-</section>
-<section id="software" class="level2">
-<h2 class="anchored" data-anchor-id="software">Software</h2>
-<p><a href="https://github.com/chasehmathis/ordinalconfounder">ordinalconfounder</a></p>
-<p><a href="https://github.com/rje42/survivl">survivl</a></p>
-<p><a href="https://github.com/rje42/causl">causl</a></p>
+<p>In undergraduate algorithms, you learn about algorithms to quickly sort your data. You learn for a list of <span class="math inline">\(n\)</span> numbers you expect runtime to scale like <span class="math inline">\(O(n \log n)\)</span>. My professor told me that <span class="math inline">\(n\log n\)</span> was <em>nearly</em> linear. If <span class="math inline">\(n \log n\)</span> is nearly linear, then what is <span class="math inline">\(n \log (\log n)\)</span>?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Loglog_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Looking at the plot, if <span class="math inline">\(n \log n\)</span> is nearly linear, I’d be fine saying <span class="math inline">\(n \log \log n\)</span> <em>is</em> linear.</p>
+<p>Iterated logarithms are fun. For instance take some gigantic power like <span class="math inline">\(1000000 = k\)</span>. Then <span class="math display">\[\log \log n^k \asymp \log \log n.\]</span> The function is at a boundary of what is possible and what is not. Like the Erdös problems—they are not too hard but also not easy and eventually solvable. The function represents the edge of what is humanly possible and what is not. As made popular by the film Interstellar, Murphy’s law says “Whatever can happen will happen”.</p>
+<p>I want to do some exposition on the role of iterated logarithms in Statistics. First, iterated logarithms usually conjure up an image of the Law of Iterated Logarithms (LIL). Most PhDs students haven taken a measure theory course know that it exists, but maybe not exactly what it is. They likely do not know that there are <em>two</em> LILs, with the more interesting one often referred to as the “other” LIL. In the popular Durrett textbook the LIL appears in the end where some classes fail to get to. In fact, I took both semesters of Measure theory at Duke (where Durrett is professor emeritus) and we never covered the law of iterated logarithm.</p>
+<p>Second, the function showes up other places. These places are hard to find. If you type in “iterated logarithm {statistics, probability}” in google or your favorite LLM, you’ll be flooded with the (main) LIL. So when you find a place the function shows up otherwise, you bookmark it. Here I’ll try to bookmark all of them and draw connections. Moreover, I want to investigate where the hell the <span class="math inline">\(\pi\)</span> comes from in the the “other” LIL.</p>
+<section id="the-main-law-of-iterated-logarithm" class="level2">
+<h2 class="anchored" data-anchor-id="the-main-law-of-iterated-logarithm">The (Main) Law of Iterated Logarithm</h2>
 
 
 </section>

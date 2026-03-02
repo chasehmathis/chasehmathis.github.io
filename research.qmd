@@ -1,11 +1,29 @@
 ---
 title: "Research"
 ---
+If you want to talk about my research, book an appointment below.
+```{=html}
+<!-- Google Calendar Appointment Scheduling begin -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+<script>
+(function() {
+  var target = document.currentScript;
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/AcZssZ3yAfyuFj676chKZ5lSCigGKPrN8r3Ey3B96ok=?gv=true',
+      color: '#039BE5',
+      label: 'Book an appointment',
+      target,
+    });
+  });
+})();
+</script>
+<!-- end Google Calendar Appointment Scheduling -->
+```
 
-## Articles
 
-See my [Google Scholar](https://scholar.google.com/citations?hl=en&user=JzcfhPsAAAAJ&view_op=list_works&sortby=title&inst=10163712085368340378) and [Arxiv](https://arxiv.org/a/mathis_c_1.html) for a full list.
-
+## Undergraduate
 My  [undergraduate honors thesis](honorsthesis.html) (Supported by [Deans' Summer Research Fellowship](https://undergraduateresearch.duke.edu/DSRF)) focused on
 controlling for noisy measurements in a Bayesian manner. My advisors were Prof. Alexander Volfovsky & Prof. Robin Evans, and my full committe included Prof. Peter Hoff & Prof. Surya Tokdar.
 
