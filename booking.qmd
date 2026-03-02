@@ -1,0 +1,5 @@
+```{=html}
+<script>
+  window.location.href = "https://calendar.app.google/tHLWfXc1BawJ5Vib8";
+</script>
+```

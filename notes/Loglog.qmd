@@ -1,0 +1,53 @@
+---
+title: "On Iterated Logarithms"
+date: "`r Sys.Date()`"
+output: html_document
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
+---
+
+In undergraduate algorithms, you learn about algorithms to quickly sort your data. You learn for a list of $n$ numbers you expect runtime to scale like $O(n \log n)$. My professor told me that $n\log n$ was *nearly* linear. If $n \log n$ is nearly linear, then what is $n \log (\log n)$?
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+x <- seq(10, 200)
+y1 <- x
+y2 <- x * log(x)
+y3 <- x * log(log(x))
+cbind(x,y1,y2,y3) |> 
+  ggplot(aes(x = x)) + 
+  geom_point(aes(y = y1), col = "red") + 
+  geom_point(aes(y = y2), col = "blue") + 
+  geom_point(aes(y = y3), col = "magenta")
+  # insert labs
+  
+```
+Looking at the plot, if $n \log n$ is nearly linear, I'd be fine saying $n \log \log n$
+*is* linear.
+
+Iterated logarithms are fun. For instance take some gigantic power like $1000000 = k$.
+Then $$\log \log n^k \asymp \log \log n.$$ The function is at a boundary of what is 
+possible and what is not. Like the Erdös problems—they are not too hard but also
+not easy and eventually solvable. The function represents the edge of what is humanly possible and what is not.
+As made popular by the film Interstellar, Murphy's law says "Whatever can happen will happen".
+
+I want to do some exposition on the role of iterated logarithms in Statistics.
+First, iterated logarithms usually conjure up an image of the Law of Iterated
+Logarithms (LIL). Most PhDs students haven taken a measure theory course know that it exists,
+but maybe not exactly what it is. They likely do not know that there are *two* LILs, with
+the more interesting one often referred to as the "other" LIL. In the popular Durrett textbook the LIL appears in the end where some classes fail to get to. In fact, I took both semesters of Measure theory at
+Duke (where Durrett is professor emeritus) and we never covered the law of iterated
+logarithm.
+
+Second, the function showes up other places. These places are hard to find. If
+you type in "iterated logarithm {statistics, probability}" in google or your favorite
+LLM, you'll be flooded with the (main) LIL. So when you find a place
+the function shows up otherwise, you bookmark it. Here I'll try to bookmark all
+of them and draw connections. Moreover, I want to investigate where the hell the $\pi$
+comes from in the the "other" LIL. 
+
+## The (Main) Law of Iterated Logarithm
