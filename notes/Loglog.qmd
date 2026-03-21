@@ -14,16 +14,28 @@ In undergraduate algorithms, you learn about algorithms to quickly sort your dat
 ```{r, echo=FALSE}
 library(ggplot2)
 library(dplyr)
+library(tidyr)
 x <- seq(10, 200)
 y1 <- x
 y2 <- x * log(x)
 y3 <- x * log(log(x))
-cbind(x,y1,y2,y3) |> 
-  ggplot(aes(x = x)) + 
-  geom_point(aes(y = y1), col = "red") + 
-  geom_point(aes(y = y2), col = "blue") + 
-  geom_point(aes(y = y3), col = "magenta")
-  # insert labs
+df <- data.frame(x = x, y1 = y1, y2 = y2, y3 = y3) |>
+  tidyr::pivot_longer(cols = c(y1, y2, y3), names_to = "func", values_to = "y") |>
+  dplyr::mutate(func = dplyr::recode(func,
+    y1 = "n",
+    y2 = "n log n",
+    y3 = "n log log n"
+  ))
+
+ggplot(df, aes(x = x, y = y, color = func)) +
+  geom_point() +
+  scale_color_manual(values = c("n" = "red", "n log n" = "blue", "n log log n" = "magenta")) +
+  labs(
+    title = "Comparing Growth Rates",
+    x = "n",
+    y = "f(n)",
+    color = "Function"
+  )
   
 ```
 Looking at the plot, if $n \log n$ is nearly linear, I'd be fine saying $n \log \log n$
