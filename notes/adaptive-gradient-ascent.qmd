@@ -1,0 +1,10 @@
+---
+title: "Adaptive Gradient Ascent"
+date: "`r Sys.Date()`"
+output: html_document
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
+---
