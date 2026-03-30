@@ -1,0 +1,12 @@
+---
+title: "Non-uniform Berry Essen Bounds"
+date: "`r Sys.Date()`"
+output: html_document
+execute:
+  echo: false
+warning: false
+message: false
+error: false
+---
+
+In 

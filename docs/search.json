@@ -144,21 +144,21 @@
     "href": "writing.html",
     "title": "Writing",
     "section": "",
-    "text": "A collection of topics in Statitsics I’m thinking about.\n\nSpring 2026\nTaking N(ormal) to infinity - January 25\n\n\nBook & Movie Reviews\nGoodreads\nLetterboxd"
+    "text": "A collection of topics in Statitsics I’m thinking about.\n\nSpring 2026\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\nBook & Movie Reviews\nGoodreads\nLetterboxd"
   },
   {
     "objectID": "notes/Loglog.html",
     "href": "notes/Loglog.html",
     "title": "On Iterated Logarithms",
     "section": "",
-    "text": "In undergraduate algorithms, you learn about algorithms to quickly sort your data. You learn for a list of \\(n\\) numbers you expect runtime to scale like \\(O(n \\log n)\\). My professor told me that \\(n\\log n\\) was nearly linear. If \\(n \\log n\\) is nearly linear, then what is \\(n \\log (\\log n)\\)?\nLooking at the plot, if \\(n \\log n\\) is nearly linear, I’d be fine saying \\(n \\log \\log n\\) is linear.\nIterated logarithms are fun. For instance take some gigantic power like \\(1000000 = k\\). Then \\[\\log \\log n^k \\asymp \\log \\log n.\\] The function is at a boundary of what is possible and what is not. Like the Erdös problems—they are not too hard but also not easy and eventually solvable. The function represents the edge of what is humanly possible and what is not. As made popular by the film Interstellar, Murphy’s law says “Whatever can happen will happen”.\nI want to do some exposition on the role of iterated logarithms in Statistics. First, iterated logarithms usually conjure up an image of the Law of Iterated Logarithms (LIL). Most PhDs students haven taken a measure theory course know that it exists, but maybe not exactly what it is. They likely do not know that there are two LILs, with the more interesting one often referred to as the “other” LIL. In the popular Durrett textbook the LIL appears in the end where some classes fail to get to. In fact, I took both semesters of Measure theory at Duke (where Durrett is professor emeritus) and we never covered the law of iterated logarithm.\nSecond, the function showes up other places. These places are hard to find. If you type in “iterated logarithm {statistics, probability}” in google or your favorite LLM, you’ll be flooded with the (main) LIL. So when you find a place the function shows up otherwise, you bookmark it. Here I’ll try to bookmark all of them and draw connections. Moreover, I want to investigate where the hell the \\(\\pi\\) comes from in the the “other” LIL."
+    "text": "In undergraduate algorithms, you learn about algorithms to quickly sort your data. You learn for a list of \\(n\\) numbers you expect runtime to scale like \\(O(n \\log n)\\). My professor told me that \\(n\\log n\\) was nearly linear. If \\(n \\log n\\) is nearly linear, then what is \\(n \\log (\\log n)\\)?\nLooking at the plot, if \\(n \\log n\\) is nearly linear, I’d be fine saying \\(n \\log \\log n\\) is linear.\nIterated logarithms are fun. For instance take some gigantic power like \\(1000000 = k\\). Then \\[\\log \\log n^k \\asymp \\log \\log n.\\] The function is at a boundary of what is possible and what is not. Like the Erdös problems—they are not too hard but also not easy and eventually solvable. The function represents the edge of what is humanly possible and what is not. As made popular by the film Interstellar, Murphy’s law says “Whatever can happen will happen”.\nI want to do some exposition on the role of iterated logarithms in Statistics. First, iterated logarithms usually conjure up an image of the Law of Iterated Logarithms (LIL). Most PhDs students haven taken a measure theory course know that it exists, but maybe not exactly what it is. They likely do not know that there are two LILs, with the more interesting one often referred to as the “other” LIL. In the popular Durrett textbook the LIL appears in the end where some classes fail to get to. In fact, I took both semesters of Measure theory at Duke (where Durrett is professor emeritus) and we never covered the law of iterated logarithm.\nSecond, the function showes up other places. These places are hard to find. If you type in “iterated logarithm {statistics, probability}” in Google or your favorite LLM, you’ll be flooded with the (main) LIL. So when you find a place the function shows up otherwise, you bookmark it. Here I’ll try to bookmark all of them and draw connections. Moreover, I want to investigate where the \\(\\pi\\) comes from in the the “other” LIL.\nBut first we begin with the main LIL."
   },
   {
     "objectID": "notes/Loglog.html#the-main-law-of-iterated-logarithm",
     "href": "notes/Loglog.html#the-main-law-of-iterated-logarithm",
     "title": "On Iterated Logarithms",
     "section": "The (Main) Law of Iterated Logarithm",
-    "text": "The (Main) Law of Iterated Logarithm"
+    "text": "The (Main) Law of Iterated Logarithm\nThe usual motivation of the LIL is to consider two well known probabilistic laws: the Strong Law of Large Numbers (SLLN) and the Central Limit Theorem (CLT).\nLet \\(X_1, X_2, \\sim \\mathsf P\\) independently where \\(\\mathsf P\\) is any distribution with mean \\(0\\) and variance \\(1\\). Denote \\(S_n = \\sum_{i=1}^{n}X_i\\). We have a spectrum from CLT to SLLN \\[\n\\frac{S_n}{\\sqrt{n}} \\Rightarrow N(0,1), \\quad \\frac{S_n}{n} \\to 0, \\mathsf P-{\\rm a.s.}.\n\\] If we divide by square root \\(n\\) we get a weak convergence to a distribution. If we divide by something more powerful we lose all randomness and converge to a number.\nThe LIL asks what is a function \\(f(n)\\) that sits between these two functions: \\(\\sqrt{n} \\lesssim f(n) \\lesssim n\\) where we don’t lose all randomness but we get an almost sure bound.\nThat function turns out to be \\(f(n) = \\sqrt{n \\log \\log n}\\), and we obtain the LIL:\n\\[\n\\limsup_{n \\to \\infty} \\frac{|S_n|}{\\sqrt{2n \\log \\log n}} = 1, \\mathsf P-{\\rm a.s.}.\n\\] This statement is oftentimes treated like a cool fact you can use in statistics trivial pursuit. Yet it pops up everywhere in sequential inference, which I will discuss next."
   },
   {
     "objectID": "research.html#undergraduate",
@@ -166,5 +166,47 @@
     "title": "Research",
     "section": "Undergraduate",
     "text": "Undergraduate\nMy undergraduate honors thesis (Supported by Deans’ Summer Research Fellowship) focused on controlling for noisy measurements in a Bayesian manner. My advisors were Prof. Alexander Volfovsky & Prof. Robin Evans, and my full committe included Prof. Peter Hoff & Prof. Surya Tokdar."
+  },
+  {
+    "objectID": "berry-essen-bounds.html",
+    "href": "berry-essen-bounds.html",
+    "title": "Non-uniform Berry Essen Bounds",
+    "section": "",
+    "text": "In"
+  },
+  {
+    "objectID": "notes/honest-tests.html",
+    "href": "notes/honest-tests.html",
+    "title": "Honest Hypothesis Tests",
+    "section": "",
+    "text": "There are many types of hypothesis tests. One such type is the “honest” hypothesis test. This description may conjure an image in your mind. What are “honest” hypothesis tests compared to their regular counterparts? Maybe a hypothesis test is honest if it does not double dip, have some stopping rule, or has well founded assumptions. Honest can mean many things, but its description today will be none of these things. Instead, the modifier “honest” hypothesis tests stems from Li (1989). Its meaning is much more esoteric. It can only be explained to someone who has taken a graduate level analysis class."
+  },
+  {
+    "objectID": "notes/berry-essen-bounds.html",
+    "href": "notes/berry-essen-bounds.html",
+    "title": "Non-uniform Berry Essen Bounds",
+    "section": "",
+    "text": "In"
+  },
+  {
+    "objectID": "notes/honest-tests.html#footnotes",
+    "href": "notes/honest-tests.html#footnotes",
+    "title": "Honest Hypothesis Tests",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIf \\(n\\) is large \\(t,z\\) will give you the same answer anyway↩︎"
+  },
+  {
+    "objectID": "notes/quasi-independence.html",
+    "href": "notes/quasi-independence.html",
+    "title": "quasi-independence",
+    "section": "",
+    "text": "Markov chain mixing. SHould I run seperate paths or just wait long and kill data?\nI have an experiment can run it N times but its expensive. Instead run it once and wait.\nSimchowitz et al. (n.d.)\n\n\n\n\nReferences\n\nSimchowitz, Max, Horia Mania, Stephen Tu, Michael I. Jordan, and Benjamin Recht. n.d. “Learning Without Mixing: Towards a Sharp Analysis of Linear System Identification.” https://doi.org/10.48550/arXiv.1802.08334."
+  },
+  {
+    "objectID": "notes/early-stoppingSGD.html",
+    "href": "notes/early-stoppingSGD.html",
+    "title": "Early Stopping GD",
+    "section": "",
+    "text": "Work on anytime valid inference has illustrated the dangers of stopping early on biasing your inferential results. This work has focused on hypothesis testing and braoder statistical inference and has not pushed into machine learning and prediction.\nMachine learning has many algorithms that will stop early. Should we trust these results or are they succeptible to the same issues that anytime-valid inference aims to fix.\nEarly stopping in SGD with patience and"
   }
 ]
