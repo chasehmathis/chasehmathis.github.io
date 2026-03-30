@@ -1,0 +1,21 @@
+---
+title: "Early Stopping GD"
+date: "`r Sys.Date()`"
+output: html_document
+execute:
+  echo: false
+warning: false
+message: false
+error: false
+---
+
+Work on anytime valid inference has illustrated the dangers of stopping early
+on biasing your inferential results. This work has focused on hypothesis testing
+and braoder statistical inference and has not pushed into machine learning and 
+prediction.
+
+Machine learning has many algorithms that will stop early. Should we trust these
+results or are they succeptible to the same issues that anytime-valid inference
+aims to fix. 
+
+Early stopping in SGD with patience and 

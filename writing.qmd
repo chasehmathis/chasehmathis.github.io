@@ -5,6 +5,7 @@ format: html
 A collection of topics in Statitsics I'm thinking about.
 
 ### Spring 2026
+[Laws of Iterated Logarithms - Updated March 30](notes/Loglog.html)
 
 [Taking N(ormal) to infinity - January 25](notes/Asymptotics.html)
 

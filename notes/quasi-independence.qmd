@@ -1,0 +1,11 @@
+---
+title: "quasi-independence"
+format: html
+bibliography: references.bib
+---
+
+Markov chain mixing. SHould I run seperate paths or just wait long and kill data?
+
+I have an experiment can run it N times but its expensive. Instead run it once and wait.
+
+@simchowitz

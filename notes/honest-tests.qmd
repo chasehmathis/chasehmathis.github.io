@@ -1,0 +1,185 @@
+---
+title: "Honest Hypothesis Tests"
+format: html
+editor: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+---
+
+There are many types of hypothesis tests. One such type is the "honest"
+hypothesis test. This description may conjure an image in your mind.
+What are "honest" hypothesis tests compared to their regular
+counterparts? Maybe a hypothesis test is honest if it does not double
+dip, have some stopping rule, or has well founded assumptions. Honest
+can mean many things, but its description today will be none of these
+things. Instead, the modifier "honest" hypothesis tests stems from
+@li1989. Its meaning is much more esoteric. It can only be explained to
+someone who has taken a graduate level analysis class.
+
+### Preliminaries
+
+We'll begin with @bahadur1956 which stated an impossibility result. Let
+$X_1, X_2, \ldots X_n$ be i.i.d. with mean $\mu = \mu_p$ and variance
+$\sigma^2(P) < \infty$. We do not want to put any other restrictions on
+the random variables $(X_n)$ when we do statistical inference. So we
+consider a broad class of distributions $\mathcal{P}$, whose restriction
+is that random variables have finite variance. Our null hypothesis will
+be $\mathcal{P}_0 \subset \mathcal{P}$ where
+$\mathcal{P}_0 \equiv \{P : \mu = \mu_0\}$ for some fixed $\mu_0$. We
+don't have any assumptions on $(X_n)$, knowledge of their likelihoods.
+Perhaps the only thing we can possibly do is appeal to asymptotics. We
+have a finite second moment after all... We recall the central limit
+theorem (CLT), which says that $\forall P \in \mathcal{P}$,
+
+$$
+\frac{1}{\sqrt{n}}\left(S_n - n\mu_p\right) \Rightarrow N(0, \sigma^2).
+$$
+
+We hope $n$ is large enough that that the LHS is approximately the RHS.
+We still don't know the variance $\sigma^2$ which indicates our use of a
+t-test.[^1] We'll define our test $\phi_n$ to be
+
+[^1]: If $n$ is large $t,z$ will give you the same answer anyway
+
+$$
+\phi_n(X_1, \ldots, X_n) = \mathbf{1}\left\{\sqrt{n}\bar X_n > \hat \sigma_n t_{1-\alpha, n-1}\right\}.
+$$
+
+So far so good. We can write down the power function of $\phi_n$ which
+is
+
+$$
+\mathbb{E}_{\mathsf P}(\phi_n) \leq \alpha
+$$and by the CLT we know that
+
+$$
+\limsup_{n \to \infty} \mathbb{E}_{\mathsf P}(\phi_n) \leq \alpha.
+$$
+
+We can check this empirically, for instance, when
+$Z_n \sim {\rm Exp}(1) -1$.
+
+```{r}
+max_n <- 8e2
+ns <- seq(10, max_n, by = 15)
+
+res <- sapply(ns, \(n) {
+  mean(replicate(1e4, {
+    z <- rexp(n) - 1
+    sqrt(n) * mean(z) / sd(z) > qt(0.95, n - 1)
+  }))
+})
+
+plot(ns, res, type = "l",
+     xlab = "n", ylab = "Rejection rate",
+     main = "Empirical size of t-test (one-sided, exp-1)")
+abline(h = 0.05, col = "red", lty = 2)
+```
+
+While the exponential distribution is a nice $\mathsf P$ is in our large
+class $\mathcal{P}$, so is other more adversarial $\mathsf P$. Let
+$\mathsf P_n$ be the distribution defined as follows
+
+$$
+\mathsf P_n(X) = \begin{cases} n & 1/n^2 \\ -n & 1/n^2 \\ 0 & {\rm o.w.}\end{cases}.
+$$
+
+We can check that the mean of this distribution is zero and it has a
+finite second moment. Let's calculate the power function for any
+$\mathsf P_n$ in this sequence. I claim the following still holds
+
+$$
+\sup_{n \in \mathbb{N}} \limsup_{n \to \infty} \mathbb{E}_{\mathsf P_n}(\phi_n) \leq \alpha,
+$$so nothing is wrong here. This statement is true because of the CLT.
+For any fixed $n$ the distribution is will converge. However, if we
+change $\lim$ and $\sup$ we cannot guarantee this. Instead we have
+
+$$
+\limsup_{n \to \infty} \sup_{n \in \mathbb{N}} \mathbb{E}_{\mathsf P_n}(\phi_n) > \alpha
+$$
+
+In addition, each $\mathsf P_n$ has a finite \$2 + \delta\$ moment for
+any $\delta > 0$. The first two facts are true for any $n$ and thus
+$\mathsf P_n \in \mathcal{P},\forall n$. However, the last fact is not
+true uniformly. Namely
+
+$$
+\sup_{\mathsf P \in \mathcal{P}} \mathbb{E}_{\mathsf P}(X^{2 + \delta}) = \infty.
+$$
+
+I was taught the assumption above is called the "Crystal Ball Condition"
+@resnick1999. It is a sufficient but not necessary condition that is
+usually the easiest to check.
+
+I'll write the CLT we stated at the beginning again replacing
+$\forall P \in \mathcal{P}$ with a $\sup_{P \in \mathcal{P}}$ and the
+$\Rightarrow$ as a $\lim_{n \to \infty}$. The *pointwise* CLT more
+explicitly claims
+
+$$
+\sup_{P \in \mathcal{P}} \lim_{n \to \infty} \sup_{x \in \mathbb{R}} |\Pr\left(\frac{1}{\sqrt{n}}(S_n-n\mu_p) \leq x\right) - \Pr(Z \leq x)| = 0.
+$$
+
+The **main use of uniformly "honest" tests** **is the ability to swap**
+$\sup$ and $\lim$ . The issue we ran into above is the issue of
+uniformity. In a measure theory class you may run into issues of uniform
+integrability (UI). This topic and UI are intricately linked. Thus for a
+class of distributions, I'll discuss later we can discuss the *uniform*
+CLT
+
+### Does this matter in practice?
+
+I want to think through the question: is this either 1) a fun
+mathematical exercise for statisticians to work on or 2) is it something
+to add (perhaps near the top) to the million other things a statistician
+should check when doing a data analysis.
+
+At first I thought it was option 1. I thought this is just a fun fact
+about hypothesis tests. Nobody doing a confidence interval in R should
+worry about this messing up their analysis. But it is actually a third
+that combines 1) and 2). I'll try to convince you and also convince
+myself the use of getting trained in theoretical statistics.
+
+### Yes & No
+
+The answer to "does this matter" is option 3. No, it doesn't matter and
+also it does *really* matter. A very statistician response. I'll first
+explain why I think it doesn't matter.
+
+\
+As the analyst we're assuming finite mean and variance. The *entire*
+problem vanishes if you assume that
+
+for any $\delta > 0$, the \$2 + \delta\$'th moment exists. So if someone
+in the audience is upset about uniformity, just tell them you assumed an
+incrementally larger moment exists. The entire problem disappears and
+you can go on t-testing away. This was my thinking before I learned more
+about the problem. The tiniest change in assumption makes the problem go
+away and its an assumption nobody will fight you on. So why do I think
+it is something to think about when doing statistics?
+
+When we talk about $\sup$ and $\lim$ and berry-essen bounds, the
+problems become very abstract. However, what is real when you're staring
+at a dataset and you think about the next observation coming in is how
+sensitive is your analysis to tails? The problem with tails is you don't
+know where they are until they are there. Take our adversarial heavy
+tail example. We can simulate data from this process, which we do below.
+
+```{r}
+tail_sims <- replicate(1e3,{
+  n <- 1e4
+  x <- rbinom(1e5, size = 1, 1/n^2)
+  which(x == 1)[1]
+}
+)
+hist(tail_sims)
+```
+
+Maybe after 10,000 days using AI, we can be confident that chatbots are
+not an adversary. But you never know! Bad events can be hiding in the
+tails of the distribution. Even if the distribution is behaved enough to
+allow a CLT.
+
+A good example of tail events causing havoc is the use of the Gaussian
+copula in the 2008 financial crisis @mackenzie2014.

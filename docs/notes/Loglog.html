@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-02">
+<meta name="dcterms.date" content="2026-03-30">
 
 <title>On Iterated Logarithms – Chase Mathis</title>
 <style>
@@ -355,7 +355,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 2, 2026</p>
+      <p class="date">March 30, 2026</p>
     </div>
   </div>
   
@@ -380,9 +380,19 @@ window.Quarto = {
 <p>Looking at the plot, if <span class="math inline">\(n \log n\)</span> is nearly linear, I’d be fine saying <span class="math inline">\(n \log \log n\)</span> <em>is</em> linear.</p>
 <p>Iterated logarithms are fun. For instance take some gigantic power like <span class="math inline">\(1000000 = k\)</span>. Then <span class="math display">\[\log \log n^k \asymp \log \log n.\]</span> The function is at a boundary of what is possible and what is not. Like the Erdös problems—they are not too hard but also not easy and eventually solvable. The function represents the edge of what is humanly possible and what is not. As made popular by the film Interstellar, Murphy’s law says “Whatever can happen will happen”.</p>
 <p>I want to do some exposition on the role of iterated logarithms in Statistics. First, iterated logarithms usually conjure up an image of the Law of Iterated Logarithms (LIL). Most PhDs students haven taken a measure theory course know that it exists, but maybe not exactly what it is. They likely do not know that there are <em>two</em> LILs, with the more interesting one often referred to as the “other” LIL. In the popular Durrett textbook the LIL appears in the end where some classes fail to get to. In fact, I took both semesters of Measure theory at Duke (where Durrett is professor emeritus) and we never covered the law of iterated logarithm.</p>
-<p>Second, the function showes up other places. These places are hard to find. If you type in “iterated logarithm {statistics, probability}” in google or your favorite LLM, you’ll be flooded with the (main) LIL. So when you find a place the function shows up otherwise, you bookmark it. Here I’ll try to bookmark all of them and draw connections. Moreover, I want to investigate where the hell the <span class="math inline">\(\pi\)</span> comes from in the the “other” LIL.</p>
+<p>Second, the function showes up other places. These places are hard to find. If you type in “iterated logarithm {statistics, probability}” in Google or your favorite LLM, you’ll be flooded with the (main) LIL. So when you find a place the function shows up otherwise, you bookmark it. Here I’ll try to bookmark all of them and draw connections. Moreover, I want to investigate where the <span class="math inline">\(\pi\)</span> comes from in the the “other” LIL.</p>
+<p>But first we begin with the main LIL.</p>
 <section id="the-main-law-of-iterated-logarithm" class="level2">
 <h2 class="anchored" data-anchor-id="the-main-law-of-iterated-logarithm">The (Main) Law of Iterated Logarithm</h2>
+<p>The usual motivation of the LIL is to consider two well known probabilistic laws: the Strong Law of Large Numbers (SLLN) and the Central Limit Theorem (CLT).</p>
+<p>Let <span class="math inline">\(X_1, X_2, \sim \mathsf P\)</span> independently where <span class="math inline">\(\mathsf P\)</span> is any distribution with mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(1\)</span>. Denote <span class="math inline">\(S_n = \sum_{i=1}^{n}X_i\)</span>. We have a spectrum from CLT to SLLN <span class="math display">\[
+\frac{S_n}{\sqrt{n}} \Rightarrow N(0,1), \quad \frac{S_n}{n} \to 0, \mathsf P-{\rm a.s.}.
+\]</span> If we divide by square root <span class="math inline">\(n\)</span> we get a weak convergence to a distribution. If we divide by something more powerful we lose all randomness and converge to a number.</p>
+<p>The LIL asks what is a function <span class="math inline">\(f(n)\)</span> that sits between these two functions: <span class="math inline">\(\sqrt{n} \lesssim f(n) \lesssim n\)</span> where we don’t lose all randomness but we get an almost sure bound.</p>
+<p>That function turns out to be <span class="math inline">\(f(n) = \sqrt{n \log \log n}\)</span>, and we obtain the LIL:</p>
+<p><span class="math display">\[
+\limsup_{n \to \infty} \frac{|S_n|}{\sqrt{2n \log \log n}} = 1, \mathsf P-{\rm a.s.}.
+\]</span> This statement is oftentimes treated like a cool fact you can use in statistics trivial pursuit. Yet it pops up everywhere in sequential inference, which I will discuss next.</p>
 
 
 </section>
