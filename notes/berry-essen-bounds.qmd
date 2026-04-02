@@ -7,6 +7,39 @@ execute:
 warning: false
 message: false
 error: false
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-In 
+Twice in the last week, I've had computer scientists laugh about the
+insanity of asymptotics in Statistics[^1]. The insanity comes from the
+assumption that is never true: $n = \infty$. As someone working on
+asymptotic approximations in Statistics, I feel the need to defend its
+usefulness by showing what people have done in the past, but also think
+through ways to improve upon the justification for using normal models.
+
+[^1]: I remark that computer scientists are apparently very against normal
+    approximations and enjoy their finite sample correct concentration
+    inequalities. This tracks with my [earlier
+    post on asymptotics](Asymptotics.html).
+
+## $\Delta$ isn't Zero
+
+While it appears computer scientists don't like when $n = \infty$, they seem
+to be ok letting $\Delta = 0$ when analyzing a complex non-linear system. If you
+have some complex function $f(x)$, let's just analyze the second order expansion.
+PID controllers are second order controllers and are by far the most popular type of
+controller.
+
+It is interesting that scientists are more ok allowing $\Delta = 0$ 
+instead of letting $n = \infty$[^2]. My gut is happier with the former situation.
+The funny thing is they are the same. Assuming $\Delta = 0$ is the same as assuming $n = \infty$. The proof I learned of the 
+CLT[^3] is the Lindeberg swapping trick. You take two derivatives (hence the need for
+two finite moments) and write all higher order terms as $o(1)$. 
+
+
+
+[^2]: Perhaps it is because humans interact with $0$ but never with $\infty$
+
+[^3]: And I think a very nice one that gets at the intuition of what the CLT does.

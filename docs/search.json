@@ -186,7 +186,7 @@
     "href": "notes/berry-essen-bounds.html",
     "title": "Non-uniform Berry Essen Bounds",
     "section": "",
-    "text": "In"
+    "text": "Twice in the last week, I’ve had computer scientists laugh about the insanity of asymptotics in Statistics1. The insanity comes from the assumption that is never true: \\(n = \\infty\\). As someone working on asymptotic approximations in Statistics, I feel the need to defend its usefulness by showing what people have done in the past, but also think through ways to improve upon the justification for using normal models."
   },
   {
     "objectID": "notes/honest-tests.html#footnotes",
@@ -208,5 +208,89 @@
     "title": "Early Stopping GD",
     "section": "",
     "text": "Work on anytime valid inference has illustrated the dangers of stopping early on biasing your inferential results. This work has focused on hypothesis testing and braoder statistical inference and has not pushed into machine learning and prediction.\nMachine learning has many algorithms that will stop early. Should we trust these results or are they succeptible to the same issues that anytime-valid inference aims to fix.\nEarly stopping in SGD with patience and"
+  },
+  {
+    "objectID": "notes/berry-essen-bounds.html#footnotes",
+    "href": "notes/berry-essen-bounds.html#footnotes",
+    "title": "Non-uniform Berry Essen Bounds",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nI remark that computer scientists are apparently very against normal approximations and enjoy their finite sample correct concentration inequalities. This tracks with my earlier post on asymptotics.↩︎\nPerhaps it is because humans interact with \\(0\\) but never with \\(\\infty\\)↩︎\nAnd I think a very nice one that gets at the intuition of what the CLT does.↩︎"
+  },
+  {
+    "objectID": "notes/berry-essen-bounds.html#delta-isnt-zero",
+    "href": "notes/berry-essen-bounds.html#delta-isnt-zero",
+    "title": "Non-uniform Berry Essen Bounds",
+    "section": "\\(\\Delta\\) isn’t Zero",
+    "text": "\\(\\Delta\\) isn’t Zero\nWhile it appears computer scientists don’t like when \\(n = \\infty\\), they seem to be ok letting \\(\\Delta = 0\\) when analyzing a complex non-linear system. If you have some complex function \\(f(x)\\), let’s just analyze the second order expansion. PID controllers are second order controllers and are by far the most popular type of controller.\nIt is interesting that scientists are more ok allowing \\(\\Delta = 0\\) instead of letting \\(n = \\infty\\)2. My gut is happier with the former situation. The funny thing is they are the same. Assuming \\(\\Delta = 0\\) is the same as assuming \\(n = \\infty\\). The proof I learned of the CLT3 is the Lindeberg swapping trick. You take two derivatives (hence the need for two finite moments) and write all higher order terms as \\(o(1)\\)."
+  },
+  {
+    "objectID": "notes/sequential_testing.html",
+    "href": "notes/sequential_testing.html",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "",
+    "text": "Assume knowledge of:\n\nHypothesis testing, \\(p\\)-values\nCausal inference (ATE)\nLikelihoods, LRTs"
+  },
+  {
+    "objectID": "notes/sequential_testing.html#prerequisites",
+    "href": "notes/sequential_testing.html#prerequisites",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "",
+    "text": "Assume knowledge of:\n\nHypothesis testing, \\(p\\)-values\nCausal inference (ATE)\nLikelihoods, LRTs"
+  },
+  {
+    "objectID": "notes/sequential_testing.html#the-problem-with-peeking",
+    "href": "notes/sequential_testing.html#the-problem-with-peeking",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "The Problem with Peeking",
+    "text": "The Problem with Peeking\nWhat’s wrong with [insert bad stopping time]? R simulations show under-coverage. \\(\\tau\\) (confusing since \\(\\tau\\) is also ATE) is a stopping time.\n\\(X_\\tau\\) is random because \\(X_n\\) is random and \\(\\tau\\) is random. The core issue:\n\\[P\\!\\left(X_\\tau &gt; z_{1-\\alpha/2}\\right) \\neq P\\!\\left(X_n \\geq z_{1-\\alpha/2}\\right)\\]\n\nWhat to do?\n\nPower calculations \\(\\Rightarrow\\) fix sample size beforehand\nJust guess."
+  },
+  {
+    "objectID": "notes/sequential_testing.html#simulation-repeated-z-tests-under-h_0",
+    "href": "notes/sequential_testing.html#simulation-repeated-z-tests-under-h_0",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "Simulation: Repeated \\(z\\)-Tests Under \\(H_0\\)",
+    "text": "Simulation: Repeated \\(z\\)-Tests Under \\(H_0\\)\nSetup. Under \\(H_0\\), draw \\(X_i \\overset{\\text{iid}}{\\sim} N(0,1)\\) and compute a running \\(z\\)-test after each new observation. Stop and reject as soon as \\(|Z_t| &gt; z_{0.975} = 1.96\\). Even though \\(H_0\\) is true, this “peek-and-stop” strategy rejects far more than 5% of the time.\n\nset.seed(42)\n\nn_sim  &lt;- 10000\nn_max  &lt;- 200\nalpha  &lt;- 0.05\nz_crit &lt;- qnorm(1 - alpha / 2)\n\n# Peek after every observation; stop if |Z_t| &gt; 1.96\npeek_and_stop &lt;- function(n_max, z_crit) {\n  x &lt;- rnorm(n_max)\n  for (t in 2:n_max) {\n    z_t &lt;- mean(x[1:t]) * sqrt(t)\n    if (abs(z_t) &gt; z_crit) return(TRUE)\n  }\n  return(FALSE)\n}\n\n# Correct fixed-n test\nfixed_n_test &lt;- function(n_max, z_crit) {\n  x &lt;- rnorm(n_max)\n  abs(mean(x) * sqrt(n_max)) &gt; z_crit\n}\n\nreject_peek  &lt;- mean(replicate(n_sim, peek_and_stop(n_max, z_crit)))\nreject_fixed &lt;- mean(replicate(n_sim, fixed_n_test(n_max, z_crit)))\n\ncat(sprintf(\"Nominal alpha          : %.3f\\n\", alpha))\n\nNominal alpha          : 0.050\n\ncat(sprintf(\"Fixed-n rejection rate : %.3f\\n\", reject_fixed))\n\nFixed-n rejection rate : 0.048\n\ncat(sprintf(\"Peek-and-stop rate     : %.3f\\n\", reject_peek))\n\nPeek-and-stop rate     : 0.410\n\nround_reject_peek &lt;- round(reject_peek * 100)\n\nThe peek-and-stop strategy rejects \\(H_0\\) roughly 41% of the time despite \\(\\alpha = 0.05\\) — a large inflation of Type I error. This gets worse as n_max grows: given infinite peeks you will eventually reject with probability 1 under the null.\n\nlibrary(ggplot2)\n\npeek_counts &lt;- c(10, 25, 50, 100, 200, 500, 1000)\n\ntype1 &lt;- sapply(peek_counts, function(n) {\n  mean(replicate(n_sim, peek_and_stop(n, z_crit)))\n})\n\nggplot(data.frame(peeks = peek_counts, type1 = type1), aes(peeks, type1)) +\n  geom_line(color = \"steelblue\", linewidth = 1) +\n  geom_point(color = \"steelblue\", size = 2) +\n  geom_hline(yintercept = 0.05, linetype = \"dashed\", color = \"red\") +\n  annotate(\"text\", x = 50, y = 0.07, label = \"Nominal alpha = 0.05\",\n           color = \"red\", size = 3.5) +\n  scale_x_log10() +\n  labs(x = \"Max number of peeks (log scale)\",\n       y = \"Empirical Type I error\",\n       title = \"Peek-and-stop inflates Type I error\") +\n  theme_minimal()\n\n\n\n\nType I error explodes as you allow more peeks"
+  },
+  {
+    "objectID": "notes/sequential_testing.html#the-fix-sequential-testing",
+    "href": "notes/sequential_testing.html#the-fix-sequential-testing",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "The Fix: Sequential Testing",
+    "text": "The Fix: Sequential Testing\nFirst, why should we do sequential testing? Why not just prespecify \\(n\\)? There is a theorem, which is hard to write down exactly, but I call it the Always Do Sequential Testing Theorem Wald (1945). It states approximately that if you pick \\(n\\) via a power calculation, on average you could have gotten away with fewer samples had you used a sequential test instead.\n\nWhat is a Sequential Test?\n\nSPRT — Sequential Probability Ratio Test\nAsymp CS — Asymptotic Confidence Sequences"
+  },
+  {
+    "objectID": "notes/sequential_testing.html#sprt",
+    "href": "notes/sequential_testing.html#sprt",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "SPRT",
+    "text": "SPRT\nFrom Wald (1945). Given distributions \\(P\\) and \\(Q\\), test \\(P\\) vs. \\(Q\\).\n\\[X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} P \\text{ or } Q?\\]\nExample: \\(P \\sim N(0,1)\\), \\(Q \\sim N(\\theta, 1)\\), \\(\\theta &gt; 0\\).\nThe LRT statistic is \\(\\frac{q_\\theta}{p_\\theta}(X_1, \\ldots, X_n)\\). That is the ratios of densities. You can reject when this is “large” and you calibrate under \\(P\\). The SPRT extends this to sequential data \\(X_1, X_2, \\ldots\\)\nSpecify: \\(\\alpha\\) (Type I error, e.g. 0.05), \\(\\beta\\) (power, e.g. 0.8).\nPlatforms like Statsig implement this and it is quite easy to use.\nProblem: Need to know likelihoods!"
+  },
+  {
+    "objectID": "notes/sequential_testing.html#sprt-simple-example",
+    "href": "notes/sequential_testing.html#sprt-simple-example",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "SPRT: Simple Example",
+    "text": "SPRT: Simple Example\nSetting. \\(P = N(0,2)\\), \\(Q = N(1, 2)\\) (i.e. \\(\\theta = 1\\)). The log-likelihood ratio after \\(n\\) observations is:\n\\[\\Lambda_n = \\log \\frac{dQ}{dP}(X_1,\\ldots,X_n)\n= \\sum_{i=1}^n \\left[ X_i - \\tfrac{1}{2} \\right]\\]\nWald’s thresholds: reject \\(H_0\\) (\\(P\\)) when \\(\\Lambda_n \\geq \\log(1/\\alpha)\\), accept \\(H_0\\) when \\(\\Lambda_n \\leq \\log(\\beta)\\).\n\nset.seed(123)\n#install.packages(SPRT)\nlibrary(SPRT)\nsd &lt;- 5\nsprt_normal &lt;- function(data){\n  sprt(data, alpha = 0.05, beta = 0.05, p0 = 0, \n       p1 = 1, dist = \"normal\", sigma = sd)\n}\n\n# --- Under H0: X ~ N(0,1) ---\ncat(\"=== Under H0: X ~ N(0,1) ===\\n\")\n\n=== Under H0: X ~ N(0,1) ===\n\nh0_results &lt;- replicate(n_sim, {\n  x &lt;- rnorm(500, mean = 0, sd)\n  sprt_normal(x)$decision\n})\ncat(sprintf(\"Reject H0 : %.3f  (should be &lt;~%.2f)\\n\",\n            mean(h0_results == \"Reject H0\"), alpha))\n\nReject H0 : 0.044  (should be &lt;~0.05)\n\n# --- Under H1: X ~ N(1,1) ---\ncat(\"=== Under H1: X ~ N(1,1) ===\\n\")\n\n=== Under H1: X ~ N(1,1) ===\n\nh1_results &lt;- replicate(n_sim, {\n  x &lt;- rnorm(500, mean = 1, sd)\n  sprt_normal(x)$decision\n})\ncat(sprintf(\"Reject H0 : %.3f  (power, should be &gt;~%.2f)\\n\",\n            mean(h1_results == \"Reject H0\"), 1 - 0.05))\n\nReject H0 : 0.947  (power, should be &gt;~0.95)\n\n\n\n# lets plot if x is from the alternative\nx &lt;- rnorm(500, mean = 1, sd)\nsprt_plot(sprt_normal(x))\n\n\n\n\nSingle SPRT path under H1. The LLR crosses the rejection boundary early.\n\n\n\n\n\nSPRT vs. Fixed-\\(n\\): Average Sample Size\nOne key payoff of the SPRT is that it stops early on average.\n\nset.seed(99)\n\nsample_sizes &lt;- function(dist = c(\"H0\", \"H1\"), n_sim = 5000) {\n  dist &lt;- match.arg(dist)\n  replicate(n_sim, {\n    x &lt;- if (dist == \"H0\") rnorm(2000) else rnorm(2000, mean = 1)\n    res &lt;- sprt_normal(x)\n    res$n\n  })\n}\n\nss_h0 &lt;- sample_sizes(\"H0\")\nss_h1 &lt;- sample_sizes(\"H1\")\n\ncat(sprintf(\"Mean sample size under H0 : %.1f\\n\", mean(ss_h0)))\n\nMean sample size under H0 : 148.9\n\ncat(sprintf(\"Mean sample size under H1 : %.1f\\n\", mean(ss_h1)))\n\nMean sample size under H1 : 148.4\n\n# you can calculate this with some algebra.\nfixed_n_required &lt;- function(mu1, sigma, alpha = 0.05, beta = 0.05) {\n  ceiling(((qnorm(1 - alpha) + qnorm(1 - beta)) * sigma / mu1)^2)\n}\ncat(sprintf(\"Fixed-n required (mu1=%.1f, sigma=%.1f, alpha=%.2f, power=%.0f%%): ~%d\\n\",\n            1, sd, 0.05, (1 - 0.05) * 100,\n            fixed_n_required(1, sd, 0.05, 0.05)))\n\nFixed-n required (mu1=1.0, sigma=5.0, alpha=0.05, power=95%): ~271\n\n\nThe SPRT typically stops well before the fixed-\\(n\\) sample size — this is the Wald-Wolfowitz theorem in action."
+  },
+  {
+    "objectID": "notes/sequential_testing.html#testing-to-confidence-sequences",
+    "href": "notes/sequential_testing.html#testing-to-confidence-sequences",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "Testing to Confidence Sequences",
+    "text": "Testing to Confidence Sequences\nLastly, we’ll talk about moving from hypothesis testing to confidence intervals. There are a few things that aren’t very nice about the SPRT. It requires the analyst to\n\nKnow the distribution (and variance)\nSpecify the null and the alternative\n\nIn Statistics there is a dual between testing and confidence intervals. We showed before that one cannot do repeated z-tests. It might seem obvious then that one cannot do repeated confidence intervals. Therefore, we’ll introduce work on confidence sequences. Work on confidence sequences is very new! In this work we’ll look at a method from Waudby-Smith et al. (2024) with an application for tracking the ATE in an experiment.\nWe consider the following simple experiment where n is our number of total samples,\np_0,p_1 are the means under control and treatment and e is the propensity score of treatment.\nWe construct a confidence sequence imagining that the data was coming in sequentially. If the\nconfidence sequence moves away from zero, we could have stopped collecting data and deployed\nwhatever the treatment was. We also show the erroneous repeated confidence intervals and if you run this repeated times you will see some miscoverage events.\n\nlibrary(ggplot2)\nlibrary(patchwork)\n\n# --- Parameters ---\nn &lt;- 1e3; p0 &lt;- 0.4; p1 &lt;- 0.6; e &lt;- 0.5\ntau &lt;- p1 - p0\n\nrunning_sd &lt;- function(x) {\n  n &lt;- seq_along(x)\n  M2 &lt;- numeric(length(x))\n  mu &lt;- cumsum(x) / n\n  for (t in 2:length(x)) {\n    d &lt;- x[t] - mu[t - 1]\n    M2[t] &lt;- M2[t - 1] + d * (x[t] - mu[t])\n  }\n  sqrt(pmax(M2 / pmax(n - 1, 1), 1e-10))\n}\n\nrobbins_confseq &lt;- function(x, alpha = 0.05, rho = 1) {\n  n      &lt;- seq_along(x)\n  mu_hat &lt;- cumsum(x) / n\n  s_n    &lt;- running_sd(x)\n  radius &lt;- s_n * sqrt((2 * (n * rho^2 + 1) / (n^2 * rho^2)) *\n                         log(sqrt(n * rho^2 + 1) / alpha))\n  data.frame(lower = mu_hat - radius, upper = mu_hat + radius)\n}\n\nZ   &lt;- rbinom(n, 1, e)\nY   &lt;- ifelse(Z == 1, rbinom(n, 1, p1), rbinom(n, 1, p0))\nphi &lt;- Z * Y / e - (1 - Z) * Y / (1 - e)\n\ncs  &lt;- robbins_confseq(phi)\n\n# CLT CI: just z * se, no correction for peeking\nns     &lt;- 1:n\nmu_hat &lt;- cumsum(phi) / ns\nclt_hw &lt;- qnorm(0.975) * running_sd(phi) / sqrt(ns)\n\ndf &lt;- data.frame(\n  t        = ns,\n  ate      = mu_hat,\n  cs_lo    = cs$lower,   cs_hi = cs$upper,\n  clt_lo   = mu_hat - clt_hw,\n  clt_hi   = mu_hat + clt_hw\n)[50:n, ]\n\np1_plot &lt;- ggplot(df, aes(t)) +\n  geom_ribbon(aes(ymin = cs_lo, ymax = cs_hi), alpha = 0.2, fill = \"steelblue\") +\n  geom_line(aes(y = ate), color = \"steelblue\") +\n  geom_hline(yintercept = tau, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"n\", y = \"ATE\",\n       title = \"Asymptotic CS (valid)\",\n       subtitle = \"Anytime-valid: accounts for peeking\") +\n  theme_minimal()\n\np2_plot &lt;- ggplot(df, aes(t)) +\n  geom_ribbon(aes(ymin = clt_lo, ymax = clt_hi), alpha = 0.2, fill = \"coral\") +\n  geom_line(aes(y = ate), color = \"coral\") +\n  geom_hline(yintercept = tau, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"n\", y = \"ATE\",\n       title = \"CLT CI (invalid for peeking)\",\n       subtitle = \"Too narrow: misses true ATE when you peek\") +\n  theme_minimal()\n\np1_plot + p2_plot +\n  plot_annotation(\n    title    = sprintf(\"CS vs CLT CI | p0=%.1f, p1=%.1f, tau=%.1f\", p0, p1, tau),\n    subtitle = \"Red dashed line = true ATE\"\n  )"
+  },
+  {
+    "objectID": "notes/sequential_testing.html#etc.",
+    "href": "notes/sequential_testing.html#etc.",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "Etc.",
+    "text": "Etc.\n\nGroup Sequential Designs are popular in FDA regulatory settings and in industry.\n\nThe package gsDesign is the go-to package for this method\nForces the analyst to pick times where they may stop the experiment\nMy current research is related to these methods"
+  },
+  {
+    "objectID": "notes/sequential_testing.html#miscellaneous",
+    "href": "notes/sequential_testing.html#miscellaneous",
+    "title": "Sequential Testing for Undergrads: Experimental Design",
+    "section": "Miscellaneous",
+    "text": "Miscellaneous\n\nGroup Sequential Designs are popular in FDA regulatory settings and in industry.\n\nThe package gsDesign is the go-to package for this method\nForces the analyst to pick times where they may stop the experiment\nMy current research is related to these methods"
   }
 ]

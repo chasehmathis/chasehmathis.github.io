@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://chasehmathis.github.io/notes/Asymptotics.html</loc>
-    <lastmod>2026-01-26T17:40:23.718Z</lastmod>
+    <lastmod>2026-01-26T17:40:23.000Z</lastmod>
   </url>
   <url>
     <loc>https://chasehmathis.github.io/writing.html</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://chasehmathis.github.io/notes/berry-essen-bounds.html</loc>
-    <lastmod>2026-03-03T20:46:46.024Z</lastmod>
+    <lastmod>2026-04-02T19:15:01.141Z</lastmod>
   </url>
   <url>
     <loc>https://chasehmathis.github.io/notes/quasi-independence.html</loc>
@@ -59,5 +59,9 @@
   <url>
     <loc>https://chasehmathis.github.io/notes/early-stoppingSGD.html</loc>
     <lastmod>2026-03-26T17:56:23.754Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chasehmathis.github.io/notes/sequential_testing.html</loc>
+    <lastmod>2026-04-02T19:46:03.862Z</lastmod>
   </url>
 </urlset>
