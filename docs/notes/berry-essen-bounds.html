@@ -74,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style/styles.css">
 </head>
@@ -299,8 +328,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#delta-isnt-zero" id="toc-delta-isnt-zero" class="nav-link active" data-scroll-target="#delta-isnt-zero"><span class="math inline">\(\Delta\)</span> isn’t Zero</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -331,11 +366,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In</p>
+<p>Twice in the last week, I’ve had computer scientists laugh about the insanity of asymptotics in Statistics<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The insanity comes from the assumption that is never true: <span class="math inline">\(n = \infty\)</span>. As someone working on asymptotic approximations in Statistics, I feel the need to defend its usefulness by showing what people have done in the past, but also think through ways to improve upon the justification for using normal models.</p>
+<section id="delta-isnt-zero" class="level2">
+<h2 class="anchored" data-anchor-id="delta-isnt-zero"><span class="math inline">\(\Delta\)</span> isn’t Zero</h2>
+<p>While it appears computer scientists don’t like when <span class="math inline">\(n = \infty\)</span>, they seem to be ok letting <span class="math inline">\(\Delta = 0\)</span> when analyzing a complex non-linear system. If you have some complex function <span class="math inline">\(f(x)\)</span>, let’s just analyze the second order expansion. PID controllers are second order controllers and are by far the most popular type of controller.</p>
+<p>It is interesting that scientists are more ok allowing <span class="math inline">\(\Delta = 0\)</span> instead of letting <span class="math inline">\(n = \infty\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. My gut is happier with the former situation. The funny thing is they are the same. Assuming <span class="math inline">\(\Delta = 0\)</span> is the same as assuming <span class="math inline">\(n = \infty\)</span>. The proof I learned of the CLT<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is the Lindeberg swapping trick. You take two derivatives (hence the need for two finite moments) and write all higher order terms as <span class="math inline">\(o(1)\)</span>.</p>
 
 
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I remark that computer scientists are apparently very against normal approximations and enjoy their finite sample correct concentration inequalities. This tracks with my <a href="Asymptotics.html">earlier post on asymptotics</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Perhaps it is because humans interact with <span class="math inline">\(0\)</span> but never with <span class="math inline">\(\infty\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>And I think a very nice one that gets at the intuition of what the CLT does.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
