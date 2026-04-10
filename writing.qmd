@@ -2,9 +2,12 @@
 title: "Writing"
 format: html
 ---
-A collection of topics in Statitsics I'm thinking about.
+A collection of topics in Statistics I'm thinking about.
 
 ### Spring 2026
+
+[Being Honest: Distribution Uniform Hypothesis Tests - April 10](notes/honest-tests.html)
+
 [Laws of Iterated Logarithms - Updated March 30](notes/Loglog.html)
 
 [Taking N(ormal) to infinity - January 25](notes/Asymptotics.html)

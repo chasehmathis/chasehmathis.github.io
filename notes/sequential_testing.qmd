@@ -15,19 +15,10 @@ editor:
 bibliography: references.bib
 ---
 
-## Prerequisites
-
-Assume knowledge of:
-
-1.  Hypothesis testing, $p$-values
-2.  Causal inference (ATE)
-3.  Likelihoods, LRTs
-
-------------------------------------------------------------------------
 
 ## The Problem with Peeking
 
-What's wrong with \[insert bad stopping time\]? R simulations show
+What's wrong with early stopping in hypothesis testing? R simulations show
 under-coverage. $\tau$ (confusing since $\tau$ is also ATE) is a
 stopping time.
 
@@ -345,8 +336,8 @@ p1_plot + p2_plot +
 
 ## Miscellaneous
 
--   Group Sequential Designs are popular in FDA regulatory settings and
-    in industry.
+-   Group Sequential Designs are recommended in FDA regulatory settings
+    and in popular in industry.
 
     -   The package `gsDesign` is the go-to package for this method
 
