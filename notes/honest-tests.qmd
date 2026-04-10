@@ -14,29 +14,27 @@ counterparts? Maybe a hypothesis test is honest if it does not double
 dip, have some stopping rule, or has well founded assumptions. Honest
 can mean many things, but its description today will be none of these
 things. Instead, the modifier "honest" hypothesis tests stems from
-@li1989. Its meaning is much more esoteric. It can only be explained to
-someone who has taken a graduate level analysis class.
+@li1989. Its meaning is much more esoteric. The best part is any dishonest test can be made honest with barely any change in assumption.
 
 ### Preliminaries
 
 We'll begin with @bahadur1956 which stated an impossibility result. Let
-$X_1, X_2, \ldots X_n$ be i.i.d. with mean $\mu = \mu_p$ and variance
-$\sigma^2(P) < \infty$. We do not want to put any other restrictions on
+$X_1, X_2, \ldots X_n$ be i.i.d. with mean $\mu$ and variance
+$\sigma^2 < \infty$. We do not want to put any other restrictions on
 the random variables $(X_n)$ when we do statistical inference. So we
 consider a broad class of distributions $\mathcal{P}$, whose restriction
 is that random variables have finite variance. Our null hypothesis will
 be $\mathcal{P}_0 \subset \mathcal{P}$ where
-$\mathcal{P}_0 \equiv \{P : \mu = \mu_0\}$ for some fixed $\mu_0$. We
-don't have any assumptions on $(X_n)$, knowledge of their likelihoods.
+$\mathcal{P}_0 \equiv \{\mathsf P : \mathbb{E}_{\mathsf P}(X) = \mu_0\}$ for some fixed $\mu_0$. We don't have any knowledge of their likelihoods and we are restricting ourselves to this broad set of distributions. 
 Perhaps the only thing we can possibly do is appeal to asymptotics. We
 have a finite second moment after all... We recall the central limit
-theorem (CLT), which says that $\forall P \in \mathcal{P}$,
+theorem (CLT), which says that $\forall \mathsf P \in \mathcal{P}$,
 
 $$
-\frac{1}{\sqrt{n}}\left(S_n - n\mu_p\right) \Rightarrow N(0, \sigma^2).
+\frac{1}{\sqrt{n}}\left(S_n - n\mu\right) \Rightarrow N(0, \sigma^2).
 $$
 
-We hope $n$ is large enough that that the LHS is approximately the RHS.
+We hope $n$ is large enough that the LHS is approximately the RHS.
 We still don't know the variance $\sigma^2$ which indicates our use of a
 t-test.[^1] We'll define our test $\phi_n$ to be
 
@@ -77,109 +75,150 @@ plot(ns, res, type = "l",
 abline(h = 0.05, col = "red", lty = 2)
 ```
 
-While the exponential distribution is a nice $\mathsf P$ is in our large
-class $\mathcal{P}$, so is other more adversarial $\mathsf P$. Let
-$\mathsf P_n$ be the distribution defined as follows
+While the exponential distribution is a nice $\mathsf P$, which lies in our large
+class $\mathcal{P}$, so are other more adversarial $\mathsf P$. There are
+two distinct ways in which $\mathcal{P}$ contains adversarial subsets
+of distributions. The first way to fail being an honest test is that we must not allow
+distributions that if nudged a little, will fail to have a second
+moment. The second way to fail is that we must be more precise in what we
+mean by finite second moments. I will give counterexamples for each
+adversarial family $(\mathsf P_m)_{m \in \mathbb{N}}$.
+
+#### Failure 1: A Robust Finite Second Moment
+
+Our first counter example is a more familiar one. Let $\mathsf P_m$ be
+defined so that\
+$$
+\mathsf P_m (X = m) = \frac{1}{m^2} \quad \mathsf P_m(X = -m) = \frac{1}{m^2} \quad \mathsf P_m(X = 0) = 1 - \frac{2}{m^2}.
+$$ Observe two facts about this distribution. First
+$\mathbb{E}_{\mathsf P_m}(X) = 0$. Second, $\exists B < \infty$ so that
+$\mathbb{E}_{\mathsf P_m}(X^2) < B$. This $B$ you can check is $2$. In words, the
+distribution has mean $0$ and also has uniformly bounded second moments.
+(The uniformity will be the second counter example). Despite these
+facts, this family $(\mathsf P_m)_{m \in \mathbb{N}}$ is not
+sufficiently well behaved to have a uniform CLT.
+
+The way I think about this failure mode is that we don't have rates. One
+may recall that the mean estimator
+$\frac{S_n}{n} \to \mu, \mathsf P$-a.s. if and only if
+$\mathbb{E}(X) = \mu < \infty$. However, we only get rates for how fast
+this convergence occurs if we assume a $1+\delta$ moment. This is the
+exact problem with $(\mathsf P_m)_{m \in \mathbb{N}}$. If we nudge the
+moment calculation a bit $\delta > 0$, then it blows up to $\infty$. One
+can rigorously show the lack of convergence, but I will not here.
+
+#### Failure 2: Precisely Stating Bounded 2nd Moments
+
+For this failure mode, the key counterexample to have in mind is the
+following. Let $\mathsf P_c$ be a symmetric standard Cauchy
+distribution. We know that if
+$X \sim \mathsf P_c,  \mathbb{E}_{\mathsf P_c}(|X|) = \infty$. Then for
+each $m \in \mathbb{N}$ consider a truncated Cauchy distribution $$
+\mathsf P_{c,m} \propto \mathsf P_{c} 1(|x| < m).
+$$ We've truncated the distribution, which implies that
+$\forall m \in \mathbb{N}, \mathsf P_{c,m}$ has a finite MGF and thus
+finite exponential moment. Moreover, it has mean $0$ due to symmetry.
+However, it is not true in the limit as $m \to \infty$. This is because
+$\lim_{m \to \infty} \mathsf P_{c,m} = \mathsf P_{c}$, which we know
+does not have any finite moments.
+
+#### Uniform Integrability
+
+I've given you two failure modes of badly behaved distributions. For
+either counterexample, we can analyze how they succeed pointwise but fail
+uniformly. I claim the following still holds
 
 $$
-\mathsf P_n(X) = \begin{cases} n & 1/n^2 \\ -n & 1/n^2 \\ 0 & {\rm o.w.}\end{cases}.
-$$
+\sup_{m \in \mathbb{N}} \limsup_{n \to \infty} \mathbb{E}_{\mathsf P_{c,m}}(\phi_n) \leq \alpha,
+$$ so nothing is wrong. If I fix my distribution $\mathsf P_m$
+beforehand and then look at larger and larger datasets, my test will be
+correct. This statement is true because of the CLT.
 
-We can check that the mean of this distribution is zero and it has a
-finite second moment. Let's calculate the power function for any
-$\mathsf P_n$ in this sequence. I claim the following still holds
-
-$$
-\sup_{n \in \mathbb{N}} \limsup_{n \to \infty} \mathbb{E}_{\mathsf P_n}(\phi_n) \leq \alpha,
-$$so nothing is wrong here. This statement is true because of the CLT.
-For any fixed $n$ the distribution is will converge. However, if we
-change $\lim$ and $\sup$ we cannot guarantee this. Instead we have
+However, let me first consider larger and larger datasets. Then for each
+large dataset, I am free to assume
+$X_1, \ldots, X_n \sim \mathsf P_{c,m}$ for any $m \in \mathbb{N}$. I
+can let $m$ be dependent on $n$. For this example, the assumptions are
+too weak for a uniform limit. We will end up with
 
 $$
-\limsup_{n \to \infty} \sup_{n \in \mathbb{N}} \mathbb{E}_{\mathsf P_n}(\phi_n) > \alpha
+\limsup_{n \to \infty} \sup_{m \in \mathbb{N}} \mathbb{E}_{\mathsf P_m}(\phi_n) > \alpha.
 $$
 
-In addition, each $\mathsf P_n$ has a finite \$2 + \delta\$ moment for
-any $\delta > 0$. The first two facts are true for any $n$ and thus
-$\mathsf P_n \in \mathcal{P},\forall n$. However, the last fact is not
-true uniformly. Namely
+In fact, the power function will evaluate to $1$. The analyst will
+*always* reject erroneously.
+
+This is an example of the importance of Uniform Integrability (u.i.)
+commonly covered in probability theory courses. The problem is that if
+$X_m \sim \mathsf P_{c,m}$, then
 
 $$
-\sup_{\mathsf P \in \mathcal{P}} \mathbb{E}_{\mathsf P}(X^{2 + \delta}) = \infty.
+\lim_{a \to \infty} \sup_{m \in \mathbb{N}}\mathbb{E}_{\mathsf P_{c,m}}(|X_m|1(|X_m| > a)) \neq 0.
 $$
 
-I was taught the assumption above is called the "Crystal Ball Condition"
-@resnick1999. It is a sufficient but not necessary condition that is
-usually the easiest to check.
-
-I'll write the CLT we stated at the beginning again replacing
-$\forall P \in \mathcal{P}$ with a $\sup_{P \in \mathcal{P}}$ and the
-$\Rightarrow$ as a $\lim_{n \to \infty}$. The *pointwise* CLT more
-explicitly claims
-
+There are many conditions for uniform integrability to hold. The most
+common one to check simply forbids both failure modes. We must assume
+uniformly bounded $p + \delta$ moments if we are analyzing the $p$-th
+moment. It is sometimes called the "Crystal Ball" condition. The condition asks that
+if we want the $p$-th moment to be uniformly integrable then for
+$k >p$, 
 $$
-\sup_{P \in \mathcal{P}} \lim_{n \to \infty} \sup_{x \in \mathbb{R}} |\Pr\left(\frac{1}{\sqrt{n}}(S_n-n\mu_p) \leq x\right) - \Pr(Z \leq x)| = 0.
+\sup_{\mathsf P \in \mathcal{P}} \mathbb{E}_{\mathsf P}(|X|^k) \leq B < \infty.
+$$ 
+If we make this additional assumption (with $p = 2$), all problems go away. We can write
 $$
+\limsup_{n \to \infty}\sup_{\mathsf P \in \mathcal{P}} \mathbb{E}_{\mathsf P}(\phi_n) \leq \alpha.
+$$
+This uniform-over-distributions size control is the definition of an honest test. With a small change of assumption, we make our test honest. 
 
-The **main use of uniformly "honest" tests** **is the ability to swap**
-$\sup$ and $\lim$ . The issue we ran into above is the issue of
-uniformity. In a measure theory class you may run into issues of uniform
-integrability (UI). This topic and UI are intricately linked. Thus for a
-class of distributions, I'll discuss later we can discuss the *uniform*
-CLT
+### What is Going on Here?
 
-### Does this matter in practice?
+Why did I spend weeks during a probability theory class to cover the
+situation of uniform integrability? The assumptions in which one gets an
+"honest" test are so similar to the assumptions one fails to obtain one.
 
-I want to think through the question: is this either 1) a fun
-mathematical exercise for statisticians to work on or 2) is it something
-to add (perhaps near the top) to the million other things a statistician
-should check when doing a data analysis.
+I think one lesson is to be precise in your mathematical assumptions.
+There is a big difference between uniform boundedness and regular
+boundedness. In your head, you're probably assuming uniform boundedness,
+but you have to state that precisely.
 
-At first I thought it was option 1. I thought this is just a fun fact
-about hypothesis tests. Nobody doing a confidence interval in R should
-worry about this messing up their analysis. But it is actually a third
-that combines 1) and 2). I'll try to convince you and also convince
-myself the use of getting trained in theoretical statistics.
+This same lesson applies to assuming a second moment and assuming an
+infinitesimally larger than 2 moment. It is easy to write down all
+distributions with finite second moment, but in your head you don't want
+the counter-example distributions in this class you're constructing.
 
-### Yes & No
+This first lesson is for the theoretical minded people, but is there any
+practical use? Is this either 1) a fun mathematical exercise for
+theoretical statisticians to check when devising methods or 2) is it
+something to add (perhaps near the top) to the million other things a
+statistician should check when doing a real data analysis.
 
-The answer to "does this matter" is option 3. No, it doesn't matter and
-also it does *really* matter. A very statistician response. I'll first
-explain why I think it doesn't matter.
+At first I thought it was only option 1: be precise in your assumptions.
+Nobody constructing a confidence interval in R should worry about an
+adversarial $(\mathsf P_{m})_{m \in \mathbb{N}}$ messing up their
+analysis. But I think it is important in real world data analysis too.
+I'll try to convince you and also convince myself the real world use of
+getting trained in theoretical statistics.
 
-\
-As the analyst we're assuming finite mean and variance. The *entire*
-problem vanishes if you assume that
+### Usefulness of the Knowledge of Fragility
 
-for any $\delta > 0$, the \$2 + \delta\$'th moment exists. So if someone
-in the audience is upset about uniformity, just tell them you assumed an
-incrementally larger moment exists. The entire problem disappears and
-you can go on t-testing away. This was my thinking before I learned more
-about the problem. The tiniest change in assumption makes the problem go
-away and its an assumption nobody will fight you on. So why do I think
-it is something to think about when doing statistics?
+The answer to "does this matter" in the real world is a resounding yes. The
+tiniest change in assumption makes the problem go away and it's an
+assumption nobody will fight you on. So why do I think it is something
+to think about when doing statistics?
 
-When we talk about $\sup$ and $\lim$ and berry-essen bounds, the
-problems become very abstract. However, what is real when you're staring
-at a dataset and you think about the next observation coming in is how
-sensitive is your analysis to tails? The problem with tails is you don't
-know where they are until they are there. Take our adversarial heavy
-tail example. We can simulate data from this process, which we do below.
+When we talk about $\sup$ and $\lim$ and integrals, the problems become
+very abstract. However, what is real when you're staring at a dataset
+you've analyzed or built some model on. You don't care about this
+dataset, you care about future datasets or other datasets you may have
+collected. In other words, you should care about how a new observation
+can come in. You should interrogate how sensitive is your analysis to
+tails? The biggest problem with tails is you don't know where they are
+until they are there. How sensitive is your analysis to small changes in assumptions? If it is, then the analysis is surely not very robust. 
 
-```{r}
-tail_sims <- replicate(1e3,{
-  n <- 1e4
-  x <- rbinom(1e5, size = 1, 1/n^2)
-  which(x == 1)[1]
-}
-)
-hist(tail_sims)
-```
+Maybe after 10,000 days into using AI agents we can be confident that
+chatbots are not an adversary. But you never know[^2]! Bad events can be
+hiding in the tails of the distribution. Even if the distribution is
+behaved enough to allow a CLT.
 
-Maybe after 10,000 days using AI, we can be confident that chatbots are
-not an adversary. But you never know! Bad events can be hiding in the
-tails of the distribution. Even if the distribution is behaved enough to
-allow a CLT.
-
-A good example of tail events causing havoc is the use of the Gaussian
-copula in the 2008 financial crisis @mackenzie2014.
+[^2]: A good example of tail events causing havoc is the use of the
+    Gaussian copula in the 2008 financial crisis @mackenzie2014.

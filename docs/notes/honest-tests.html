@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Honest Hypothesis Tests – Chase Mathis</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -59,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -88,19 +90,18 @@ div.csl-indent {
 <link href="../images/CM.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e08d34f8c8b101884af4e77da93e104c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2a21f49821a31ebe829042210767385c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e89678c33dd9aa5b0e538dd37d8ff061.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-2a21f49821a31ebe829042210767385c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -130,7 +131,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -331,8 +332,6 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Chase Mathis</span>
     </a>
@@ -389,8 +388,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries">Preliminaries</a></li>
-  <li><a href="#does-this-matter-in-practice" id="toc-does-this-matter-in-practice" class="nav-link" data-scroll-target="#does-this-matter-in-practice">Does this matter in practice?</a></li>
-  <li><a href="#yes-no" id="toc-yes-no" class="nav-link" data-scroll-target="#yes-no">Yes &amp; No</a></li>
+  <li><a href="#what-is-going-on-here" id="toc-what-is-going-on-here" class="nav-link" data-scroll-target="#what-is-going-on-here">What is Going on Here?</a></li>
+  <li><a href="#usefulness-of-the-knowledge-of-fragility" id="toc-usefulness-of-the-knowledge-of-fragility" class="nav-link" data-scroll-target="#usefulness-of-the-knowledge-of-fragility">Usefulness of the Knowledge of Fragility</a></li>
   </ul>
 </nav>
     </div>
@@ -417,14 +416,14 @@ window.Quarto = {
 </header>
 
 
-<p>There are many types of hypothesis tests. One such type is the “honest” hypothesis test. This description may conjure an image in your mind. What are “honest” hypothesis tests compared to their regular counterparts? Maybe a hypothesis test is honest if it does not double dip, have some stopping rule, or has well founded assumptions. Honest can mean many things, but its description today will be none of these things. Instead, the modifier “honest” hypothesis tests stems from <span class="citation" data-cites="li1989">Li (<a href="#ref-li1989" role="doc-biblioref">1989</a>)</span>. Its meaning is much more esoteric. It can only be explained to someone who has taken a graduate level analysis class.</p>
+<p>There are many types of hypothesis tests. One such type is the “honest” hypothesis test. This description may conjure an image in your mind. What are “honest” hypothesis tests compared to their regular counterparts? Maybe a hypothesis test is honest if it does not double dip, have some stopping rule, or has well founded assumptions. Honest can mean many things, but its description today will be none of these things. Instead, the modifier “honest” hypothesis tests stems from <span class="citation" data-cites="li1989">Li (<a href="#ref-li1989" role="doc-biblioref">1989</a>)</span>. Its meaning is much more esoteric. The best part is any dishonest test can be made honest with barely any change in assumption.</p>
 <section id="preliminaries" class="level3">
 <h3 class="anchored" data-anchor-id="preliminaries">Preliminaries</h3>
-<p>We’ll begin with <span class="citation" data-cites="bahadur1956">Bahadur and Savage (<a href="#ref-bahadur1956" role="doc-biblioref">1956</a>)</span> which stated an impossibility result. Let <span class="math inline">\(X_1, X_2, \ldots X_n\)</span> be i.i.d. with mean <span class="math inline">\(\mu = \mu_p\)</span> and variance <span class="math inline">\(\sigma^2(P) &lt; \infty\)</span>. We do not want to put any other restrictions on the random variables <span class="math inline">\((X_n)\)</span> when we do statistical inference. So we consider a broad class of distributions <span class="math inline">\(\mathcal{P}\)</span>, whose restriction is that random variables have finite variance. Our null hypothesis will be <span class="math inline">\(\mathcal{P}_0 \subset \mathcal{P}\)</span> where <span class="math inline">\(\mathcal{P}_0 \equiv \{P : \mu = \mu_0\}\)</span> for some fixed <span class="math inline">\(\mu_0\)</span>. We don’t have any assumptions on <span class="math inline">\((X_n)\)</span>, knowledge of their likelihoods. Perhaps the only thing we can possibly do is appeal to asymptotics. We have a finite second moment after all… We recall the central limit theorem (CLT), which says that <span class="math inline">\(\forall P \in \mathcal{P}\)</span>,</p>
+<p>We’ll begin with <span class="citation" data-cites="bahadur1956">Bahadur and Savage (<a href="#ref-bahadur1956" role="doc-biblioref">1956</a>)</span> which stated an impossibility result. Let <span class="math inline">\(X_1, X_2, \ldots X_n\)</span> be i.i.d. with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. We do not want to put any other restrictions on the random variables <span class="math inline">\((X_n)\)</span> when we do statistical inference. So we consider a broad class of distributions <span class="math inline">\(\mathcal{P}\)</span>, whose restriction is that random variables have finite variance. Our null hypothesis will be <span class="math inline">\(\mathcal{P}_0 \subset \mathcal{P}\)</span> where <span class="math inline">\(\mathcal{P}_0 \equiv \{\mathsf P : \mathbb{E}_{\mathsf P}(X) = \mu_0\}\)</span> for some fixed <span class="math inline">\(\mu_0\)</span>. We don’t have any knowledge of their likelihoods and we are restricting ourselves to this broad set of distributions. Perhaps the only thing we can possibly do is appeal to asymptotics. We have a finite second moment after all… We recall the central limit theorem (CLT), which says that <span class="math inline">\(\forall \mathsf P \in \mathcal{P}\)</span>,</p>
 <p><span class="math display">\[
-\frac{1}{\sqrt{n}}\left(S_n - n\mu_p\right) \Rightarrow N(0, \sigma^2).
+\frac{1}{\sqrt{n}}\left(S_n - n\mu\right) \Rightarrow N(0, \sigma^2).
 \]</span></p>
-<p>We hope <span class="math inline">\(n\)</span> is large enough that that the LHS is approximately the RHS. We still don’t know the variance <span class="math inline">\(\sigma^2\)</span> which indicates our use of a t-test.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We’ll define our test <span class="math inline">\(\phi_n\)</span> to be</p>
+<p>We hope <span class="math inline">\(n\)</span> is large enough that the LHS is approximately the RHS. We still don’t know the variance <span class="math inline">\(\sigma^2\)</span> which indicates our use of a t-test.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We’ll define our test <span class="math inline">\(\phi_n\)</span> to be</p>
 <p><span class="math display">\[
 \phi_n(X_1, \ldots, X_n) = \mathbf{1}\left\{\sqrt{n}\bar X_n &gt; \hat \sigma_n t_{1-\alpha, n-1}\right\}.
 \]</span></p>
@@ -459,65 +458,63 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>While the exponential distribution is a nice <span class="math inline">\(\mathsf P\)</span> is in our large class <span class="math inline">\(\mathcal{P}\)</span>, so is other more adversarial <span class="math inline">\(\mathsf P\)</span>. Let <span class="math inline">\(\mathsf P_n\)</span> be the distribution defined as follows</p>
-<p><span class="math display">\[
-\mathsf P_n(X) = \begin{cases} n &amp; 1/n^2 \\ -n &amp; 1/n^2 \\ 0 &amp; {\rm o.w.}\end{cases}.
-\]</span></p>
-<p>We can check that the mean of this distribution is zero and it has a finite second moment. Let’s calculate the power function for any <span class="math inline">\(\mathsf P_n\)</span> in this sequence. I claim the following still holds</p>
-<p><span class="math display">\[
-\sup_{n \in \mathbb{N}} \limsup_{n \to \infty} \mathbb{E}_{\mathsf P_n}(\phi_n) \leq \alpha,
-\]</span>so nothing is wrong here. This statement is true because of the CLT. For any fixed <span class="math inline">\(n\)</span> the distribution is will converge. However, if we change <span class="math inline">\(\lim\)</span> and <span class="math inline">\(\sup\)</span> we cannot guarantee this. Instead we have</p>
-<p><span class="math display">\[
-\limsup_{n \to \infty} \sup_{n \in \mathbb{N}} \mathbb{E}_{\mathsf P_n}(\phi_n) &gt; \alpha
-\]</span></p>
-<p>In addition, each <span class="math inline">\(\mathsf P_n\)</span> has a finite $2 + $ moment for any <span class="math inline">\(\delta &gt; 0\)</span>. The first two facts are true for any <span class="math inline">\(n\)</span> and thus <span class="math inline">\(\mathsf P_n \in \mathcal{P},\forall n\)</span>. However, the last fact is not true uniformly. Namely</p>
-<p><span class="math display">\[
-\sup_{\mathsf P \in \mathcal{P}} \mathbb{E}_{\mathsf P}(X^{2 + \delta}) = \infty.
-\]</span></p>
-<p>I was taught the assumption above is called the “Crystal Ball Condition” <span class="citation" data-cites="resnick1999">Resnick and Resnick (<a href="#ref-resnick1999" role="doc-biblioref">1999</a>)</span>. It is a sufficient but not necessary condition that is usually the easiest to check.</p>
-<p>I’ll write the CLT we stated at the beginning again replacing <span class="math inline">\(\forall P \in \mathcal{P}\)</span> with a <span class="math inline">\(\sup_{P \in \mathcal{P}}\)</span> and the <span class="math inline">\(\Rightarrow\)</span> as a <span class="math inline">\(\lim_{n \to \infty}\)</span>. The <em>pointwise</em> CLT more explicitly claims</p>
-<p><span class="math display">\[
-\sup_{P \in \mathcal{P}} \lim_{n \to \infty} \sup_{x \in \mathbb{R}} |\Pr\left(\frac{1}{\sqrt{n}}(S_n-n\mu_p) \leq x\right) - \Pr(Z \leq x)| = 0.
-\]</span></p>
-<p>The <strong>main use of uniformly “honest” tests</strong> <strong>is the ability to swap</strong> <span class="math inline">\(\sup\)</span> and <span class="math inline">\(\lim\)</span> . The issue we ran into above is the issue of uniformity. In a measure theory class you may run into issues of uniform integrability (UI). This topic and UI are intricately linked. Thus for a class of distributions, I’ll discuss later we can discuss the <em>uniform</em> CLT</p>
+<p>While the exponential distribution is a nice <span class="math inline">\(\mathsf P\)</span>, which lies in our large class <span class="math inline">\(\mathcal{P}\)</span>, so are other more adversarial <span class="math inline">\(\mathsf P\)</span>. There are two distinct ways in which <span class="math inline">\(\mathcal{P}\)</span> contains adversarial subsets of distributions. The first way to fail being an honest test is that we must not allow distributions that if nudged a little, will fail to have a second moment. The second way to fail is that we must be more precise in what we mean by finite second moments. I will give counterexamples for each adversarial family <span class="math inline">\((\mathsf P_m)_{m \in \mathbb{N}}\)</span>.</p>
+<section id="failure-1-a-robust-finite-second-moment" class="level4">
+<h4 class="anchored" data-anchor-id="failure-1-a-robust-finite-second-moment">Failure 1: A Robust Finite Second Moment</h4>
+<p>Our first counter example is a more familiar one. Let <span class="math inline">\(\mathsf P_m\)</span> be defined so that<br>
+<span class="math display">\[
+\mathsf P_m (X = m) = \frac{1}{m^2} \quad \mathsf P_m(X = -m) = \frac{1}{m^2} \quad \mathsf P_m(X = 0) = 1 - \frac{2}{m^2}.
+\]</span> Observe two facts about this distribution. First <span class="math inline">\(\mathbb{E}_{\mathsf P_m}(X) = 0\)</span>. Second, <span class="math inline">\(\exists B &lt; \infty\)</span> so that <span class="math inline">\(\mathbb{E}_{\mathsf P_m}(X^2) &lt; B\)</span>. This <span class="math inline">\(B\)</span> you can check is <span class="math inline">\(2\)</span>. In words, the distribution has mean <span class="math inline">\(0\)</span> and also has uniformly bounded second moments. (The uniformity will be the second counter example). Despite these facts, this family <span class="math inline">\((\mathsf P_m)_{m \in \mathbb{N}}\)</span> is not sufficiently well behaved to have a uniform CLT.</p>
+<p>The way I think about this failure mode is that we don’t have rates. One may recall that the mean estimator <span class="math inline">\(\frac{S_n}{n} \to \mu, \mathsf P\)</span>-a.s. if and only if <span class="math inline">\(\mathbb{E}(X) = \mu &lt; \infty\)</span>. However, we only get rates for how fast this convergence occurs if we assume a <span class="math inline">\(1+\delta\)</span> moment. This is the exact problem with <span class="math inline">\((\mathsf P_m)_{m \in \mathbb{N}}\)</span>. If we nudge the moment calculation a bit <span class="math inline">\(\delta &gt; 0\)</span>, then it blows up to <span class="math inline">\(\infty\)</span>. One can rigorously show the lack of convergence, but I will not here.</p>
 </section>
-<section id="does-this-matter-in-practice" class="level3">
-<h3 class="anchored" data-anchor-id="does-this-matter-in-practice">Does this matter in practice?</h3>
-<p>I want to think through the question: is this either 1) a fun mathematical exercise for statisticians to work on or 2) is it something to add (perhaps near the top) to the million other things a statistician should check when doing a data analysis.</p>
-<p>At first I thought it was option 1. I thought this is just a fun fact about hypothesis tests. Nobody doing a confidence interval in R should worry about this messing up their analysis. But it is actually a third that combines 1) and 2). I’ll try to convince you and also convince myself the use of getting trained in theoretical statistics.</p>
+<section id="failure-2-precisely-stating-bounded-2nd-moments" class="level4">
+<h4 class="anchored" data-anchor-id="failure-2-precisely-stating-bounded-2nd-moments">Failure 2: Precisely Stating Bounded 2nd Moments</h4>
+<p>For this failure mode, the key counterexample to have in mind is the following. Let <span class="math inline">\(\mathsf P_c\)</span> be a symmetric standard Cauchy distribution. We know that if <span class="math inline">\(X \sim \mathsf P_c,  \mathbb{E}_{\mathsf P_c}(|X|) = \infty\)</span>. Then for each <span class="math inline">\(m \in \mathbb{N}\)</span> consider a truncated Cauchy distribution <span class="math display">\[
+\mathsf P_{c,m} \propto \mathsf P_{c} 1(|x| &lt; m).
+\]</span> We’ve truncated the distribution, which implies that <span class="math inline">\(\forall m \in \mathbb{N}, \mathsf P_{c,m}\)</span> has a finite MGF and thus finite exponential moment. Moreover, it has mean <span class="math inline">\(0\)</span> due to symmetry. However, it is not true in the limit as <span class="math inline">\(m \to \infty\)</span>. This is because <span class="math inline">\(\lim_{m \to \infty} \mathsf P_{c,m} = \mathsf P_{c}\)</span>, which we know does not have any finite moments.</p>
 </section>
-<section id="yes-no" class="level3">
-<h3 class="anchored" data-anchor-id="yes-no">Yes &amp; No</h3>
-<p>The answer to “does this matter” is option 3. No, it doesn’t matter and also it does <em>really</em> matter. A very statistician response. I’ll first explain why I think it doesn’t matter.</p>
-<p><br>
-As the analyst we’re assuming finite mean and variance. The <em>entire</em> problem vanishes if you assume that</p>
-<p>for any <span class="math inline">\(\delta &gt; 0\)</span>, the $2 + $’th moment exists. So if someone in the audience is upset about uniformity, just tell them you assumed an incrementally larger moment exists. The entire problem disappears and you can go on t-testing away. This was my thinking before I learned more about the problem. The tiniest change in assumption makes the problem go away and its an assumption nobody will fight you on. So why do I think it is something to think about when doing statistics?</p>
-<p>When we talk about <span class="math inline">\(\sup\)</span> and <span class="math inline">\(\lim\)</span> and berry-essen bounds, the problems become very abstract. However, what is real when you’re staring at a dataset and you think about the next observation coming in is how sensitive is your analysis to tails? The problem with tails is you don’t know where they are until they are there. Take our adversarial heavy tail example. We can simulate data from this process, which we do below.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tail_sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e3</span>,{</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fl">1e4</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fl">1e5</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>n<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">which</span>(x <span class="sc">==</span> <span class="dv">1</span>)[<span class="dv">1</span>]</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tail_sims)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="honest-tests_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Maybe after 10,000 days using AI, we can be confident that chatbots are not an adversary. But you never know! Bad events can be hiding in the tails of the distribution. Even if the distribution is behaved enough to allow a CLT.</p>
-<p>A good example of tail events causing havoc is the use of the Gaussian copula in the 2008 financial crisis <span class="citation" data-cites="mackenzie2014">MacKenzie and Spears (<a href="#ref-mackenzie2014" role="doc-biblioref">2014</a>)</span>.</p>
+<section id="uniform-integrability" class="level4">
+<h4 class="anchored" data-anchor-id="uniform-integrability">Uniform Integrability</h4>
+<p>I’ve given you two failure modes of badly behaved distributions. For either counterexample, we can analyze how they succeed pointwise but fail uniformly. I claim the following still holds</p>
+<p><span class="math display">\[
+\sup_{m \in \mathbb{N}} \limsup_{n \to \infty} \mathbb{E}_{\mathsf P_{c,m}}(\phi_n) \leq \alpha,
+\]</span> so nothing is wrong. If I fix my distribution <span class="math inline">\(\mathsf P_m\)</span> beforehand and then look at larger and larger datasets, my test will be correct. This statement is true because of the CLT.</p>
+<p>However, let me first consider larger and larger datasets. Then for each large dataset, I am free to assume <span class="math inline">\(X_1, \ldots, X_n \sim \mathsf P_{c,m}\)</span> for any <span class="math inline">\(m \in \mathbb{N}\)</span>. I can let <span class="math inline">\(m\)</span> be dependent on <span class="math inline">\(n\)</span>. For this example, the assumptions are too weak for a uniform limit. We will end up with</p>
+<p><span class="math display">\[
+\limsup_{n \to \infty} \sup_{m \in \mathbb{N}} \mathbb{E}_{\mathsf P_m}(\phi_n) &gt; \alpha.
+\]</span></p>
+<p>In fact, the power function will evaluate to <span class="math inline">\(1\)</span>. The analyst will <em>always</em> reject erroneously.</p>
+<p>This is an example of the importance of Uniform Integrability (u.i.) commonly covered in probability theory courses. The problem is that if <span class="math inline">\(X_m \sim \mathsf P_{c,m}\)</span>, then</p>
+<p><span class="math display">\[
+\lim_{a \to \infty} \sup_{m \in \mathbb{N}}\mathbb{E}_{\mathsf P_{c,m}}(|X_m|1(|X_m| &gt; a)) \neq 0.
+\]</span></p>
+<p>There are many conditions for uniform integrability to hold. The most common one to check simply forbids both failure modes. We must assume uniformly bounded <span class="math inline">\(p + \delta\)</span> moments if we are analyzing the <span class="math inline">\(p\)</span>-th moment. It is sometimes called the “Crystal Ball” condition. The condition asks that if we want the <span class="math inline">\(p\)</span>-th moment to be uniformly integrable then for <span class="math inline">\(k &gt;p\)</span>, <span class="math display">\[
+\sup_{\mathsf P \in \mathcal{P}} \mathbb{E}_{\mathsf P}(|X|^k) \leq B &lt; \infty.
+\]</span> If we make this additional assumption (with <span class="math inline">\(p = 2\)</span>), all problems go away. We can write <span class="math display">\[
+\limsup_{n \to \infty}\sup_{\mathsf P \in \mathcal{P}} \mathbb{E}_{\mathsf P}(\phi_n) \leq \alpha.
+\]</span> This uniform-over-distributions size control is the definition of an honest test. With a small change of assumption, we make our test honest.</p>
+</section>
+</section>
+<section id="what-is-going-on-here" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-going-on-here">What is Going on Here?</h3>
+<p>Why did I spend weeks during a probability theory class to cover the situation of uniform integrability? The assumptions in which one gets an “honest” test are so similar to the assumptions one fails to obtain one.</p>
+<p>I think one lesson is to be precise in your mathematical assumptions. There is a big difference between uniform boundedness and regular boundedness. In your head, you’re probably assuming uniform boundedness, but you have to state that precisely.</p>
+<p>This same lesson applies to assuming a second moment and assuming an infinitesimally larger than 2 moment. It is easy to write down all distributions with finite second moment, but in your head you don’t want the counter-example distributions in this class you’re constructing.</p>
+<p>This first lesson is for the theoretical minded people, but is there any practical use? Is this either 1) a fun mathematical exercise for theoretical statisticians to check when devising methods or 2) is it something to add (perhaps near the top) to the million other things a statistician should check when doing a real data analysis.</p>
+<p>At first I thought it was only option 1: be precise in your assumptions. Nobody constructing a confidence interval in R should worry about an adversarial <span class="math inline">\((\mathsf P_{m})_{m \in \mathbb{N}}\)</span> messing up their analysis. But I think it is important in real world data analysis too. I’ll try to convince you and also convince myself the real world use of getting trained in theoretical statistics.</p>
+</section>
+<section id="usefulness-of-the-knowledge-of-fragility" class="level3">
+<h3 class="anchored" data-anchor-id="usefulness-of-the-knowledge-of-fragility">Usefulness of the Knowledge of Fragility</h3>
+<p>The answer to “does this matter” in the real world is a resounding yes. The tiniest change in assumption makes the problem go away and it’s an assumption nobody will fight you on. So why do I think it is something to think about when doing statistics?</p>
+<p>When we talk about <span class="math inline">\(\sup\)</span> and <span class="math inline">\(\lim\)</span> and integrals, the problems become very abstract. However, what is real when you’re staring at a dataset you’ve analyzed or built some model on. You don’t care about this dataset, you care about future datasets or other datasets you may have collected. In other words, you should care about how a new observation can come in. You should interrogate how sensitive is your analysis to tails? The biggest problem with tails is you don’t know where they are until they are there. How sensitive is your analysis to small changes in assumptions? If it is, then the analysis is surely not very robust.</p>
+<p>Maybe after 10,000 days into using AI agents we can be confident that chatbots are not an adversary. But you never know<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>! Bad events can be hiding in the tails of the distribution. Even if the distribution is behaved enough to allow a CLT.</p>
 
 
 
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bahadur1956" class="csl-entry" role="listitem">
 Bahadur, R. R., and Leonard J. Savage. 1956. <span>“The Nonexistence of Certain Statistical Procedures in Nonparametric Problems.”</span> <em>The Annals of Mathematical Statistics</em> 27 (4): 1115–22. <a href="https://www.jstor.org/stable/2237199">https://www.jstor.org/stable/2237199</a>.
 </div>
@@ -527,13 +524,11 @@ Li, Ker-Chau. 1989. <span>“Honest Confidence Regions for Nonparametric Regress
 <div id="ref-mackenzie2014" class="csl-entry" role="listitem">
 MacKenzie, Donald, and Taylor Spears. 2014. <span>“<span>‘</span>The Formula That Killed Wall Street<span>’</span>: The Gaussian Copula and Modelling Practices in Investment Banking.”</span> <em>Social Studies of Science</em> 44 (3): 393417.
 </div>
-<div id="ref-resnick1999" class="csl-entry" role="listitem">
-Resnick, Sidney I, and S Resnick. 1999. <em>A Probability Path</em>. Vol. 100. Springer.
-</div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>If <span class="math inline">\(n\)</span> is large <span class="math inline">\(t,z\)</span> will give you the same answer anyway<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>A good example of tail events causing havoc is the use of the Gaussian copula in the 2008 financial crisis <span class="citation" data-cites="mackenzie2014">MacKenzie and Spears (<a href="#ref-mackenzie2014" role="doc-biblioref">2014</a>)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -144,7 +144,7 @@
     "href": "writing.html",
     "title": "Writing",
     "section": "",
-    "text": "A collection of topics in Statitsics I’m thinking about.\n\nSpring 2026\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\nBook & Movie Reviews\nGoodreads\nLetterboxd"
+    "text": "A collection of topics in Statistics I’m thinking about.\n\nSpring 2026\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\nBook & Movie Reviews\nGoodreads\nLetterboxd"
   },
   {
     "objectID": "notes/Loglog.html",
@@ -179,7 +179,7 @@
     "href": "notes/honest-tests.html",
     "title": "Honest Hypothesis Tests",
     "section": "",
-    "text": "There are many types of hypothesis tests. One such type is the “honest” hypothesis test. This description may conjure an image in your mind. What are “honest” hypothesis tests compared to their regular counterparts? Maybe a hypothesis test is honest if it does not double dip, have some stopping rule, or has well founded assumptions. Honest can mean many things, but its description today will be none of these things. Instead, the modifier “honest” hypothesis tests stems from Li (1989). Its meaning is much more esoteric. It can only be explained to someone who has taken a graduate level analysis class."
+    "text": "There are many types of hypothesis tests. One such type is the “honest” hypothesis test. This description may conjure an image in your mind. What are “honest” hypothesis tests compared to their regular counterparts? Maybe a hypothesis test is honest if it does not double dip, have some stopping rule, or has well founded assumptions. Honest can mean many things, but its description today will be none of these things. Instead, the modifier “honest” hypothesis tests stems from Li (1989). Its meaning is much more esoteric. The best part is any dishonest test can be made honest with barely any change in assumption."
   },
   {
     "objectID": "notes/berry-essen-bounds.html",
@@ -193,7 +193,7 @@
     "href": "notes/honest-tests.html#footnotes",
     "title": "Honest Hypothesis Tests",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf \\(n\\) is large \\(t,z\\) will give you the same answer anyway↩︎"
+    "text": "Footnotes\n\n\nIf \\(n\\) is large \\(t,z\\) will give you the same answer anyway↩︎\nA good example of tail events causing havoc is the use of the Gaussian copula in the 2008 financial crisis MacKenzie and Spears (2014).↩︎"
   },
   {
     "objectID": "notes/quasi-independence.html",
@@ -292,5 +292,257 @@
     "title": "Sequential Testing for Undergrads: Experimental Design",
     "section": "Miscellaneous",
     "text": "Miscellaneous\n\nGroup Sequential Designs are popular in FDA regulatory settings and in industry.\n\nThe package gsDesign is the go-to package for this method\nForces the analyst to pick times where they may stop the experiment\nMy current research is related to these methods"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#why-sequential-testing",
+    "href": "notes/sequential_testing_155_april3.html#why-sequential-testing",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Why Sequential Testing?",
+    "text": "Why Sequential Testing?\nFirst, why should we do sequential testing? Why not just prespecify \\(n\\)?"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#power-calculations",
+    "href": "notes/sequential_testing_155_april3.html#power-calculations",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Power Calculations",
+    "text": "Power Calculations\nWe can calculate the number of samples using a power calculation\n(Boardwork)"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#verify",
+    "href": "notes/sequential_testing_155_april3.html#verify",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Verify",
+    "text": "Verify\n\nlibrary(pwr)\npwr.p.test(h = ES.h(0.15, 0.05), sig.level = 0.05, power = 0.90,\n           alternative = \"greater\")\n\n\n     proportion power calculation for binomial distribution (arcsine transformation) \n\n              h = 0.344372\n              n = 72.21261\n      sig.level = 0.05\n          power = 0.9\n    alternative = greater"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#always-do-sequential-testing-theorem",
+    "href": "notes/sequential_testing_155_april3.html#always-do-sequential-testing-theorem",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Always Do Sequential Testing Theorem",
+    "text": "Always Do Sequential Testing Theorem\nThere is a theorem, which is hard to write down exactly, but I call it the Always Do Sequential Testing Theorem Wald (1945).\n\nIf you pick \\(n\\) via a power calculation, on average you could have gotten away with fewer samples had you used a sequential test instead."
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#uses-of-modern-sequential-testing",
+    "href": "notes/sequential_testing_155_april3.html#uses-of-modern-sequential-testing",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Uses of Modern Sequential Testing",
+    "text": "Uses of Modern Sequential Testing\nPlatforms like Statsig implement the SPRT and it is quite easy to use."
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#ai-deployment-monitoring",
+    "href": "notes/sequential_testing_155_april3.html#ai-deployment-monitoring",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "AI Deployment Monitoring",
+    "text": "AI Deployment Monitoring\n[LLM company logos: OpenAI, Anthropic, Google DeepMind, Meta AI]\n\nMonitor model quality after deployment\nDetect regressions in real time without waiting for a fixed \\(n\\)"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#early-stopping-for-clinical-trials",
+    "href": "notes/sequential_testing_155_april3.html#early-stopping-for-clinical-trials",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Early Stopping for Clinical Trials",
+    "text": "Early Stopping for Clinical Trials\n[Pharmaceutical company logos: Pfizer, Roche, Novartis, AstraZeneca]\n\nStop early for efficacy or futility\nFDA-recommended group sequential designs"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#problem-need-to-know-likelihoods",
+    "href": "notes/sequential_testing_155_april3.html#problem-need-to-know-likelihoods",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Problem: Need to Know Likelihoods!",
+    "text": "Problem: Need to Know Likelihoods!\nThe SPRT requires specifying \\(P\\) and \\(Q\\) — you need the distributions.\n\nRecall our favorite Statistics Theorem: the CLT\n\\[\\frac{\\bar X_n - \\mu}{\\sigma/\\sqrt{n}} \\xrightarrow{d} N(0,1)\\]"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#testing-to-confidence-sequences",
+    "href": "notes/sequential_testing_155_april3.html#testing-to-confidence-sequences",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Testing to Confidence Sequences",
+    "text": "Testing to Confidence Sequences\nA few things that aren’t very nice about the SPRT. It requires the analyst to:\n\nKnow the distribution (and variance)\nSpecify the null and the alternative\n\n\nWe’ll introduce confidence sequences Waudby-Smith et al. (2024) — the sequential analogue of confidence intervals that remain valid at all sample sizes."
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#confidence-sequences-vs.-clt-ci",
+    "href": "notes/sequential_testing_155_april3.html#confidence-sequences-vs.-clt-ci",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Confidence Sequences vs. CLT CI",
+    "text": "Confidence Sequences vs. CLT CI\n\nlibrary(ggplot2)\nlibrary(patchwork)\n\n# --- Parameters ---\nn &lt;- 1e3; p0 &lt;- 0.4; p1 &lt;- 0.6; e &lt;- 0.5\ntau &lt;- p1 - p0\n\nrunning_sd &lt;- function(x) {\n  n &lt;- seq_along(x)\n  M2 &lt;- numeric(length(x))\n  mu &lt;- cumsum(x) / n\n  for (t in 2:length(x)) {\n    d &lt;- x[t] - mu[t - 1]\n    M2[t] &lt;- M2[t - 1] + d * (x[t] - mu[t])\n  }\n  sqrt(pmax(M2 / pmax(n - 1, 1), 1e-10))\n}\n\nrobbins_confseq &lt;- function(x, alpha = 0.05, rho = 1) {\n  n      &lt;- seq_along(x)\n  mu_hat &lt;- cumsum(x) / n\n  s_n    &lt;- running_sd(x)\n  radius &lt;- s_n * sqrt((2 * (n * rho^2 + 1) / (n^2 * rho^2)) *\n                         log(sqrt(n * rho^2 + 1) / alpha))\n  data.frame(lower = mu_hat - radius, upper = mu_hat + radius)\n}\n\nZ   &lt;- rbinom(n, 1, e)\nY   &lt;- ifelse(Z == 1, rbinom(n, 1, p1), rbinom(n, 1, p0))\nphi &lt;- Z * Y / e - (1 - Z) * Y / (1 - e)\n\ncs  &lt;- robbins_confseq(phi)\n\nns     &lt;- 1:n\nmu_hat &lt;- cumsum(phi) / ns\nclt_hw &lt;- qnorm(0.975) * running_sd(phi) / sqrt(ns)\n\ndf &lt;- data.frame(\n  t      = ns,\n  ate    = mu_hat,\n  cs_lo  = cs$lower, cs_hi = cs$upper,\n  clt_lo = mu_hat - clt_hw,\n  clt_hi = mu_hat + clt_hw\n)[50:n, ]\n\np1_plot &lt;- ggplot(df, aes(t)) +\n  geom_ribbon(aes(ymin = cs_lo, ymax = cs_hi), alpha = 0.2, fill = \"steelblue\") +\n  geom_line(aes(y = ate), color = \"steelblue\") +\n  geom_hline(yintercept = tau, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"n\", y = \"ATE\", title = \"Asymptotic CS (valid)\",\n       subtitle = \"Anytime-valid: accounts for peeking\") +\n  theme_minimal()\n\np2_plot &lt;- ggplot(df, aes(t)) +\n  geom_ribbon(aes(ymin = clt_lo, ymax = clt_hi), alpha = 0.2, fill = \"coral\") +\n  geom_line(aes(y = ate), color = \"coral\") +\n  geom_hline(yintercept = tau, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"n\", y = \"ATE\", title = \"CLT CI (invalid for peeking)\",\n       subtitle = \"Too narrow: misses true ATE when you peek\") +\n  theme_minimal()\n\np1_plot + p2_plot +\n  plot_annotation(\n    title    = sprintf(\"CS vs CLT CI | p0=%.1f, p1=%.1f, tau=%.1f\", p0, p1, tau),\n    subtitle = \"Red dashed line = true ATE\"\n  )"
+  },
+  {
+    "objectID": "notes/sequential_testing_155_april3.html#miscellaneous",
+    "href": "notes/sequential_testing_155_april3.html#miscellaneous",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Miscellaneous",
+    "text": "Miscellaneous\n\nGroup Sequential Designs are recommended in FDA regulatory settings and popular in industry.\n\nThe package gsDesign is the go-to package for this method\nForces the analyst to pick interim analysis times\nMy current research is related to these methods\n\n\n\n\n\n\nWald, A. 1945. “Sequential Tests of Statistical Hypotheses.” The Annals of Mathematical Statistics 16 (2): 117 186. https://doi.org/10.1214/aoms/1177731118.\n\n\nWaudby-Smith, Ian, David Arbour, Ritwik Sinha, Edward H Kennedy, and Aaditya Ramdas. 2024. “Time-Uniform Central Limit Theory and Asymptotic Confidence Sequences.” The Annals of Statistics 52 (6): 26132640."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#why-sequential-testing",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#why-sequential-testing",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Why Sequential Testing?",
+    "text": "Why Sequential Testing?\nFirst, why should we do sequential testing? Why not just prespecify \\(n\\)?"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#power-calculations",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#power-calculations",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Power Calculations",
+    "text": "Power Calculations\nWe can calculate the number of samples using a power calculation\n(Boardwork)"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#verify",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#verify",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Verify",
+    "text": "Verify\n\nlibrary(pwr)\npwr.p.test(h = ES.h(0.15, 0.05), sig.level = 0.05, power = 0.90,\n           alternative = \"greater\")\n\n\n     proportion power calculation for binomial distribution (arcsine transformation) \n\n              h = 0.344372\n              n = 72.21261\n      sig.level = 0.05\n          power = 0.9\n    alternative = greater\n\n\nRecall, using the SPRT we had on average less than 40 samples."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#always-do-sequential-testing-theorem",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#always-do-sequential-testing-theorem",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Always Do Sequential Testing Theorem",
+    "text": "Always Do Sequential Testing Theorem\nThere is a theorem, which is hard to write down exactly, but I call it the Always Do Sequential Testing Theorem Wald (1945).\n\nIf you pick \\(n\\) via a power calculation, on average you could have gotten away with fewer samples had you used a sequential test instead."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#uses-of-modern-sequential-testing",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#uses-of-modern-sequential-testing",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Uses of Modern Sequential Testing",
+    "text": "Uses of Modern Sequential Testing\n\nPlatforms like Statsig implement the SPRT and it is quite easy to use."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#ai-deployment-monitoring",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#ai-deployment-monitoring",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "AI Deployment Monitoring",
+    "text": "AI Deployment Monitoring\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMonitor model quality after deployment\nDetect behaviors in real time without waiting for a fixed \\(n\\)\nTraining: Reinforcement Leanring as a type of experiment"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#early-stopping-for-clinical-trials",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#early-stopping-for-clinical-trials",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Early Stopping for Clinical Trials",
+    "text": "Early Stopping for Clinical Trials\n\n\nStop early for efficacy or futility\nFDA-recommended group sequential designs"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#problem-need-to-know-likelihoods",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#problem-need-to-know-likelihoods",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Problem: Need to Know Likelihoods!",
+    "text": "Problem: Need to Know Likelihoods!\nThe SPRT requires specifying \\(P\\) and \\(Q\\) — you need the distributions.\n\nRecall our favorite Statistics Theorem: the CLT\n\\[\\frac{\\bar X_n - \\mu}{\\sigma/\\sqrt{n}} \\xrightarrow{d} N(0,1)\\]"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#testing-to-confidence-sequences",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#testing-to-confidence-sequences",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Testing to Confidence Sequences",
+    "text": "Testing to Confidence Sequences\nA few things that aren’t very nice about the SPRT. It requires the analyst to:\n\nKnow the distribution (and variance)\nSpecify the null and the alternative\n\nWe’ll introduce confidence sequences Waudby-Smith et al. (2024) — the sequential analogue of confidence intervals that remain valid at all sample sizes."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#confidence-sequences-vs.-clt-ci",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#confidence-sequences-vs.-clt-ci",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Confidence Sequences vs. CLT CI",
+    "text": "Confidence Sequences vs. CLT CI\n\n\nShow simulation code\n# --- Parameters ---\nset.seed(7)\nn &lt;- 1e3; p0 &lt;- 0.4; p1 &lt;- 0.6; e &lt;- 0.5\ntau &lt;- p1 - p0\n\nZ   &lt;- rbinom(n, 1, e)\nY   &lt;- ifelse(Z == 1, rbinom(n, 1, p1), rbinom(n, 1, p0))\nphi &lt;- Z * Y / e - (1 - Z) * Y / (1 - e)\n\ncs  &lt;- robbins_confseq(phi)\n\nns     &lt;- 1:n\nmu_hat &lt;- cumsum(phi) / ns\nclt_hw &lt;- qnorm(0.975) * running_sd(phi) / sqrt(ns)\n\ndf &lt;- data.frame(\n  t      = ns,\n  ate    = mu_hat,\n  cs_lo  = cs$lower, cs_hi = cs$upper,\n  clt_lo = mu_hat - clt_hw,\n  clt_hi = mu_hat + clt_hw\n)[50:n, ]\n\np1_plot &lt;- ggplot(df, aes(t)) +\n  geom_ribbon(aes(ymin = cs_lo, ymax = cs_hi), alpha = 0.2, fill = \"steelblue\") +\n  geom_line(aes(y = ate), color = \"steelblue\") +\n  geom_hline(yintercept = tau, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"n\", y = \"ATE\", title = \"Asymptotic CS (valid)\",\n       subtitle = \"Anytime-valid: accounts for peeking\") +\n  theme_minimal()\n\np2_plot &lt;- ggplot(df, aes(t)) +\n  geom_ribbon(aes(ymin = clt_lo, ymax = clt_hi), alpha = 0.2, fill = \"coral\") +\n  geom_line(aes(y = ate), color = \"coral\") +\n  geom_hline(yintercept = tau, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"n\", y = \"ATE\", title = \"CLT CI (invalid for peeking)\",\n       subtitle = \"Too narrow: misses true ATE when you peek\") +\n  theme_minimal()\n\np1_plot + p2_plot +\n  plot_annotation(\n    title    = sprintf(\"CS vs CLT CI | p0=%.1f, p1=%.1f, tau=%.1f\", p0, p1, tau),\n    subtitle = \"Red dashed line = true ATE\"\n  )"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#miscellaneous",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#miscellaneous",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Miscellaneous",
+    "text": "Miscellaneous\n\nGroup Sequential Designs are recommended in FDA regulatory settings and popular in industry.\n\nThe package gsDesign is the go-to package for this method\nForces the analyst to pick interim analysis times\nMy current research is related to these methods\n\n\n\n\n\n\nWald, A. 1945. “Sequential Tests of Statistical Hypotheses.” The Annals of Mathematical Statistics 16 (2): 117 186. https://doi.org/10.1214/aoms/1177731118.\n\n\nWaudby-Smith, Ian, David Arbour, Ritwik Sinha, Edward H Kennedy, and Aaditya Ramdas. 2024. “Time-Uniform Central Limit Theory and Asymptotic Confidence Sequences.” The Annals of Statistics 52 (6): 26132640."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#from-testing-to-intervals",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#from-testing-to-intervals",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "From Testing to Intervals",
+    "text": "From Testing to Intervals\n\nThere is a duality between Hypothesis Testing and Confidence Intervals\nThis same duality exists for sequential hypothesis testing\nWe call these new confidence regions: confidence sequences"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#simulation-setup",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#simulation-setup",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Simulation Setup",
+    "text": "Simulation Setup\nWe consider a simple randomized experiment:\n\n\n\nParameter\nValue\nDescription\n\n\n\n\n\\(n\\)\n1000\nTotal samples\n\n\n\\(p_0\\)\n0.4\nMean under control\n\n\n\\(p_1\\)\n0.6\nMean under treatment\n\n\n\\(e\\)\n0.5\nPropensity score\n\n\n\\(\\tau = p_1 - p_0\\)\n0.2\nTrue ATE\n\n\n\nThe IPW estimator is \\(\\phi_i = \\frac{Z_i Y_i}{e} - \\frac{(1-Z_i)Y_i}{1-e}\\)"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#robbins_confseq-click-to-expand",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#robbins_confseq-click-to-expand",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "robbins_confseq (click to expand)",
+    "text": "robbins_confseq (click to expand)\n\n\nShow robbins_confseq\nlibrary(ggplot2)\nlibrary(patchwork)\n\nrunning_sd &lt;- function(x) {\n  n &lt;- seq_along(x)\n  M2 &lt;- numeric(length(x))\n  mu &lt;- cumsum(x) / n\n  for (t in 2:length(x)) {\n    d &lt;- x[t] - mu[t - 1]\n    M2[t] &lt;- M2[t - 1] + d * (x[t] - mu[t])\n  }\n  sqrt(pmax(M2 / pmax(n - 1, 1), 1e-10))\n}\n\nrobbins_confseq &lt;- function(x, alpha = 0.05, rho = 1) {\n  n      &lt;- seq_along(x)\n  mu_hat &lt;- cumsum(x) / n\n  s_n    &lt;- running_sd(x)\n  radius &lt;- s_n * sqrt((2 * (n * rho^2 + 1) / (n^2 * rho^2)) *\n                         log(sqrt(n * rho^2 + 1) / alpha))\n  data.frame(lower = mu_hat - radius, upper = mu_hat + radius)\n}"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#from-testing-to-confidence-sequences",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#from-testing-to-confidence-sequences",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "From Testing to Confidence Sequences",
+    "text": "From Testing to Confidence Sequences\n\nThere is a duality between Hypothesis Testing and Confidence Intervals\nThis same duality exists for sequential hypothesis testing\n\nThe SPRT requires the analyst to:\n\nKnow the distribution (and variance)\nSpecify the null and the alternative\n\nWe’ll introduce confidence sequences Waudby-Smith et al. (2024) — the sequential analogue of confidence intervals that remain valid at all sample sizes."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#artillery-example",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#artillery-example",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Artillery Example",
+    "text": "Artillery Example\n\nWald wanted a method that allowed him to stop monitoring the moment he could reject.\nWhat if you were more flexible?"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#group-sequential-designs",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#group-sequential-designs",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Group Sequential Designs",
+    "text": "Group Sequential Designs\n\nInstead of checking after every shell is fired\nLet’s check at time 10, 20, 30, 40, 50\nThis is an example of a Group Sequential Design"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#group-sequential-designs-are-popular",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#group-sequential-designs-are-popular",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Group Sequential Designs are Popular",
+    "text": "Group Sequential Designs are Popular\n\nFDA Guidance\nMost popular method for A/B testers (Big tech)\nThey can visualized as a confidence sequence too."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#group-sequential-designs-in-action",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#group-sequential-designs-in-action",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Group Sequential Designs in Action",
+    "text": "Group Sequential Designs in Action\n\n\nShow simulation code\nlibrary(gsDesign)\n\n# 5 equally-spaced interim analyses with O'Brien-Fleming spending\ngs &lt;- gsDesign(k = 5, test.type = 2, alpha = 0.025, beta = 0.1, sfu = sfLDOF)\n\ninterim_times &lt;- c(200, 400, 600, 800, 1000)\n\ngsd_df &lt;- do.call(rbind, lapply(seq_along(interim_times), function(i) {\n  t      &lt;- interim_times[i]\n  x      &lt;- phi[1:t]\n  mu     &lt;- mean(x)\n  se     &lt;- sd(x) / sqrt(t)\n  z_crit &lt;- gs$upper$bound[i]   # GSD-adjusted critical value at this look\n  data.frame(t = t, ate = mu,\n             lo = mu - z_crit * se,\n             hi = mu + z_crit * se,\n             z_crit = round(z_crit, 2))\n}))\n\nggplot(gsd_df, aes(x = t)) +\n  geom_errorbar(aes(ymin = lo, ymax = hi), width = 30, color = \"steelblue\", linewidth = 0.8) +\n  geom_point(aes(y = ate), color = \"steelblue\", size = 3) +\n  geom_text(aes(y = hi, label = paste0(\"z=\", z_crit)), vjust = -0.6, size = 3) +\n  geom_hline(yintercept = tau, color = \"red\",   linetype = \"dashed\") +\n  geom_hline(yintercept = 0,   color = \"black\", linetype = \"dotted\") +\n  scale_x_continuous(breaks = interim_times) +\n  labs(\n    x        = \"Interim analysis (n)\",\n    y        = \"Estimated ATE\",\n    title    = \"Group Sequential Design (O'Brien-Fleming): CIs at interim looks\",\n    subtitle = \"Red dashed = true ATE; z labels = GSD-adjusted critical value\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#thank-you-for-having-me",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#thank-you-for-having-me",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Thank You for Having Me",
+    "text": "Thank You for Having Me\nIf you’re interested in more of this topic feel free to contact me: chasehmathis.github.io. Some good modern references are Group Sequential Design (Jennison and Turnbull) E-values (Ramdas and Wang)"
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#references",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#references",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "References",
+    "text": "References\n\n\n\n\nWald, A. 1945. “Sequential Tests of Statistical Hypotheses.” The Annals of Mathematical Statistics 16 (2): 117 186. https://doi.org/10.1214/aoms/1177731118.\n\n\nWaudby-Smith, Ian, David Arbour, Ritwik Sinha, Edward H Kennedy, and Aaditya Ramdas. 2024. “Time-Uniform Central Limit Theory and Asymptotic Confidence Sequences.” The Annals of Statistics 52 (6): 26132640."
+  },
+  {
+    "objectID": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#thank-you",
+    "href": "notes/4-3-sequential-testing/sequential_testing_155_april3.html#thank-you",
+    "title": "Sequential Testing for Experimental Design",
+    "section": "Thank You",
+    "text": "Thank You\n\nQuestions? Reach me at chasehmathis.github.io\n\n\nFurther Reading\n\n\n\nTopic\nReference\n\n\n\n\nGroup Sequential Designs\nJennison & Turnbull\n\n\nE-values & anytime-valid inference\nRamdas & Wang (2024)\n\n\nConfidence sequences\nWaudby-Smith et al. (2024)"
+  },
+  {
+    "objectID": "notes/sequential-testing-peng.html",
+    "href": "notes/sequential-testing-peng.html",
+    "title": "Sequential Testing: April 6, 2026",
+    "section": "",
+    "text": "What’s wrong with early stopping in hypothesis testing? R simulations show under-coverage. \\(\\tau\\) (confusing since \\(\\tau\\) is also ATE) is a stopping time.\n\\(X_\\tau\\) is random because \\(X_n\\) is random and \\(\\tau\\) is random. The core issue:\n\\[P\\!\\left(X_\\tau &gt; z_{1-\\alpha/2}\\right) \\neq P\\!\\left(X_n \\geq z_{1-\\alpha/2}\\right)\\]\n\n\n\nPower calculations \\(\\Rightarrow\\) fix sample size beforehand\nJust guess."
+  },
+  {
+    "objectID": "notes/sequential-testing-peng.html#the-problem-with-peeking",
+    "href": "notes/sequential-testing-peng.html#the-problem-with-peeking",
+    "title": "Sequential Testing: April 6, 2026",
+    "section": "",
+    "text": "What’s wrong with early stopping in hypothesis testing? R simulations show under-coverage. \\(\\tau\\) (confusing since \\(\\tau\\) is also ATE) is a stopping time.\n\\(X_\\tau\\) is random because \\(X_n\\) is random and \\(\\tau\\) is random. The core issue:\n\\[P\\!\\left(X_\\tau &gt; z_{1-\\alpha/2}\\right) \\neq P\\!\\left(X_n \\geq z_{1-\\alpha/2}\\right)\\]\n\n\n\nPower calculations \\(\\Rightarrow\\) fix sample size beforehand\nJust guess."
+  },
+  {
+    "objectID": "notes/sequential-testing-peng.html#simulation-repeated-z-tests-under-h_0",
+    "href": "notes/sequential-testing-peng.html#simulation-repeated-z-tests-under-h_0",
+    "title": "Sequential Testing: April 6, 2026",
+    "section": "Simulation: Repeated \\(z\\)-Tests Under \\(H_0\\)",
+    "text": "Simulation: Repeated \\(z\\)-Tests Under \\(H_0\\)\nSetup. Under \\(H_0\\), draw \\(X_i \\overset{\\text{iid}}{\\sim} N(0,1)\\) and compute a running \\(z\\)-test after each new observation. Stop and reject as soon as \\(|Z_t| &gt; z_{0.975} = 1.96\\). Even though \\(H_0\\) is true, this “peek-and-stop” strategy rejects far more than 5% of the time.\n\nset.seed(42)\n\nn_sim  &lt;- 10000\nn_max  &lt;- 200\nalpha  &lt;- 0.05\nz_crit &lt;- qnorm(1 - alpha / 2)\n\n# Peek after every observation; stop if |Z_t| &gt; 1.96\npeek_and_stop &lt;- function(n_max, z_crit) {\n  x &lt;- rnorm(n_max)\n  for (t in 2:n_max) {\n    z_t &lt;- mean(x[1:t]) * sqrt(t)\n    if (abs(z_t) &gt; z_crit) return(TRUE)\n  }\n  return(FALSE)\n}\n\n# Correct fixed-n test\nfixed_n_test &lt;- function(n_max, z_crit) {\n  x &lt;- rnorm(n_max)\n  abs(mean(x) * sqrt(n_max)) &gt; z_crit\n}\n\nreject_peek  &lt;- mean(replicate(n_sim, peek_and_stop(n_max, z_crit)))\nreject_fixed &lt;- mean(replicate(n_sim, fixed_n_test(n_max, z_crit)))\n\ncat(sprintf(\"Nominal alpha          : %.3f\\n\", alpha))\n\nNominal alpha          : 0.050\n\ncat(sprintf(\"Fixed-n rejection rate : %.3f\\n\", reject_fixed))\n\nFixed-n rejection rate : 0.048\n\ncat(sprintf(\"Peek-and-stop rate     : %.3f\\n\", reject_peek))\n\nPeek-and-stop rate     : 0.410\n\nround_reject_peek &lt;- round(reject_peek * 100)\n\nThe peek-and-stop strategy rejects \\(H_0\\) roughly 41% of the time despite \\(\\alpha = 0.05\\) — a large inflation of Type I error. This gets worse as n_max grows: given infinite peeks you will eventually reject with probability 1 under the null."
   }
 ]

@@ -1,0 +1,15 @@
+{
+  "hash": "653030e536f0c0edbcd435572c72953e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Sequential Testing: April 6, 2026\"\nformat:\n  html:\n    toc: true\n    code-fold: false\n    theme: cosmo\nexecute:\n  echo: true\n  warning: false\n  message: false\neditor: \n  markdown: \n    wrap: 72\nbibliography: references.bib\n---\n\n\n## The Problem with Peeking\n\nWhat's wrong with early stopping in hypothesis testing? R simulations show\nunder-coverage. $\\tau$ (confusing since $\\tau$ is also ATE) is a\nstopping time.\n\n$X_\\tau$ is random because $X_n$ is random **and** $\\tau$ is random. The\ncore issue:\n\n$$P\\!\\left(X_\\tau > z_{1-\\alpha/2}\\right) \\neq P\\!\\left(X_n \\geq z_{1-\\alpha/2}\\right)$$\n\n### What to do?\n\n1.  Power calculations $\\Rightarrow$ fix sample size beforehand\n2.  Just guess.\n\n------------------------------------------------------------------------\n\n## Simulation: Repeated $z$-Tests Under $H_0$\n\n**Setup.** Under $H_0$, draw $X_i \\overset{\\text{iid}}{\\sim} N(0,1)$ and\ncompute a running $z$-test after each new observation. Stop and reject\nas soon as $|Z_t| > z_{0.975} = 1.96$. Even though $H_0$ is true, this\n\"peek-and-stop\" strategy rejects far more than 5% of the time.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nset.seed(42)\n\nn_sim  <- 10000\nn_max  <- 200\nalpha  <- 0.05\nz_crit <- qnorm(1 - alpha / 2)\n\n# Peek after every observation; stop if |Z_t| > 1.96\npeek_and_stop <- function(n_max, z_crit) {\n  x <- rnorm(n_max)\n  for (t in 2:n_max) {\n    z_t <- mean(x[1:t]) * sqrt(t)\n    if (abs(z_t) > z_crit) return(TRUE)\n  }\n  return(FALSE)\n}\n\n# Correct fixed-n test\nfixed_n_test <- function(n_max, z_crit) {\n  x <- rnorm(n_max)\n  abs(mean(x) * sqrt(n_max)) > z_crit\n}\n\nreject_peek  <- mean(replicate(n_sim, peek_and_stop(n_max, z_crit)))\nreject_fixed <- mean(replicate(n_sim, fixed_n_test(n_max, z_crit)))\n\ncat(sprintf(\"Nominal alpha          : %.3f\\n\", alpha))\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\nNominal alpha          : 0.050\n```\n\n\n:::\n\n```{.r .cell-code}\ncat(sprintf(\"Fixed-n rejection rate : %.3f\\n\", reject_fixed))\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\nFixed-n rejection rate : 0.048\n```\n\n\n:::\n\n```{.r .cell-code}\ncat(sprintf(\"Peek-and-stop rate     : %.3f\\n\", reject_peek))\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\nPeek-and-stop rate     : 0.410\n```\n\n\n:::\n\n```{.r .cell-code}\nround_reject_peek <- round(reject_peek * 100)\n```\n:::\n\n\nThe peek-and-stop strategy rejects $H_0$ roughly 41%\nof the time despite $\\alpha = 0.05$ — a large inflation of Type I error.\nThis gets *worse* as `n_max` grows: given infinite peeks you will\neventually reject with probability 1 under the null.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
