@@ -6,6 +6,8 @@ A collection of topics in Statistics I'm thinking about.
 
 ### Spring 2026
 
+[Defense Forecasting and LIL - April 11](notes/forecasting-lil.html)
+
 [Being Honest: Distribution Uniform Hypothesis Tests - April 10](notes/honest-tests.html)
 
 [Laws of Iterated Logarithms - Updated March 30](notes/Loglog.html)
