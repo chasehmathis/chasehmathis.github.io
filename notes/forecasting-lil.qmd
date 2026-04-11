@@ -1,0 +1,91 @@
+---
+title: "How Hard is Defensive Forecasting (Beating LIL rates)"
+format:
+  html:
+    toc: true
+    code-fold: false
+    theme: cosmo
+execute:
+  echo: true
+  warning: false
+  message: false
+editor: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+---
+
+I've begun to think about defensive forecasting and I want to write down
+an interesting thing that characterizes the difficulty of the problem.
+
+The example we work through is bit prediction. There is a two player
+game between Alice and Bob. Alice will predict if Bob will show a $1$ or
+a $0$. Then after seeing Alice's prediction, Bob will show a $1$ or $0$.
+We can write this as for $t = 1, 2, \dots T$, Alice plays $p_t$ and Bob
+shows $y_t$.
+
+The objective is to show that we can have an algorithm for Alice so that
+$$
+\left | \frac{1}{T}\sum_{t = 1}^{T}(p_t - y_t)\right | = o(1).
+$$
+
+We can criticize this objective. For instance, why not put the absolute
+values inside the sum? But for now, we are going to roll with it.
+
+The insight is that if we show
+
+$$
+\left(\sum_{t=1}^{T}(p_t - y_t)\right)^2 \leq \sum_{t=1}^{T}(p_t - y_t)^2,
+$$then by boundedness of $p_t - y_t$ our work here is done. This was the
+intro for one of my classes this week with Prof. Ben Recht[^1]. As a
+statistician, the equation looks like an application of Jensen's
+inequality where $\left(\mathbb{E}X\right)^2 \leq\ \mathbb{E}X^2$. I
+said this in class, without thinking much. The statement is not true. We
+are looking at sums not averages. And if the statement were true,
+
+[^1]: <https://people.eecs.berkeley.edu/~brecht/cs294_s26/>
+
+there would be nothing to analyze. The proof would be dumb.
+
+However, it led me to think about this a bit more assuming stochastic
+$y_t$. Assume instead that $y_t$ is not adversarially generated but
+instead stochastically generated. That is $y_t \sim \text{Bern}(\mu)$.
+Moreover, assume we randomly predict by flipping a coin. So
+$p_t \sim \text{Bern}(0.5)$. Thus we can call
+$X_t = p_t - y_t \in \{-1,0,1\}$ with probabilities we can compute,
+though it doesn't matter. The variable is bounded and thus has finite
+variance.
+
+We do some algebra starting with what we want to show. $$
+\begin{align}
+\left(\sum_{t=1}^{T}x_t\right)^2 &\leq \sum_{t=1}^{T}x_t^2 & \text{to show}\\
+\frac{1}{T}\left(\sum_{t=1}^{T}x_t\right)^2 &\leq \frac{1}{T}\sum_{t=1}^{T}x_t^2\\
+\frac{1}{T}\left(\sum_{t=1}^{T}x_t\right)^2 &\leq \sigma^2 & \text{Law of Large Numbers}.
+\end{align}
+$$
+
+We begin with what we want to show, then divide both sides by $T$. Then
+we can invoke some sort of law of large numbers to say that we need the
+LHS to never grow above the data's variance. That is what we want to
+show. One way to do this is to make the LHS go to zero for
+$\sigma^2 > 0$.
+
+Now, we shift gears and analyze the behavior of the LHS. We can invoke
+the Law of Iterated Logarithm. This says that for
+$S_t = \sum_{i = 1}^{t} x_i$ the partial sums, the maximum is on the
+order of $\sqrt{t \log \log t}$. We do some computations
+
+$$
+\begin{align*}
+\sup_{t} S_t &\asymp \sqrt{t \log \log t}\\
+(\sup_{t}S_t)^2 & \asymp t \log \log t\\
+\frac{1}{T} (\sup_{t}S_t)^2 &  \asymp \frac{t \log \log t}{T}\\
+&\lesssim \frac{T \log \log T}{T}\\
+&\lesssim \log \log T.
+\end{align*}
+$$So doing the most naive thing possible says that our LHS will grow to
+infinity at a rate of $\log \log T$. It is not obvious from this
+analysis, but based strictly on vibes it shouldn't be surprising that we
+can make the LHS go to zero as $\log \log T$ grows incredibly slow. All
+we should do is put in $\log \log t$ more effort than than flipping a
+coin.
