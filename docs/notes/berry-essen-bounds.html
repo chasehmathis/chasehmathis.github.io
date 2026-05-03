@@ -2,13 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-05-03">
 
 <title>Non-uniform Berry Essen Bounds – Chase Mathis</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -20,7 +24,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -33,19 +56,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="../images/CM.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e08d34f8c8b101884af4e77da93e104c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2a21f49821a31ebe829042210767385c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e89678c33dd9aa5b0e538dd37d8ff061.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-2a21f49821a31ebe829042210767385c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -276,8 +298,6 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Chase Mathis</span>
     </a>
@@ -334,6 +354,14 @@ window.Quarto = {
    
   <ul>
   <li><a href="#delta-isnt-zero" id="toc-delta-isnt-zero" class="nav-link active" data-scroll-target="#delta-isnt-zero"><span class="math inline">\(\Delta\)</span> isn’t Zero</a></li>
+  <li><a href="#berry-essen-bounds" id="toc-berry-essen-bounds" class="nav-link" data-scroll-target="#berry-essen-bounds">Berry-Essen Bounds</a>
+  <ul class="collapse">
+  <li><a href="#recall-the-clt" id="toc-recall-the-clt" class="nav-link" data-scroll-target="#recall-the-clt">Recall the CLT</a></li>
+  <li><a href="#approximation-error" id="toc-approximation-error" class="nav-link" data-scroll-target="#approximation-error">Approximation Error</a></li>
+  <li><a href="#berry-essen-bound" id="toc-berry-essen-bound" class="nav-link" data-scroll-target="#berry-essen-bound">Berry-Essen Bound</a></li>
+  </ul></li>
+  <li><a href="#uniformity-is-overkill" id="toc-uniformity-is-overkill" class="nav-link" data-scroll-target="#uniformity-is-overkill">Uniformity is Overkill</a></li>
+  <li><a href="#the-constant-c" id="toc-the-constant-c" class="nav-link" data-scroll-target="#the-constant-c">The Constant C’</a></li>
   </ul>
 </nav>
     </div>
@@ -354,7 +382,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">May 3, 2026</p>
     </div>
   </div>
   
@@ -366,22 +394,98 @@ window.Quarto = {
 </header>
 
 
-<p>Twice in the last week, I’ve had computer scientists laugh about the insanity of asymptotics in Statistics<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The insanity comes from the assumption that is never true: <span class="math inline">\(n = \infty\)</span>. As someone working on asymptotic approximations in Statistics, I feel the need to defend its usefulness by showing what people have done in the past, but also think through ways to improve upon the justification for using normal models.</p>
+<p>Twice in the last week, I’ve had computer scientists laugh about the insanity of asymptotics in Statistics<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The insanity comes from the assumption that is never true: <span class="math inline">\(n = \infty\)</span>. As someone working on asymptotic approximations in Statistics, I feel the need to defend its usefulness by showing how people have justified it in the past, but also think through ways to improve upon the justification for using normal models.</p>
 <section id="delta-isnt-zero" class="level2">
 <h2 class="anchored" data-anchor-id="delta-isnt-zero"><span class="math inline">\(\Delta\)</span> isn’t Zero</h2>
-<p>While it appears computer scientists don’t like when <span class="math inline">\(n = \infty\)</span>, they seem to be ok letting <span class="math inline">\(\Delta = 0\)</span> when analyzing a complex non-linear system. If you have some complex function <span class="math inline">\(f(x)\)</span>, let’s just analyze the second order expansion. PID controllers are second order controllers and are by far the most popular type of controller.</p>
-<p>It is interesting that scientists are more ok allowing <span class="math inline">\(\Delta = 0\)</span> instead of letting <span class="math inline">\(n = \infty\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. My gut is happier with the former situation. The funny thing is they are the same. Assuming <span class="math inline">\(\Delta = 0\)</span> is the same as assuming <span class="math inline">\(n = \infty\)</span>. The proof I learned of the CLT<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is the Lindeberg swapping trick. You take two derivatives (hence the need for two finite moments) and write all higher order terms as <span class="math inline">\(o(1)\)</span>.</p>
+<p>In Statistics, we often assume <span class="math inline">\(n = \infty\)</span> and this makes people feel uncomfortable. Outside of statistics, engineers linearize systems assuming that <span class="math inline">\(\Delta = 0\)</span> in the Taylor expansion. If you have some complex function <span class="math inline">\(f(x)\)</span>, let’s just analyze the second order expansion. PID controllers, for instance, are second order controllers and are incredibly popular.</p>
+<p>The assumptions are essentially the same. Assuming <span class="math inline">\(\Delta = 0\)</span> is the same as assuming <span class="math inline">\(n = \infty\)</span>. The proof I learned of the CLT <span class="citation" data-cites="tao2015clt">(<a href="#ref-tao2015clt" role="doc-biblioref">Tao 2015</a>)</span> is the Lindeberg swapping trick. You take two derivatives (hence the need for two finite moments) and write all higher order terms as <span class="math inline">\(o(1)\)</span>. In some regard the Gaussian is the first order random variable approximation.</p>
+<p>There is interesting psychology happening that brings about complete terror when you assume <span class="math inline">\(n = \infty\)</span> but does not bring it out when assuming <span class="math inline">\(\Delta = 0\)</span>. I suspect humans often see numbers near <span class="math inline">\(0\)</span> in daily life, but will never see a number near infinity. Moreover, we can imagine an infinitely small amount of time, but can never imagine an infinitely large amount of time.</p>
+</section>
+<section id="berry-essen-bounds" class="level2">
+<h2 class="anchored" data-anchor-id="berry-essen-bounds">Berry-Essen Bounds</h2>
+<p>If <span class="math inline">\(n \neq \infty\)</span> then how can we ever use a normal approximation? In other words, what is the approximation error? The answer to this question is the very classical result in probability called the Berry-Essen bound.</p>
+<section id="recall-the-clt" class="level3">
+<h3 class="anchored" data-anchor-id="recall-the-clt">Recall the CLT</h3>
+<p>Recall the statement of the CLT: Let <span class="math inline">\(X_1, \dots \sim \mathsf P\)</span> be i.i.d with variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span> and zero mean. Define <span class="math inline">\(S_n = \sum_{i=1}^{n} \frac{X_i}{\sigma}\)</span> to be the normalized partial sum. Then <span class="math display">\[
+\lim_{n \to \infty} \mathsf P \left |\left (\frac{S_n}{\sqrt n} \leq z_{\alpha}\right) - \alpha \right| = 0,
+\]</span> where <span class="math inline">\(z_\alpha\)</span> is the <span class="math inline">\(\alpha\)</span> quantile of a standard normal. That is <span class="math inline">\(\mathsf P(Z &lt; z_\alpha) = \alpha\)</span> where <span class="math inline">\(Z \sim \mathcal N(0,1)\)</span>. The theorem says if you look at large enough <span class="math inline">\(n\)</span> your scaled partial sums are essentially Gaussian.</p>
+</section>
+<section id="approximation-error" class="level3">
+<h3 class="anchored" data-anchor-id="approximation-error">Approximation Error</h3>
+<p>The obvious question is what is “large enough”. In my first STAT class at Duke, I had a z-score table and a t-table. I was told that if <span class="math inline">\(n &gt; 30\)</span> then we can use a z-test. In practice, if you’re doing a basic statistical analysis assuming the data is Gaussian is fine.</p>
+<p>To motivate the approximation error, assume you <span class="math inline">\(20\)</span> Bernoulli datapoints: <span class="math inline">\(X_1, \dots, X_{20}\)</span>. You want to perform a hypothesis test asking if <span class="math inline">\(p = 0.5\)</span> or if <span class="math inline">\(p &gt; 0.5\)</span>. You have not learned about Neyman-Pearson and the likelihood ratio test, so you instead compute a p-value using the Gaussian approximation. That is you write <span class="math display">\[
+T_{20} = \frac{\sum_{i=1}^{20} (X_i - 0.5)}{\sqrt{20 \times 0.25}} \overset{H_0}{\approx } \mathcal N(0, 1).
+\]</span> You observe <span class="math inline">\(15\)</span> ones and <span class="math inline">\(5\)</span> zeroes, so you can calculate <span class="math inline">\(T_{20}\)</span> to be</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0 1 1 1 1 1 1 0 1 1 1 1 0 1 1 1 0 1 0 1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "T_20: 2.2361"</code></pre>
+</div>
+</div>
+<p>and you can find the p-value by looking at the tail of the normal distribution:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "p-val: 0.013"</code></pre>
+</div>
+</div>
+<p>Great! The p-value less than 0.05 so we can reject!<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> However, we remember that this is an approximate p-value that becomes exact when <span class="math inline">\(n = \infty\)</span>. But <span class="math inline">\(n = 20\)</span>, which I would claim is <em>much</em> smaller than <span class="math inline">\(\infty\)</span>. Should we be worried? What is the approximation error?</p>
+</section>
+<section id="berry-essen-bound" class="level3">
+<h3 class="anchored" data-anchor-id="berry-essen-bound">Berry-Essen Bound</h3>
+<p>What we are asking is how close is <span class="math inline">\(T_{20}\)</span> to a standard normal random variable. The Berry-Esseen bound <span class="citation" data-cites="berry1941 esseen1942">(<a href="#ref-berry1941" role="doc-biblioref">Berry 1941</a>; <a href="#ref-esseen1942" role="doc-biblioref">Esseen 1942</a>)</span> gives us an answer. It states that if you assume a finite third moment <span class="math inline">\(\mathbb{E}(|X_1 - \mathbb E(X_1)|^3) = \rho &lt; \infty\)</span>, then you can get a uniform error band. <span class="math display">\[
+\sup_{x \in \mathbb R}\left | \mathsf P\left(\frac{S_n}{\sqrt n} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C \rho}{\sigma^3\sqrt{n}}
+\]</span>, where <span class="math inline">\(C\)</span> is some universal constant around <span class="math inline">\(0.5\)</span>. Basically, the theorem says that if you take the scaled partial sums <span class="math inline">\(\frac{S_n}{\sqrt n}\)</span> then you expect them to be Gaussian if <span class="math inline">\(n\)</span> is large. How Gaussian? The distance from a true Gaussian <span class="math inline">\(Z\)</span> decreases at a <span class="math inline">\(\frac{1}{\sqrt n}\)</span> rate and depends on the variance and third moment.</p>
+<p><strong>Return to the Binomial Example</strong></p>
+<p>We found that the p-value is <span class="math inline">\(0.013\)</span> and define <span class="math inline">\(z^\star\)</span> to be the normal quantile at this p-value. We want to know how big the following quantity is:</p>
+<p><span class="math display">\[
+\left | \mathsf P\left (\frac{S_n}{\sqrt n} &gt; z^\star \right) - \mathsf P\left (Z &gt; z^\star \right) \right |.
+\]</span></p>
+<p>We’re reporting the number on the right side of the absolute value but what we really care about is the number on the left side of the absolute value. Recall the statement of the Berry-Essen bound. It says for any quantile value <span class="math inline">\(x \in \mathbb R\)</span> the distance from the true probability and the approximate one is upper bounded at a <span class="math inline">\(1/\sqrt{n}\)</span> rate.</p>
+<p>The statement is true for any <span class="math inline">\(x \in \mathbb R\)</span>, so it ought to be true for <span class="math inline">\(z^\star\)</span> since <span class="math inline">\(z^\star\)</span> is in <span class="math inline">\(\mathbb R\)</span>. You can calculate that <span class="math inline">\(\rho/\sigma^3\)</span> is 1 since this ratio captures the asymmetry of random variables. Taking <span class="math inline">\(C \approx 0.47\)</span> gives the maximum error is 0.105.</p>
+<p>Therefore <span class="math display">\[
+\left | \mathsf P\left (\frac{S_n}{\sqrt n} &gt; z^\star \right) - \mathsf P\left (Z &gt; z^\star \right) \right | \leq 0.1.
+\]</span> and your p-value <span class="math inline">\(0.01\)</span> which was before less than 0.05 could now be at most <span class="math inline">\(0.11\)</span>, which is certainly greater than 0.05!</p>
+</section>
+</section>
+<section id="uniformity-is-overkill" class="level2">
+<h2 class="anchored" data-anchor-id="uniformity-is-overkill">Uniformity is Overkill</h2>
+<p>The usual Berry-Essen bound gives a uniform deviance from the true partial sums with a Gaussian random variable. We used the following logic: The Berry-Essen bound is true for any <span class="math inline">\(x \in \mathbb R\)</span> so it ought to be true for <span class="math inline">\(z^\star\)</span>. This jump loses a lot of information and hence the bound becomes quite a bit more loose.</p>
+<p>The intuition is that the tails of a distribution function are a lot less variable than the middle of a distribution function <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. I’ve wondered about this gap of the Berry-Esseen bound this year and finally took time to search the literature on what are called Non-Uniform Berry-Esseen Bounds <span class="citation" data-cites="nagaev1965">(<a href="#ref-nagaev1965" role="doc-biblioref">Nagaev 1965</a>)</span>. They are <em>strictly</em> stronger than the uniform counterparts because they imply the uniform counterparts.</p>
+<p>The non-uniform bound assumes the exact same set up but now we have <span class="math display">\[
+\left | \mathsf P\left(\frac{S_n}{\sqrt n} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C' \rho}{\sigma^3\sqrt{n}}\left(\frac{1}{1 + |x|^3}\right).
+\]</span> This formulation has a correction factor tied to the original rate. Notice that if <span class="math inline">\(x\)</span> is very extreme then the fraction is <span class="math inline">\(&lt; 1\)</span> and thus shrinks the distance. Moreover, this statement implies the uniform one since taking <span class="math inline">\(\sup x\)</span> on both sides reduces the correction factor to just one.</p>
+</section>
+<section id="the-constant-c" class="level2">
+<h2 class="anchored" data-anchor-id="the-constant-c">The Constant C’</h2>
+<p>The tight constant for the uniform bound is a bit less than <span class="math inline">\(0.5\)</span>. And for the non-uniform bound? <span class="math inline">\(30\)</span>!</p>
+<p>If we were to apply the non-uniform bound in our Bernoulli example, we get a distance of <span class="math inline">\(0.4\)</span> whereas the uniform bound gives us a max distance of <span class="math inline">\(0.1\)</span>. We’re in a worse situation using the non-uniform bound because of the constant. Intuitively we’re ok using CLT-based hypothesis testing because it is approximately correct. The uniform Berry-Essen is too conservative and the non-uniform version has too large of a constant that one would expect could be tightened but the tools aren’t there.</p>
+
 
 
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-berry1941" class="csl-entry" role="listitem">
+Berry, Andrew C. 1941. <span>“On the Accuracy of the Normal Approximation to the Sum of Independent Variates.”</span> <em>Transactions of the American Mathematical Society</em> 49 (1): 122–36. <a href="https://doi.org/10.2307/1990053">https://doi.org/10.2307/1990053</a>.
+</div>
+<div id="ref-esseen1942" class="csl-entry" role="listitem">
+Esseen, Carl-Gustaf. 1942. <span>“On the <span>Liapounoff</span> Limit of Error in the Theory of Probability.”</span> <em>Arkiv f<span>ö</span>r Matematik, Astronomi Och Fysik</em> 28 (9): 1–19.
+</div>
+<div id="ref-nagaev1965" class="csl-entry" role="listitem">
+Nagaev, S. V. 1965. <span>“Some Limit Theorems for Large Deviations.”</span> <em>Theory of Probability &amp; Its Applications</em> 10 (2): 214–35. <a href="https://doi.org/10.1137/1110027">https://doi.org/10.1137/1110027</a>.
+</div>
+<div id="ref-tao2015clt" class="csl-entry" role="listitem">
+Tao, Terence. 2015. <em>275<span>A</span>, <span>Notes</span> 4: <span>The</span> Central Limit Theorem</em>. <a href="https://terrytao.wordpress.com/2015/11/02/275a-notes-4-the-central-limit-theorem/" class="uri">Https://terrytao.wordpress.com/2015/11/02/275a-notes-4-the-central-limit-theorem/</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>I remark that computer scientists are apparently very against normal approximations and enjoy their finite sample correct concentration inequalities. This tracks with my <a href="Asymptotics.html">earlier post on asymptotics</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Perhaps it is because humans interact with <span class="math inline">\(0\)</span> but never with <span class="math inline">\(\infty\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>And I think a very nice one that gets at the intuition of what the CLT does.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Unfortunately I’ve asked friends outside of statistics what a p-value is and they’ve responded that it needs to be less than 0.05.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This is because quantiles are binomial random variables and more extreme <span class="math inline">\(p\)</span> has smaller variance.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
