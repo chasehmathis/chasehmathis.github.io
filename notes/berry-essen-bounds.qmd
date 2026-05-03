@@ -168,7 +168,7 @@ This formulation has a correction factor tied to the original rate. Notice that 
 
 ## The Constant C'
 The tight constant for the uniform bound is a bit less than $0.5$. And for the
-non-uniform bound? $30$! 
+non-uniform bound? $30$! See @pinelis2013, Section 3.1, for an entertaining historical account of this constant, which includes some algebraic mistakes along the way.
 
 If we were to apply the non-uniform bound in our Bernoulli example, we get 
 a distance of $0.4$ whereas the uniform bound gives us a max distance of $0.1$. We're in a worse situation using the non-uniform bound because of the constant.
