@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Sequential Testing for Undergrads: Experimental Design – Chase Mathis</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -59,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -88,15 +90,14 @@ div.csl-indent {
 <link href="../images/CM.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f9b7b599f582bf8014e69b8a04ae0f7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2a21f49821a31ebe829042210767385c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -126,7 +127,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -165,8 +166,6 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Chase Mathis</span>
     </a>
@@ -221,8 +220,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#the-problem-with-peeking" id="toc-the-problem-with-peeking" class="nav-link" data-scroll-target="#the-problem-with-peeking">The Problem with Peeking</a>
+  <li><a href="#the-problem-with-peeking" id="toc-the-problem-with-peeking" class="nav-link active" data-scroll-target="#the-problem-with-peeking">The Problem with Peeking</a>
   <ul class="collapse">
   <li><a href="#what-to-do" id="toc-what-to-do" class="nav-link" data-scroll-target="#what-to-do">What to do?</a></li>
   </ul></li>
@@ -263,19 +261,9 @@ window.Quarto = {
 </header>
 
 
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>Assume knowledge of:</p>
-<ol type="1">
-<li>Hypothesis testing, <span class="math inline">\(p\)</span>-values</li>
-<li>Causal inference (ATE)</li>
-<li>Likelihoods, LRTs</li>
-</ol>
-<hr>
-</section>
 <section id="the-problem-with-peeking" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem-with-peeking">The Problem with Peeking</h2>
-<p>What’s wrong with [insert bad stopping time]? R simulations show under-coverage. <span class="math inline">\(\tau\)</span> (confusing since <span class="math inline">\(\tau\)</span> is also ATE) is a stopping time.</p>
+<p>What’s wrong with early stopping in hypothesis testing? R simulations show under-coverage. <span class="math inline">\(\tau\)</span> (confusing since <span class="math inline">\(\tau\)</span> is also ATE) is a stopping time.</p>
 <p><span class="math inline">\(X_\tau\)</span> is random because <span class="math inline">\(X_n\)</span> is random <strong>and</strong> <span class="math inline">\(\tau\)</span> is random. The core issue:</p>
 <p><span class="math display">\[P\!\left(X_\tau &gt; z_{1-\alpha/2}\right) \neq P\!\left(X_n \geq z_{1-\alpha/2}\right)\]</span></p>
 <section id="what-to-do" class="level3">
@@ -579,7 +567,7 @@ window.Quarto = {
 <section id="miscellaneous" class="level2">
 <h2 class="anchored" data-anchor-id="miscellaneous">Miscellaneous</h2>
 <ul>
-<li><p>Group Sequential Designs are popular in FDA regulatory settings and in industry.</p>
+<li><p>Group Sequential Designs are recommended in FDA regulatory settings and in popular in industry.</p>
 <ul>
 <li><p>The package <code>gsDesign</code> is the go-to package for this method</p></li>
 <li><p>Forces the analyst to pick times where they may stop the experiment</p></li>
@@ -591,7 +579,7 @@ window.Quarto = {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-wald1945" class="csl-entry" role="listitem">
 Wald, A. 1945. <span>“Sequential Tests of Statistical Hypotheses.”</span> <em>The Annals of Mathematical Statistics</em> 16 (2): 117 186. <a href="https://doi.org/10.1214/aoms/1177731118">https://doi.org/10.1214/aoms/1177731118</a>.
 </div>

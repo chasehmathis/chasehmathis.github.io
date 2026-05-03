@@ -8,10 +8,11 @@ about:
 ---
 
 
-I am a first year Statistics PhD student at UC Berkeley. Previously, 
-I graduated from Duke University with a BS in Mathematics and Statistics (High Distinction). 
+I am a Statistics PhD student at UC Berkeley, $\mathbb{E}$xpected
+to graduate in 2030. Previously, 
+I graduated from Duke University with a BS in Mathematics and Statistics. 
 My current interests include: sequential testing,
-causal inference, and distribution free inference.
+defensive forecasting, and distribution free inference.
 
 *Contact: cmathis [at] berkeley [dot] edu*
 
