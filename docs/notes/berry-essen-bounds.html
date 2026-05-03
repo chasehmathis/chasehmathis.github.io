@@ -407,7 +407,7 @@ window.Quarto = {
 <section id="recall-the-clt" class="level3">
 <h3 class="anchored" data-anchor-id="recall-the-clt">Recall the CLT</h3>
 <p>Recall the statement of the CLT: Let <span class="math inline">\(X_1, \dots \sim \mathsf P\)</span> be i.i.d with variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span> and zero mean. Define <span class="math inline">\(S_n = \sum_{i=1}^{n} X_i\)</span> to be the partial sum. Then <span class="math display">\[
-\lim_{n \to \infty} \mathsf P \left |\left (\frac{S_n}{\sqrt {n \sigma} \leq z_{\alpha}\right) - \alpha \right| = 0,
+\lim_{n \to \infty} \left|\mathsf P\left(\frac{S_n}{\sigma\sqrt{n}} \leq z_{\alpha}\right) - \alpha \right| = 0,
 \]</span> where <span class="math inline">\(z_\alpha\)</span> is the <span class="math inline">\(\alpha\)</span> quantile of a standard normal. That is <span class="math inline">\(\mathsf P(Z &lt; z_\alpha) = \alpha\)</span> where <span class="math inline">\(Z \sim \mathcal N(0,1)\)</span>. The theorem says if you look at large enough <span class="math inline">\(n\)</span> your scaled partial sums are essentially Gaussian.</p>
 </section>
 <section id="approximation-error" class="level3">
@@ -418,7 +418,7 @@ T_{20} = \frac{\sum_{i=1}^{20} (X_i - 0.5)}{\sqrt{20 \times 0.25}} \overset{H_0}
 \]</span> You observe <span class="math inline">\(15\)</span> ones and <span class="math inline">\(5\)</span> zeroes, so you can calculate <span class="math inline">\(T_{20}\)</span> to be</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 1 0 1 1 1 1 1 1 0 1 1 1 0 1 1 1 0 0 1</code></pre>
+<pre><code> [1] 1 1 1 1 0 1 0 1 1 1 1 1 1 1 1 0 0 1 0 1</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "T_20: 2.2361"</code></pre>
@@ -435,17 +435,17 @@ T_{20} = \frac{\sum_{i=1}^{20} (X_i - 0.5)}{\sqrt{20 \times 0.25}} \overset{H_0}
 <section id="berry-essen-bound" class="level3">
 <h3 class="anchored" data-anchor-id="berry-essen-bound">Berry-Essen Bound</h3>
 <p>What we are asking is how close is <span class="math inline">\(T_{20}\)</span> to a standard normal random variable. The Berry-Esseen bound <span class="citation" data-cites="berry1941 esseen1942">(<a href="#ref-berry1941" role="doc-biblioref">Berry 1941</a>; <a href="#ref-esseen1942" role="doc-biblioref">Esseen 1942</a>)</span> gives us an answer. It states that if you assume a finite third moment <span class="math inline">\(\mathbb{E}(|X_1 - \mathbb E(X_1)|^3) = \rho &lt; \infty\)</span>, then you can get a uniform error band. <span class="math display">\[
-\sup_{x \in \mathbb R}\left | \mathsf P\left(\frac{S_n}{\sqrt {n \sigma}} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C \rho}{\sigma^3\sqrt{n}},
-\]</span> where <span class="math inline">\(C\)</span> is some universal constant around <span class="math inline">\(0.5\)</span>. Basically, the theorem says that if you take the scaled partial sums <span class="math inline">\(\frac{S_n}{\sqrt {n \sigma}\)</span> then you expect them to be Gaussian if <span class="math inline">\(n\)</span> is large. How Gaussian? The distance from a true Gaussian <span class="math inline">\(Z\)</span> decreases at a <span class="math inline">\(\frac{1}{\sqrt n}\)</span> rate and depends on the variance and third moment.</p>
+\sup_{x \in \mathbb R}\left | \mathsf P\left(\frac{S_n}{\sigma\sqrt{n}} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C \rho}{\sigma^3\sqrt{n}},
+\]</span> where <span class="math inline">\(C\)</span> is some universal constant around <span class="math inline">\(0.5\)</span>. Basically, the theorem says that if you take the scaled partial sums <span class="math inline">\(\frac{S_n}{\sigma\sqrt{n}}\)</span> then you expect them to be Gaussian if <span class="math inline">\(n\)</span> is large. How Gaussian? The distance from a true Gaussian <span class="math inline">\(Z\)</span> decreases at a <span class="math inline">\(\frac{1}{\sqrt n}\)</span> rate and depends on the variance and third moment.</p>
 <p><strong>Return to the Binomial Example</strong></p>
 <p>We found that the p-value is <span class="math inline">\(0.013\)</span> and define <span class="math inline">\(z^\star\)</span> to be the normal quantile at this p-value. We want to know how big the following quantity is:</p>
 <p><span class="math display">\[
-\left | \mathsf P\left (\frac{S_n}{\sqrt {n \sigma}} &gt; z^\star \right) - \mathsf P\left (Z &gt; z^\star \right) \right |.
+\left | \mathsf P\left (\frac{S_n}{\sigma\sqrt{n}} &gt; z^\star \right) - \mathsf P\left (Z &gt; z^\star \right) \right |.
 \]</span></p>
 <p>We’re reporting the number on the right side of the absolute value but what we really care about is the number on the left side of the absolute value. Recall the statement of the Berry-Essen bound. It says for any quantile value <span class="math inline">\(x \in \mathbb R\)</span> the distance from the true probability and the approximate one is upper bounded at a <span class="math inline">\(1/\sqrt{n}\)</span> rate.</p>
 <p>The statement is true for any <span class="math inline">\(x \in \mathbb R\)</span>, so it ought to be true for <span class="math inline">\(z^\star\)</span> since <span class="math inline">\(z^\star\)</span> is in <span class="math inline">\(\mathbb R\)</span>. You can calculate that <span class="math inline">\(\rho/\sigma^3\)</span> is 1 since this ratio captures the asymmetry of random variables. Taking <span class="math inline">\(C \approx 0.47\)</span> gives the maximum error is 0.105.</p>
 <p>Therefore <span class="math display">\[
-\left | \mathsf P\left (\frac{S_n}{\sqrt {n \sigma}} &gt; z^\star \right) - \mathsf P\left (Z &gt; z^\star \right) \right | \leq 0.1.
+\left | \mathsf P\left (\frac{S_n}{\sigma\sqrt{n}} &gt; z^\star \right) - \mathsf P\left (Z &gt; z^\star \right) \right | \leq 0.1.
 \]</span> and your p-value <span class="math inline">\(0.01\)</span> which was before less than 0.05 could now be at most <span class="math inline">\(0.11\)</span>, which is certainly greater than 0.05!</p>
 </section>
 </section>
@@ -454,7 +454,7 @@ T_{20} = \frac{\sum_{i=1}^{20} (X_i - 0.5)}{\sqrt{20 \times 0.25}} \overset{H_0}
 <p>The usual Berry-Essen bound gives a uniform deviance from the true partial sums with a Gaussian random variable. We used the following logic: The Berry-Essen bound is true for any <span class="math inline">\(x \in \mathbb R\)</span> so it ought to be true for <span class="math inline">\(z^\star\)</span>. This jump loses a lot of information and hence the bound becomes quite a bit more loose.</p>
 <p>The intuition is that the tails of a distribution function are a lot less variable than the middle of a distribution function <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. I’ve wondered about this gap of the Berry-Esseen bound this year and finally took time to search the literature on what are called Non-Uniform Berry-Esseen Bounds <span class="citation" data-cites="nagaev1965">(<a href="#ref-nagaev1965" role="doc-biblioref">Nagaev 1965</a>)</span>. They are <em>strictly</em> stronger than the uniform counterparts because they imply the uniform counterparts.</p>
 <p>The non-uniform bound assumes the exact same set up but now we have <span class="math display">\[
-\left | \mathsf P\left(\frac{S_n}{\sqrt {n \sigma}} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C' \rho}{\sigma^3\sqrt{n}}\left(\frac{1}{1 + |x|^3}\right).
+\left | \mathsf P\left(\frac{S_n}{\sigma\sqrt{n}} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C' \rho}{\sigma^3\sqrt{n}}\left(\frac{1}{1 + |x|^3}\right).
 \]</span> This formulation has a correction factor tied to the original rate. Notice that if <span class="math inline">\(x\)</span> is very extreme then the fraction is <span class="math inline">\(&lt; 1\)</span> and thus shrinks the distance. Moreover, this statement implies the uniform one since taking <span class="math inline">\(\sup x\)</span> on both sides reduces the correction factor to just one.</p>
 </section>
 <section id="the-constant-c" class="level2">
