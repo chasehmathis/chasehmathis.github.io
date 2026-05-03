@@ -418,7 +418,7 @@ T_{20} = \frac{\sum_{i=1}^{20} (X_i - 0.5)}{\sqrt{20 \times 0.25}} \overset{H_0}
 \]</span> You observe <span class="math inline">\(15\)</span> ones and <span class="math inline">\(5\)</span> zeroes, so you can calculate <span class="math inline">\(T_{20}\)</span> to be</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0 1 1 1 1 1 1 0 1 1 1 1 0 1 1 1 0 1 0 1</code></pre>
+<pre><code> [1] 1 1 1 1 1 1 0 1 0 0 1 1 1 1 1 1 1 0 1 0</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "T_20: 2.2361"</code></pre>
@@ -459,7 +459,7 @@ T_{20} = \frac{\sum_{i=1}^{20} (X_i - 0.5)}{\sqrt{20 \times 0.25}} \overset{H_0}
 </section>
 <section id="the-constant-c" class="level2">
 <h2 class="anchored" data-anchor-id="the-constant-c">The Constant C’</h2>
-<p>The tight constant for the uniform bound is a bit less than <span class="math inline">\(0.5\)</span>. And for the non-uniform bound? <span class="math inline">\(30\)</span>!</p>
+<p>The tight constant for the uniform bound is a bit less than <span class="math inline">\(0.5\)</span>. And for the non-uniform bound? <span class="math inline">\(30\)</span>! See <span class="citation" data-cites="pinelis2013">Pinelis (<a href="#ref-pinelis2013" role="doc-biblioref">2013</a>)</span>, Section 3.1, for an entertaining historical account of this constant, which includes some algebraic mistakes along the way.</p>
 <p>If we were to apply the non-uniform bound in our Bernoulli example, we get a distance of <span class="math inline">\(0.4\)</span> whereas the uniform bound gives us a max distance of <span class="math inline">\(0.1\)</span>. We’re in a worse situation using the non-uniform bound because of the constant. Intuitively we’re ok using CLT-based hypothesis testing because it is approximately correct. The uniform Berry-Essen is too conservative and the non-uniform version has too large of a constant that one would expect could be tightened but the tools aren’t there.</p>
 
 
@@ -476,6 +476,9 @@ Esseen, Carl-Gustaf. 1942. <span>“On the <span>Liapounoff</span> Limit of Erro
 </div>
 <div id="ref-nagaev1965" class="csl-entry" role="listitem">
 Nagaev, S. V. 1965. <span>“Some Limit Theorems for Large Deviations.”</span> <em>Theory of Probability &amp; Its Applications</em> 10 (2): 214–35. <a href="https://doi.org/10.1137/1110027">https://doi.org/10.1137/1110027</a>.
+</div>
+<div id="ref-pinelis2013" class="csl-entry" role="listitem">
+Pinelis, Iosif. 2013. <span>“On the Nonuniform <span>Berry–Esseen</span> Bound.”</span> <em>arXiv Preprint</em>, ahead of print. <a href="https://doi.org/10.48550/arXiv.1301.2828">https://doi.org/10.48550/arXiv.1301.2828</a>.
 </div>
 <div id="ref-tao2015clt" class="csl-entry" role="listitem">
 Tao, Terence. 2015. <em>275<span>A</span>, <span>Notes</span> 4: <span>The</span> Central Limit Theorem</em>. <a href="https://terrytao.wordpress.com/2015/11/02/275a-notes-4-the-central-limit-theorem/" class="uri">Https://terrytao.wordpress.com/2015/11/02/275a-notes-4-the-central-limit-theorem/</a>.
