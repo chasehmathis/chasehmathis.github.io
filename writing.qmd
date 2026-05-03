@@ -6,6 +6,8 @@ A collection of topics in Statistics I'm thinking about.
 
 ### Spring 2026
 
+[Non-uniform Berry-Esseen Bounds - May 3](notes/berry-essen-bounds.html)
+
 [Defense Forecasting and LIL - April 11](notes/forecasting-lil.html)
 
 [Being Honest: Distribution Uniform Hypothesis Tests - April 10](notes/honest-tests.html)
