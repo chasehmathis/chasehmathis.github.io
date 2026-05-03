@@ -60,9 +60,9 @@ Berry-Essen bound.
 
 Recall the statement of the CLT: Let $X_1, \dots \sim \mathsf P$ be
 i.i.d with variance $\sigma^2 < \infty$ and zero mean. Define
-$S_n = \sum_{i=1}^{n} \frac{X_i}{\sigma}$ to be the normalized partial
+$S_n = \sum_{i=1}^{n} X_i$ to be the partial
 sum. Then $$
-\lim_{n \to \infty} \mathsf P \left |\left (\frac{S_n}{\sqrt n} \leq z_{\alpha}\right) - \alpha \right| = 0,
+\lim_{n \to \infty} \mathsf P \left |\left (\frac{S_n}{\sqrt {n \sigma} \leq z_{\alpha}\right) - \alpha \right| = 0,
 $$ where $z_\alpha$ is the $\alpha$ quantile of a standard normal. That
 is $\mathsf P(Z < z_\alpha) = \alpha$ where $Z \sim \mathcal N(0,1)$.
 The theorem says if you look at large enough $n$ your scaled partial
@@ -72,8 +72,7 @@ sums are essentially Gaussian.
 
 The obvious question is what is "large enough". In my first STAT class
 at Duke, I had a z-score table and a t-table. I was told that if
-$n > 30$ then we can use a z-test. In practice, if you're doing a basic
-statistical analysis assuming the data is Gaussian is fine.
+$n > 30$ then we can use a z-test. 
 
 To motivate the approximation error, assume you $20$ Bernoulli
 datapoints: $X_1, \dots, X_{20}$. You want to perform a hypothesis test
@@ -113,10 +112,10 @@ What we are asking is how close is $T_{20}$ to a standard normal random
 variable. The Berry-Esseen bound [@berry1941; @esseen1942] gives us an answer. It states that if
 you assume a finite third moment $\mathbb{E}(|X_1 - \mathbb E(X_1)|^3) = \rho < \infty$,
 then you can get a uniform error band. $$
-\sup_{x \in \mathbb R}\left | \mathsf P\left(\frac{S_n}{\sqrt n} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C \rho}{\sigma^3\sqrt{n}}
-$$, where $C$ is some universal constant around $0.5$. Basically, the
+\sup_{x \in \mathbb R}\left | \mathsf P\left(\frac{S_n}{\sqrt {n \sigma}} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C \rho}{\sigma^3\sqrt{n}},
+$$ where $C$ is some universal constant around $0.5$. Basically, the
 theorem says that if you take the scaled partial sums
-$\frac{S_n}{\sqrt n}$ then you expect them to be Gaussian if $n$ is
+$\frac{S_n}{\sqrt {n \sigma}$ then you expect them to be Gaussian if $n$ is
 large. How Gaussian? The distance from a true Gaussian $Z$ decreases at
 a $\frac{1}{\sqrt n}$ rate and depends on the variance and third moment.
 
@@ -127,7 +126,7 @@ normal quantile at this p-value. We want to know how big the following
 quantity is:
 
 $$
-\left | \mathsf P\left (\frac{S_n}{\sqrt n} > z^\star \right) - \mathsf P\left (Z > z^\star \right) \right |.
+\left | \mathsf P\left (\frac{S_n}{\sqrt {n \sigma}} > z^\star \right) - \mathsf P\left (Z > z^\star \right) \right |.
 $$
 
 We're reporting the number on the right side of the absolute value but
@@ -141,7 +140,7 @@ for $z^\star$ since $z^\star$ is in $\mathbb R$. You can calculate that $\rho/\s
 
 Therefore
 $$
-\left | \mathsf P\left (\frac{S_n}{\sqrt n} > z^\star \right) - \mathsf P\left (Z > z^\star \right) \right | \leq 0.1.
+\left | \mathsf P\left (\frac{S_n}{\sqrt {n \sigma}} > z^\star \right) - \mathsf P\left (Z > z^\star \right) \right | \leq 0.1.
 $$
 and your p-value $0.01$ which was before less than 0.05 could now be at most $0.11$,
 which is certainly greater than 0.05!
@@ -162,7 +161,7 @@ Non-Uniform Berry-Esseen Bounds [@nagaev1965]. They are *strictly* stronger than
 
 The non-uniform bound assumes the exact same set up but now we have
 $$
-\left | \mathsf P\left(\frac{S_n}{\sqrt n} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C' \rho}{\sigma^3\sqrt{n}}\left(\frac{1}{1 + |x|^3}\right).
+\left | \mathsf P\left(\frac{S_n}{\sqrt {n \sigma}} \leq x\right) - \mathsf P\left(Z \leq x\right) \right | \leq \frac{C' \rho}{\sigma^3\sqrt{n}}\left(\frac{1}{1 + |x|^3}\right).
 $$
 This formulation has a correction factor tied to the original rate. Notice that if $x$ is very extreme then the fraction is $< 1$ and thus shrinks the distance. Moreover, this statement implies the uniform one since taking $\sup x$ on both sides reduces the correction factor to just one.
 
