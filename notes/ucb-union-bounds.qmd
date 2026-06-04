@@ -1,0 +1,16 @@
+---
+title: "Union Bounding UCB Rates?"
+format:
+  html:
+    toc: true
+    code-fold: false
+    theme: cosmo
+execute:
+  echo: true
+  warning: false
+  message: false
+editor: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+---

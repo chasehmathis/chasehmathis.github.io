@@ -1,0 +1,14 @@
+---
+title: "The Statistics of Silicon Sampling"
+date: "`r Sys.Date()`"
+output: html_document
+bibliography: references.bib
+execute:
+  echo: false
+warning: false
+message: false
+error: false
+editor:
+  markdown:
+    wrap: 72
+---
