@@ -13,76 +13,107 @@ editor:
     wrap: 72
 ---
 
-This document is essentially me grappling with my future. My ego probably
-biases the analysis to overestimate my importance in the world, so that
-is something to note.
+This document is essentially me grappling with my future. My ego
+probably biases the analysis to overestimate my importance in the world,
+so that is something to note.
 
-Large Language Models and the surrounding scaffolding of AI agents have made
-remarkable steps in my first year as a graduate student. In hindsight I feel
-really lucky that I was able to go through undergraduate without an AI crutch.
-ChatGPT came out at the waning weeks of my Data Structures & Algorithms class.
-All subsequent classes got harder at the same pace the models got better, so by
-the time I took a Measure Theory course my senior year,
-I still expended a lot of mental energy.
+Large Language Models and the surrounding scaffolding of AI agents have
+made remarkable steps in my first year as a graduate student. In
+hindsight I feel really lucky that I was able to go through
+undergraduate without an AI crutch. ChatGPT came out at the final weeks
+of my Data Structures & Algorithms class. All subsequent classes got
+harder at the same pace the models got better, so by the time I took a
+Measure Theory course my senior year, I still expended a lot of mental
+energy.
 
-The ability changed this year. Any frontier model could solve 95\% of my 
-Theoretical Statistics problem sets. I assume an LLM could have received an 
-A on the Applied projects, too, but this is more subjective. The effect
-was tangible. I suspect our first year cohort spent much less time discussing problems together compared to previous cohorts[1]. Much to the joy of TA's, office hours
-were much less busy. 
+While my first year PhD classes increased in difficulty,
+the models advanced faster. Any frontier model could
+solve 95% of my Theoretical Statistics problem sets. I assume an AI
+could have received an A on the Applied projects, too, but this is more
+subjective. The effect was tangible. I suspect our first year cohort
+spent much less time discussing problems together compared to previous
+cohorts\[\^1\]. Much to the joy of TA's, office hours were less
+busy.
 
-So, frontier models can do the classwork of a Statistics PhD student. I expect that AI will be able to brute force solve many many more
-mathematics problems in the coming years. That is if you give it assumptions A and
-some goal B it can find a path from A to B. This will be even more
-true for disproving conjectures[2] since the AI model only needs to find one.
-Statistics is not mathematics, but for a second let's say they are the same, and
-the wave of agents facing mathematicians will equally impact statisticians.
+So, frontier models can do the classwork of a Statistics PhD student. I
+expect that AI will be able to prove many many more mathematics theorems
+in the coming years. That is if you give it assumptions A and some goal
+B it can find a path from A to B. This will be even more true for
+disproving existing conjectures\[\^2\] since the AI model need only find
+one example.
 
-Then at first glance I should expect to be obsolete. Autonomous AI agents costs a fraction
-amount of dollars that I do, is 100X smarter and quicker than me, and they never
-need to sleep. A [panel](https://simons.berkeley.edu/workshops/multi-program-ai-reunion-workshop/schedule#simons-tabs) I recently attended featured many senior researchers including
-Sebastien Bubeck at OpenAI. Broadly, there are two regimes. The first regime
-is the one we are currently in. Even if progress completely stops now,
-the world has been marked by AI and will never be the same[4]. The second regime
-is progress of the models continue and you reach a singularity.
+Statistics is not mathematics, but for a second let's say they are the
+same, and the wave of agents facing mathematicians will equally impact
+statisticians. Then, at first glance I should expect to be obsolete. AI
+agents costs a fraction amount of dollars that I do, are 100X smarter
+and quicker than me, and they never need to sleep. A
+[panel](https://simons.berkeley.edu/workshops/multi-program-ai-reunion-workshop/schedule#simons-tabs)
+I recently attended featured many senior researchers including the very
+optimistic (on AI) Sebastien Bubeck at OpenAI. Broadly, there are two
+regimes. The first regime is the one we are currently in. Even if
+progress completely stops now, the world has been marked by AI and will
+never be the same\[\^3\]. The second regime is progress of the models
+continue and you reach some singularity.
 
-In the second regime, we live in a world where a box gives mathematical facts.
-In this world, the panelists suggested we may be
-delegated to communicators of these facts. For instance,
-a priest does not write any source material in the Bible, 
-but meets with their community to lead discussions and teach it[3]. Elchanan Mossel made
-an excellent refutation, pointing to the effect of the internet on journalism. The
-investigative journalists at newspapers did not become communicators. They
-were replaced by Joe Rogan, repeating other people's stories.
+In the second regime, we live in a world where a box gives mathematical
+facts. In this world, some panelists suggested we may be delegated to
+communicators of these facts. For instance, a priest does not write any
+source material in the Bible, but meets with their community to lead
+discussions and teach it\[\^4\]. Elchanan Mossel made an excellent
+refutation, pointing to the effect of the internet on journalism. The
+investigative journalists at newspapers did not become communicators.
+They were replaced by Joe Rogan, repeating other people's stories.
 
-I disagree that mathematical research will no longer be a thing. This may be
-naive and it may be that statistics is different than mathematics. But
-reaching a singularity means that AI can take any input A and destination B and
-output some path that goes from $A \to B$. 
+But, statistics differs from mathematics. Thinking about what
+differences exist between the two departments and why mathematicians are
+visibly the most nervous-about-AI academic these days, I came to some
+conclusions about research and broader work.
 
-I think broadly when "Research" is done right, there is no B. There is no destination
-in mind. When I'm working on a really fun project,
-I leave my fictional "port" heading west. I may have some idea what I want to find,
-but I'm happy to find other things along the path. I'm happy to get to the end
-and be somewhere tropical when I expected it to be arctic[^5].
+AI will be able to take arbitrarily complex inputs A and goals B and
+find ways to get from A to B. But I think broadly when "Research" is
+done right, there is no B. *There is no destination in mind.* When I'm
+working on a really fun project, I leave my fictional "port" heading
+west. I may have some idea what I want to find, but I'm happy to find
+other things along the path. I'm happy to get to the end and be
+somewhere tropical when I expected it to be arctic.
 
-AI has already mastered writing. People are ambivalent or [prefer AI writing to human](https://www.nytimes.com/interactive/2026/03/09/business/ai-writing-quiz.html).
-So, why didn't I have AI write this[^5]? It's because I didn't know what I wanted
-to say. I had some idea of what this would look like, but I had
-to do the work to make sure myself. 
+If AI has mastered anything, it has mastered writing. People are
+ambivalent or [prefer AI writing to
+human](https://www.nytimes.com/interactive/2026/03/09/business/ai-writing-quiz.html).
+So, why didn't I let AI write this\[\^5\]? It's because I didn't know
+what I wanted to say. I had some idea of what this would look like, but
+I had to do the work to make sure myself. I return to this evidence of
+thought and continue to think. Asking AI to do this for me is equivalent
+to asking for thoughts I currently do not possess.
 
-During my PhD I will continue to leave my fictional "port" exploring
-what I think is interesting. I used to paddle the boat myself. AI first added
-a team of rowers and now they added a motor to this boat. Places that once seemed
-far away are no longer far away. So I can give up and let the AI captain this boat
-or I can have some say on where this boat goes and where it stops.
+- insert some break showing next part of this essay
 
-[^1] Something I hope to foster next year as a TA.
-[^2] Like we saw OpenAI do disproving the unit-distance conjecture.
-[^3] To be honest being a local priest of statistics sounds kind of fun.
-[^4] Even if progress was stopped at sonnet/GPT4 most tasks could get automated.
-[^5] Another interesting point Elchanan Mossel made was that the competition of Science
-has made progress lean to incremental changes instead of larger ones. Not only
-has AI improved on discovering small improvements, so too have humans retreated from
-being bold to make big ones.
-[^5] Maybe I did... 
+At a physical check last month, in I met with a PA who had her
+back turn to me while typing what I said onto a computer. People my age
+are afraid of AI taking their jobs. People in SF believe they should be
+because model abilities are advancing so quickly. But I sometimes hear:
+"My job is so stupid and monotonous that AI can totally do it". Doctors used to spend
+more time in the room with patients and more (all?) of the time looking at the patient Through technology, capitalism, and laziness/COVID [remote work], jobs have become more automatable faster than
+AI has progressed. We've turned into computers faster before Claude
+became a human[Sci-fi movies have always.
+
+While the institution of research changed slower than the private sector,
+it has certainly fallen victim to "bean-counting" and working
+to go from A to B. One dark truth is research institutions are cheap/free labor.
+
+There is no doubt that AI has progressed to super-human levels and it will
+continue to progress rapidly. But we must also consider how jobs and some research have become stupider—stupid enough to be automated. That trend
+may be inevitable for actual workers, but it is not for research.
+
+
+\[1\] Something I hope to foster next year as a TA as this trend has
+been documented in other
+[departments](https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html).
+\[2\] Like we saw OpenAI do disproving the unit-distance conjecture.
+\[3\] Even if progress was stopped at sonnet/GPT4 most tasks could get
+automated. \[4\] To be honest being a local priest of statistics sounds
+kind of fun. \[4\] Another interesting point Elchanan Mossel made was
+that the competition of Science has made progress lean to incremental
+changes instead of larger ones. Not only has AI improved on discovering
+small improvements, so too have humans retreated from being bold to make
+big ones. \[5\] Maybe I did...
