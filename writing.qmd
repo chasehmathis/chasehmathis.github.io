@@ -2,10 +2,15 @@
 title: "Writing"
 format: html
 ---
+## Chase's Journal
+
+[Announcing Chase's Journal - July 1](notes/my-journal.html)
+
+## Notes
+
 A collection of topics in Statistics I'm thinking about.
 
-## Summer 2026
-[Announcing Chase's Journal - July 1](notes/my-journal.html)
+### Summer 2026
 
 [Why am I Doing the PhD - June 30](notes/my-motivation.html)
 
