@@ -4,6 +4,9 @@ format: html
 ---
 A collection of topics in Statistics I'm thinking about.
 
+## Summer 2026
+[Why am I Doing the PhD - June 30](notes/my-motivation.html)
+
 ### Spring 2026
 
 [Non-uniform Berry-Esseen Bounds - May 3](notes/berry-essen-bounds.html)
