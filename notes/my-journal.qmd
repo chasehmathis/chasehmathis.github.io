@@ -1,0 +1,27 @@
+---
+title: "Announcing Chase's Journal"
+output: html_document
+bibliography: references.bib
+execute:
+  echo: false
+warning: false
+message: false
+error: false
+editor:
+  markdown:
+    wrap: 72
+---
+
+I have yet to publish an article in any journal, which suggested to me
+the idea: I should make my own journal! Thus we have Chase's Journal.
+Chase's Journal ([github
+repository](https://github.com/chasehmathis/chases-journal)) is
+completely AI generated. Every three days a fresh Opus 4.8 (and in the
+future Fable 5) writes an article from a list of topics I'm interested
+in. Every month a new AI agent selects (in their opinion) the best
+article. I will also select the best article.
+
+Since today is July 1st, the first issue of Chase's Journal is
+available. You can look at the "published" articles
+
+in addition to all the articles the agents wrote throughout the month.
