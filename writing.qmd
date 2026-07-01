@@ -5,6 +5,8 @@ format: html
 A collection of topics in Statistics I'm thinking about.
 
 ## Summer 2026
+[Announcing Chase's Journal - July 1](notes/my-journal.html)
+
 [Why am I Doing the PhD - June 30](notes/my-motivation.html)
 
 ### Spring 2026
