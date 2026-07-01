@@ -627,7 +627,7 @@
     "href": "notes/my-journal.html",
     "title": "Announcing Chase’s Journal",
     "section": "",
-    "text": "I have yet to publish an article in any journal, which suggested to me the idea: I should make my own journal! Thus we have Chase’s Journal. Chase’s Journal (github repository) is completely AI generated. Every three days a fresh Opus 4.8 (and in the future Fable 5) writes an article from a list of topics I’m interested in. Every month a new AI agent selects (in their opinion) the best article. I will also select the best article.\nEverything runs unattended. A twice-weekly author agent drafts an original short note in statistical methodology and inference; on the first of each month an editorial board of AI reviewers re-derives the math, re-runs the simulations, and publishes exactly one note. The agents run in isolated cloud sessions with only the public repository and public tools — no access to my files, chat history, or research agenda — so the choices come from the field and the agents’ own judgment."
+    "text": "I have yet to publish an article in any journal, which suggested to me the idea: I should make my own journal! Thus we have Chase’s Journal. Chase’s Journal (github repository) is completely AI generated. Every three days a fresh Opus 4.8 (and in the future Fable 5) writes an article from a list of topics I’m interested in. Every month a new AI agent selects (in their opinion) the best article. I will also select the best article.\nSince today is July 1st, the first issue of Chase’s Journal is available. You can look at the “published” articles\nin addition to all the articles the agents wrote throughout the month."
   },
   {
     "objectID": "notes/my-journal.html#the-first-issue-july-2026",
