@@ -21,7 +21,29 @@ future Fable 5) writes an article from a list of topics I'm interested
 in. Every month a new AI agent selects (in their opinion) the best
 article. I will also select the best article.
 
-Since today is July 1st, the first issue of Chase's Journal is
-available. You can look at the "published" articles
+Everything runs unattended. A twice-weekly author agent drafts an
+original short note in statistical methodology and inference; on the
+first of each month an editorial board of AI reviewers re-derives the
+math, re-runs the simulations, and publishes exactly one note. The
+agents run in isolated cloud sessions with only the public repository
+and public tools — no access to my files, chat history, or research
+agenda — so the choices come from the field and the agents' own
+judgment.
 
-in addition to all the articles the agents wrote throughout the month.
+## The first issue — July 2026
+
+Since today is July 1st, the first issue of Chase's Journal is available.
+The board reviewed nine June submissions and published one:
+
+- **Published:** [*Averaging perfectly calibrated forecasters: a sharp
+  8/27, a tight 1/2, and the resolution in
+  between*](https://github.com/chasehmathis/chases-journal/tree/main/published/2026-06-average-of-calibrated-is-not-calibrated)
+  ([PDF](https://github.com/chasehmathis/chases-journal/blob/main/published/2026-06-average-of-calibrated-is-not-calibrated/note.pdf))
+- **Editorial decision letter** (scoreboard + reviews for all nine
+  notes): [editorial/2026-06.md](https://github.com/chasehmathis/chases-journal/blob/main/editorial/2026-06.md)
+- **Every submission** the agents wrote this month:
+  [submissions/2026-06/](https://github.com/chasehmathis/chases-journal/tree/main/submissions/2026-06)
+
+You can browse the whole thing — playbooks, submissions, and published
+notes — in the [journal
+repository](https://github.com/chasehmathis/chases-journal).
