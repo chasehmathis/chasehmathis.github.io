@@ -4,12 +4,10 @@ project:
 
 website:
   favicon: images/CM.png
-  page-navigation: true
+  page-navigation: false
   title: "Chase Mathis"
   description: "Personal Website for Chase Mathis: Statistics and Computer Science Major at Duke University"
   site-url: "https://chasehmathis.github.io/"
-  
-  
   navbar:
     background: "#656565"
     foreground: "#F3F6F4"
@@ -42,7 +40,7 @@ format:
       light: cosmo
       dark: darkly
     css: style/styles.css
-    toc: true
+    toc: false
 execute:
   freeze: auto
 

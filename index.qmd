@@ -12,8 +12,6 @@ I am a Statistics PhD student at UC Berkeley, $\mathbb{E}$xpected
 to graduate in 2030. Previously, 
 I graduated from Duke University with a BS in Mathematics and Statistics. 
 My current interests include: sequential testing,
-defensive forecasting, and distribution free inference.
+probabilistic forecasting, and asymptotic statistics.
 
 *Contact: cmathis [at] berkeley [dot] edu*
-
-*Office : 357 Evans Hall, Berkeley CA, 94704*

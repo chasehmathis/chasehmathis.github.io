@@ -1,0 +1,17 @@
+---
+title: "Conjectures and Attribution"
+output: html_document
+bibliography: references.bib
+execute:
+  echo: false
+warning: false
+message: false
+error: false
+editor:
+  markdown:
+    wrap: 72
+---
+
+July 2026 was a bad time to be a conjecture! In my field of statistics, a conjecture related to the Bejamini-Hochberg procedure *add citation* was shown to be false and one on optimally merging e-values to p-values was proven. These results were proven with an unclear, but suspectedly high, amount of help from AI.
+
+It 

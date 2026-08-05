@@ -1,36 +1,32 @@
 ---
 title: "Research"
 ---
-If you want to talk about my research, book an appointment below.
-```{=html}
-<!-- Google Calendar Appointment Scheduling begin -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-<script>
-(function() {
-  var target = document.currentScript;
-  window.addEventListener('load', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/AcZssZ3yAfyuFj676chKZ5lSCigGKPrN8r3Ey3B96ok=?gv=true',
-      color: '#039BE5',
-      label: 'Book an appointment',
-      target,
-    });
-  });
-})();
-</script>
-<!-- end Google Calendar Appointment Scheduling -->
-```
+**Confidence Horizons** with Ian Waudby-Smith. [ArXiv](https://arxiv.org/abs/2608.03889)
 
 
-## Undergraduate
-My  [undergraduate honors thesis](honorsthesis.html) (Supported by [Deans' Summer Research Fellowship](https://undergraduateresearch.duke.edu/DSRF)) focused on
-controlling for noisy measurements in a Bayesian manner. My advisors were Prof. Alexander Volfovsky & Prof. Robin Evans, and my full committe included Prof. Peter Hoff & Prof. Surya Tokdar.
-
-## Software
+### Software
+[confidence horizons](https://github.com/chasehmathis/asymptotic-confidence-horizons)
 
 [ordinalconfounder](https://github.com/chasehmathis/ordinalconfounder)
 
 [survivl](https://github.com/rje42/survivl)
 
 [causl](https://github.com/rje42/causl)
+
+
+
+### Undergraduate Research
+
+My [undergraduate honors thesis](honorsthesis.html) (which was supported by a [Deans' Summer Research Fellowship](https://undergraduateresearch.duke.edu/DSRF)) focused on applying proximal causal infernece to ordinal confounders. My advisors were Prof. Alexander Volfovsky & Prof. Robin Evans, and my full committe included Prof. Peter Hoff & Prof. Surya Tokdar.
+
+**Exact Simulation of Longitudinal Data from Marginal Structural Models** with Xi Lin, Daniel de Vassimon Manela, Jens Magelund Tarp,
+and Robin J. Evans. [ArXiv](https://arxiv.org/abs/2502.07991)
+
+
+**"I Deleted It After the Overturn of Roe v. Wade": Understanding Women's Privacy Concerns Toward Period-Tracking Apps in the Post Roe v. Wade Era** with Jiaxun Cao, Hiba Laabadli, Rebecca D Stern, and Pardis Emami-Naeini. [CHI](https://dl.acm.org/doi/pdf/10.1145/3613904.3642042)
+
+
+
+I am always happy to discuss research I've worked on
+and am working on. My availability can be found with this [google calendar link](https://calendar.google.com/calendar/u/0/appointments/AcZssZ3yAfyuFj676chKZ5lSCigGKPrN8r3Ey3B96ok=?gv=true).
+
