@@ -6,5 +6,4 @@ format: html
 In what situation, where I'm interested in estimating the count of
 black marbles in an urn, would I take out a marble and then put
 it back in the urn? The convention that the default is sampling with replacement illustrates the tension
-between simple theory and practical use. And that even in mathematical fields,
-results are often driven by collective reasoning.
+between simple theory and practical use. 
