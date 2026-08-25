@@ -1,6 +1,9 @@
 ---
 title: "Research"
 ---
+
+**A note on demi-supermartingales for sampling without replacement**. [Link](PDF_Files/demi-wor.pdf)
+
 **Confidence Horizons** with Ian Waudby-Smith. [ArXiv](https://arxiv.org/abs/2608.03889)
 
 

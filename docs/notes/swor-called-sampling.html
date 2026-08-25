@@ -76,6 +76,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style/styles.css">
 </head>
@@ -323,6 +352,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>The idiom “Regression to the mean” is well-understood by the statistics spectator, but as you learn more about probability it makes less sense. Let <span class="math inline">\(X_1, \dots, X_n\)</span> be i.i.d. and I have a hypothesis that the mean <span class="math inline">\(\mu = \mu_0\)</span>. For concreteness, suppose I am grading a final exam and I assume the average is a <span class="math inline">\(70\%\)</span>.</p>
+<p>Under the “null” that <span class="math inline">\(\mu = \mu_0\)</span> I observe that <span class="math inline">\(X_1, \dots, X_t\)</span> are all less than <span class="math inline">\(\mu_0\)</span>. The adage “Regression to the mean” suggests that <span class="math inline">\(X_{t+1}\)</span> should be larger since the mean is above the realizations. That is if I graded the first <span class="math inline">\(t\)</span> students and they all performed poorly, then the next student should perform better than average.</p>
+<p>However, under the i.i.d sampling model, this is false. The students are independent and thus <span class="math display">\[
+\mathsf P(X_{t+1} \mid X_1, \dots, X_t &lt; \mu_0) = \mathsf P(X_{t+1}).
+\]</span> Independence breaks “Regression to the mean”. Under the model of sampling without replacement the model remains true.</p>
 <p>In what situation, where I’m interested in estimating the count of black marbles in an urn, would I take out a marble and then put it back in the urn? The convention that the default is sampling with replacement illustrates the tension between simple theory and practical use.</p>
 
 
