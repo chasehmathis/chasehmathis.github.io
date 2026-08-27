@@ -2,16 +2,12 @@
 title: "Research"
 ---
 
-**A note on demi-supermartingales for sampling without replacement**. [Link](PDF_Files/demi-wor.pdf)
+**A note on demi-supermartingales for sampling without replacement**. [[Link](PDF_Files/demi-wor.pdf)]
 
-**Confidence Horizons** with Ian Waudby-Smith. [ArXiv](https://arxiv.org/abs/2608.03889)
+**Confidence Horizons** with Ian Waudby-Smith. [[ArXiv](https://arxiv.org/abs/2608.03889)][[code](https://github.com/chasehmathis/asymptotic-confidence-horizons)].
 
 
 ### Software
-[confidence horizons](https://github.com/chasehmathis/asymptotic-confidence-horizons)
-
-[ordinalconfounder](https://github.com/chasehmathis/ordinalconfounder)
-
 [survivl](https://github.com/rje42/survivl)
 
 [causl](https://github.com/rje42/causl)
