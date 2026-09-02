@@ -3,12 +3,39 @@ title: "Writing"
 format: html
 ---
 
+[Moving to Substack](notes/moving-to-substack.html)
 
-## Notes
+```{=html}
+<style>
+.substack-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  background: #FF6719;
+  color: #fff !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.substack-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+}
+.substack-link svg { width: 1.05em; height: 1.05em; fill: currentColor; }
+</style>
+```
+
+<a class="substack-link" href="https://substack.com/@chasehmathis" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+Read on Substack
+</a>
+
+## Older notes
 
 A collection of topics in Statistics I'm thinking about.
-
-[Moving to Substack](notes/moving-to-substack.html)
 
 ### Summer 2026
 [Sampling Without Replacement Should Be Called Sampling - August 5](notes/swor-called-sampling.html)

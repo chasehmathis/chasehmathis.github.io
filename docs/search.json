@@ -144,7 +144,7 @@
     "href": "writing.html",
     "title": "Writing",
     "section": "",
-    "text": "A collection of topics in Statistics I’m thinking about.\nMoving to Substack\n\n\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\n\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\n\nGoodreads\nLetterboxd"
+    "text": "Moving to Substack\nRead on Substack"
   },
   {
     "objectID": "notes/Loglog.html",
@@ -640,8 +640,8 @@
     "objectID": "writing.html#notes",
     "href": "writing.html#notes",
     "title": "Writing",
-    "section": "",
-    "text": "A collection of topics in Statistics I’m thinking about.\nMoving to Substack\n\n\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\n\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\n\nGoodreads\nLetterboxd"
+    "section": "Notes",
+    "text": "Notes\nA collection of topics in Statistics I’m thinking about.\nMoving to Substack\n\nSummer 2026\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\nSpring 2026\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\nBook & Movie Reviews\nGoodreads\nLetterboxd"
   },
   {
     "objectID": "research.html#papers",
@@ -670,5 +670,12 @@
     "title": "Moving to Substack",
     "section": "",
     "text": "After hearing that VCs live on Substack and wanting to make a gazillion dollars, I have decided to move this set of notes to Substack. In all seriousness, I want to move to Substack because\na) I support the endeavor of Substack, their business model, and view it as a positive on human thinking and my own thinking;\nb) I enjoy the features on Substack, namely Pangram; and\nc) I will likely write less technical notes and instead longer essays, which is better suited on Substack."
+  },
+  {
+    "objectID": "writing.html#older-notes",
+    "href": "writing.html#older-notes",
+    "title": "Writing",
+    "section": "Older notes",
+    "text": "Older notes\nA collection of topics in Statistics I’m thinking about.\n\nSummer 2026\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\nSpring 2026\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\nBook & Movie Reviews\nGoodreads\nLetterboxd"
   }
 ]
