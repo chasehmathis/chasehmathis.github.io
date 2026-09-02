@@ -8,6 +8,8 @@ format: html
 
 A collection of topics in Statistics I'm thinking about.
 
+[Moving to Substack](notes/moving-to-substack.html)
+
 ### Summer 2026
 [Sampling Without Replacement Should Be Called Sampling - August 5](notes/swor-called-sampling.html)
 

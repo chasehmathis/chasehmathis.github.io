@@ -144,7 +144,7 @@
     "href": "writing.html",
     "title": "Writing",
     "section": "",
-    "text": "A collection of topics in Statistics I’m thinking about.\n\n\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\n\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\n\nGoodreads\nLetterboxd"
+    "text": "A collection of topics in Statistics I’m thinking about.\nMoving to Substack\n\n\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\n\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\n\nGoodreads\nLetterboxd"
   },
   {
     "objectID": "notes/Loglog.html",
@@ -641,7 +641,7 @@
     "href": "writing.html#notes",
     "title": "Writing",
     "section": "",
-    "text": "A collection of topics in Statistics I’m thinking about.\n\n\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\n\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\n\nGoodreads\nLetterboxd"
+    "text": "A collection of topics in Statistics I’m thinking about.\nMoving to Substack\n\n\nSampling Without Replacement Should Be Called Sampling - August 5\nWhy am I Doing the PhD - June 30\n\n\n\nNon-uniform Berry-Esseen Bounds - May 3\nDefense Forecasting and LIL - April 11\nBeing Honest: Distribution Uniform Hypothesis Tests - April 10\nLaws of Iterated Logarithms - Updated March 30\nTaking N(ormal) to infinity - January 25\n\n\n\nGoodreads\nLetterboxd"
   },
   {
     "objectID": "research.html#papers",
@@ -663,5 +663,12 @@
     "title": "Sampling Without Replacement Should Be Called Sampling",
     "section": "",
     "text": "The idiom “Regression to the mean” is well-understood by the statistics spectator, but as you learn more about probability it makes less sense. Let \\(X_1, \\dots, X_n\\) be i.i.d. and I have a hypothesis that the mean \\(\\mu = \\mu_0\\). For concreteness, suppose I am grading a final exam and I assume the average is a \\(70\\%\\).\nUnder the “null” that \\(\\mu = \\mu_0\\) I observe that \\(X_1, \\dots, X_t\\) are all less than \\(\\mu_0\\). The adage “Regression to the mean” suggests that \\(X_{t+1}\\) should be larger since the mean is above the realizations. That is if I graded the first \\(t\\) students and they all performed poorly, then the next student should perform better than average.\nHowever, under the i.i.d sampling model, this is false. The students are independent and thus \\[\n\\mathsf P(X_{t+1} \\mid X_1, \\dots, X_t &lt; \\mu_0) = \\mathsf P(X_{t+1}).\n\\] Independence breaks “Regression to the mean”. Under the model of sampling without replacement the model remains true.\nIn what situation, where I’m interested in estimating the count of black marbles in an urn, would I take out a marble and then put it back in the urn? The convention that the default is sampling with replacement illustrates the tension between simple theory and practical use."
+  },
+  {
+    "objectID": "notes/moving-to-substack.html",
+    "href": "notes/moving-to-substack.html",
+    "title": "Moving to Substack",
+    "section": "",
+    "text": "After hearing that VCs live on Substack and wanting to make a gazillion dollars, I have decided to move this set of notes to Substack. In all seriousness, I want to move to Substack because\na) I support the endeavor of Substack, their business model, and view it as a positive on human thinking and my own thinking;\nb) I enjoy the features on Substack, namely Pangram; and\nc) I will likely write less technical notes and instead longer essays, which is better suited on Substack."
   }
 ]
