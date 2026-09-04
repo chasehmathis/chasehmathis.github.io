@@ -6,9 +6,10 @@ editor:
     wrap: 72
 ---
 
-After hearing that VCs live on Substack and wanting to make a gazillion
-dollars, I have decided to move this set of notes to Substack. In all
-seriousness, I want to move to Substack because
+I just moved from Berkeley to SF and when I went to change my
+registration, I found out that posting to Substack was required for
+residency. Thus, I have decided to move this set of notes to Substack.
+In all seriousness, I want to move to Substack because
 
 a\) I support the endeavor of Substack, their business model, and view
 it as a positive on human thinking and my own thinking;

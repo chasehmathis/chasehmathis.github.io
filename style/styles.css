@@ -1,4 +1,11 @@
 /* css styles */
+
+.hint {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  cursor: help;
+}
+
 // Base document colors
 $body-bg: #181818;
 $body-color: white;

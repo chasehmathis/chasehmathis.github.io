@@ -11,7 +11,7 @@ about:
 I am a Statistics PhD student at UC Berkeley, $\mathbb{E}$xpected
 to graduate in 2030. Previously, 
 I graduated from Duke University with a BS in Mathematics and Statistics. 
-My current interests include: sequential testing,
+I am broadly interested in sequential inference,
 probabilistic forecasting, and asymptotic statistics.
 
 *Contact: cmathis [at] berkeley [dot] edu*

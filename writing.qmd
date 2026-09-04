@@ -3,7 +3,7 @@ title: "Writing"
 format: html
 ---
 
-[Moving to Substack](notes/moving-to-substack.html)
+[Moving to Substack - Sept 4 2026](notes/moving-to-substack.html)
 
 ```{=html}
 <style>
