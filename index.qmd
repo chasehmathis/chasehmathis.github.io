@@ -2,7 +2,7 @@
 title: "Chase Mathis"
 about:
   template: jolla
-  image: images/ChaseBerkeley.jpg
+  image: images/headshot.jpg
   image-shape: round
   image-width: 14em
 ---
