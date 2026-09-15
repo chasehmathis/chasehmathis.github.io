@@ -59,8 +59,3 @@ A collection of topics in Statistics I'm thinking about.
 [Goodreads](https://www.goodreads.com/user/show/123864011-chase-mathis)
 
 [Letterboxd](https://letterboxd.com/chasemathis/)
-
-
-## Chase's Journal
-
-[Announcing Chase's Journal - July 1](notes/my-journal.html)
