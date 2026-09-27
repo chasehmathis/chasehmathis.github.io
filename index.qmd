@@ -8,10 +8,10 @@ about:
 ---
 
 
-I am a Statistics PhD student at UC Berkeley, $\mathbb{E}$xpected
+I am (among other things) a Statistics PhD student at UC Berkeley, $\mathbb{E}$xpected
 to graduate in 2030. Previously, 
 I graduated from Duke University with a BS in Mathematics and Statistics. 
-I am broadly interested in sequential inference,
-probabilistic forecasting, and asymptotic statistics.
+Current research includes work on
+*probabilistic forecasting, sequential inference, and asymptotic statistics*.
 
-*Contact: cmathis [at] berkeley [dot] edu*
+*Contact: cmathis@berkeley.edu*
